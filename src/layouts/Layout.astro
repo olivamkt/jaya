@@ -1,0 +1,76 @@
+---
+interface Props {
+	title: string
+	description: string
+}
+
+const { title, description } = Astro.props
+import '@fontsource/geist-mono'
+import '@/styles/global.css'
+import { ClientRouter } from 'astro:transitions'
+import { SEO } from 'astro-seo'
+import { getLangFromUrl } from '@/i18n/utils'
+
+const lang = getLangFromUrl(Astro.url)
+---
+
+<!doctype html>
+<html lang={lang}>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<SEO
+			title={title}
+			titleTemplate="%s :: Coke Posada"
+			description={description}
+			canonical={Astro.url.toString()}
+			openGraph={{
+				basic: {
+					title: 'Astro Full Starter',
+					type: 'website',
+					image: 'https://astro-full-starter.pages.dev/og-image.jpg'
+				},
+				image: {
+					alt: 'Astro Full Starter by Coke Posada'
+				},
+				optional: {
+					description: description
+				}
+			}}
+			twitter={{
+				creator: '@cokeposada'
+			}}
+		/>
+		<link rel="alternate" href={`${Astro.site}en/`} hreflang="en" />
+		<link rel="alternate" href={`${Astro.site}es/`} hreflang="es" />
+		<link rel="sitemap" href="/sitemap-index.xml" />
+		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+		<ClientRouter />
+	</head>
+	<body>
+		<div class="nav-container">
+			<div class="background"></div>
+			<div class="container">
+				<div class="logo">jaya</div>
+				<nav>
+					<ul>
+						<li>
+							<a href="/">about</a>
+						</li>
+						<li>
+							<a href="/about">services</a>
+						</li>
+						<li>
+							<a href="/cases">cases</a>
+						</li>
+						<li>
+							<a href="/cases">contact</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+
+		<slot />
+	</body>
+</html>
