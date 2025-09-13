@@ -9,8 +9,9 @@ export const ui = {
 	en: {
 		'change-language': 'Change language',
 		home: {
-			title: 'Astro Full Starter',
-			description: 'Boilerplate to start building your website ASAP',
+			title: 'Reliable software squad',
+			description:
+				'Jaya is a fully remote software consulting company, founded in 2012 and partnering with U.S. companies since 2016. We specialize in strategic staff augmentation and long-term, high-impact projects, combining technical and cultural fit through a deep recruitment process. Behind every delivery, we mentor our teams, nurture strong culture, and develop people who are inspired to build software that truly matters.',
 			content: {
 				'1': {
 					title: 'Multilanguage support',

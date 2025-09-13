@@ -1,7 +1,10 @@
 @import 'tailwindcss';
+@plugin "daisyui";
 
 @theme {
 	--font-heading: 'Geist Sans', 'sans-serif';
+	--color-body: #f7f5f2;
+	--color-green: #00616c;
 }
 
 @font-face {
@@ -24,11 +27,14 @@
 	html {
 		font-family: 'Geist Mono', monospace;
 		@apply scroll-smooth uppercase;
+		height: 100%;
 	}
 
 	body {
+		@apply bg-body;
 		@apply text-sm antialiased;
-		background-color: #f7f5f2;
+		height: 100%;
+		font-family: 'Open Sauce One', sans-serif;
 		padding-top: 250px;
 	}
 
@@ -37,34 +43,45 @@
 	}
 
 	.nav-container {
-		@apply fixed top-0 left-0 flex w-full justify-center;
-		height: 150px;
+		display: flex;
+		height: 110px;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
 
 		.background {
-			@apply absolute top-0 left-0 h-full w-full;
+			@apply w-full lg:w-[95%];
+			@apply rounded-none lg:rounded-br-[100px];
 			background-color: #fff;
-			border-bottom-right-radius: 100px;
-			width: 95%;
 			z-index: 0;
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
 		}
 
 		nav {
 			align-self: center;
 			margin-left: auto;
 
-			ul {
-				@apply flex flex-row gap-4;
-				/* @apply list-none;
-				@apply m-0;
-				@apply p-0;
-				@apply w-full;
-				@apply justify-end;
-				@apply items-center; */
+			a {
+				@apply text-green;
+				font-style: italic;
+				text-transform: none;
+				text-decoration: underline;
 			}
+
+			/* ul {
+				@apply flex flex-row gap-4;
+				
+			} */
 		}
 
 		.container {
-			@apply flex h-full flex-row;
+			display: flex;
+			height: 100%;
+			flex-direction: row;
 			position: relative;
 			z-index: 1;
 		}
@@ -75,13 +92,16 @@
 	}
 
 	.logo {
-		@apply flex items-center justify-center text-center;
-		background-color: #00626c;
+		@apply bg-green;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
 		border-bottom-right-radius: 50%;
 		color: #fff;
 		font-size: 2rem;
-		height: 200px;
+		height: 135px;
 		position: absolute;
-		width: 200px;
+		width: 125px;
 	}
 }

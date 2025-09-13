@@ -1,0 +1,46 @@
+@import 'tailwindcss';
+
+.big-number-section {
+	display: flex;
+	gap: 100px;
+	margin: 50px auto;
+	justify-content: center;
+
+	.big-number {
+		.content {
+			bottom: 0;
+			display: flex;
+		}
+		.number-container {
+			background-color: var(--color-green);
+			border-top-left-radius: 30%;
+			border-bottom-right-radius: 30%;
+			height: 90px;
+			position: relative;
+			width: 90px;
+			color: var(--color-body);
+			font-size: 36px;
+			&:before {
+				color: var(--color-green);
+				content: '+';
+				font-size: 36px;
+				position: absolute;
+				bottom: -14px;
+				left: -20px;
+				width: 60px;
+				/* height: 100%; */
+			}
+
+			.number {
+				font-size: 36px;
+				font-weight: bold;
+				position: absolute;
+				bottom: -14px;
+				left: 0;
+			}
+		}
+		.text {
+			@apply mt-10 mt-auto ml-2;
+		}
+	}
+}
