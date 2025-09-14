@@ -1,6 +1,7 @@
 ---
 import { getLangFromUrl, useTranslations } from '@/i18n/utils'
 import styles from './MapSection.module.css'
+import Map from './Map.astro'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
@@ -24,7 +25,9 @@ const t = useTranslations(lang)
 
 				<button class={styles.btnGetInTouch}>Get in touch</button>
 			</div>
-			<div class="w-3/4"></div>
+			<div class="w-3/4">
+				<Map />
+			</div>
 		</div>
 	</div>
 </section>

@@ -11,6 +11,7 @@ import { ClientRouter } from 'astro:transitions'
 import { SEO } from 'astro-seo'
 import { getLangFromUrl } from '@/i18n/utils'
 import { AstroFont } from 'astro-font'
+import { withBase } from '@/utils/url'
 
 const lang = getLangFromUrl(Astro.url)
 ---
@@ -45,8 +46,8 @@ const lang = getLangFromUrl(Astro.url)
 
 		<link rel="alternate" href={`${Astro.site}en/`} hreflang="en" />
 		<link rel="alternate" href={`${Astro.site}es/`} hreflang="es" />
-		<link rel="sitemap" href="/sitemap-index.xml" />
-		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+		<link rel="sitemap" href={withBase('/sitemap-index.xml')} />
+		<link rel="icon" href={withBase('/favicon.svg')} type="image/svg+xml" />
 		<AstroFont
 			config={[
 				{
@@ -68,20 +69,20 @@ const lang = getLangFromUrl(Astro.url)
 		<div class="nav-container">
 			<div class="background"></div>
 			<div class="container md:pr-15">
-				<div class="logo">jaya</div>
+				<a class="logo" href={withBase('')}>jaya</a>
 				<nav>
 					<ul class="menu menu-vertical lg:menu-horizontal">
 						<li>
-							<a href="/">about</a>
+							<a href={withBase('about')}>about</a>
 						</li>
 						<li>
-							<a href="/about">services</a>
+							<a href={withBase('services')}>services</a>
 						</li>
 						<li>
-							<a href="/cases">cases</a>
+							<a href={withBase('cases')}>cases</a>
 						</li>
 						<li>
-							<a href="/cases">contact</a>
+							<a href={withBase('contact')}>contact</a>
 						</li>
 					</ul>
 				</nav>
