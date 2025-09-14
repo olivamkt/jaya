@@ -1,0 +1,72 @@
+@import 'tailwindcss';
+@plugin "daisyui";
+
+.home-hero-section {
+	.description {
+		@apply mx-auto my-40;
+		@apply max-w-[450px];
+		@apply text-center;
+		@apply normal-case;
+	}
+
+	.left-image {
+		@apply absolute top-1/2 left-0;
+	}
+
+	.right-image {
+		@apply absolute top-[30%] right-0;
+	}
+
+	.big-number-section {
+		@apply mx-auto my-[50px];
+		@apply flex justify-center;
+		@apply gap-[100px];
+	}
+
+	.big-number {
+	}
+
+	.content {
+		@apply flex;
+		@apply bottom-0;
+	}
+
+	.number-container {
+		@apply relative;
+		@apply h-[90px] w-[90px];
+		@apply bg-[var(--color-primary)];
+		@apply text-[36px] text-[var(--color-body)];
+		border-top-left-radius: 30%;
+		border-bottom-right-radius: 30%;
+	}
+
+	.number-container:before {
+		@apply absolute;
+		@apply -bottom-[14px] -left-[20px];
+		@apply w-[60px];
+		@apply text-[36px] font-bold text-[var(--color-primary)];
+		content: '+';
+	}
+
+	.number {
+		@apply absolute;
+		@apply -bottom-[14px] left-0;
+		@apply text-[36px] font-bold;
+	}
+
+	.text {
+		@apply mt-10 mt-auto ml-2;
+		@apply text-[12px] normal-case italic;
+		@apply text-[var(--color-primary)];
+	}
+
+	.btn-contact {
+		@apply btn btn-outline;
+		@apply mx-auto;
+		@apply flex text-center;
+		@apply rounded-full;
+		@apply max-w-[420px] text-[10px];
+		@apply text-[var(--color-primary-light)];
+		@apply border-[var(--color-primary-light)];
+	}
+}

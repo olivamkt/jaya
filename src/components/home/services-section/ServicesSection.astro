@@ -1,9 +1,78 @@
 ---
 import { getLangFromUrl, useTranslations } from '@/i18n/utils'
-import styles from './ServicesSection.module.css'
+import './ServicesSection.css'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
 ---
 
-<section class={`${styles.servicesSection} py-20`}></section>
+<section class="services-section py-20">
+	<div class="container">
+		<div class="flex">
+			<div class="w-1/4 text-white">
+				<img src="https://picsum.photos/seed/picsum/275/260" alt="Hero Image" class="left-image" />
+			</div>
+			<div class="w-3/4 text-white">
+				<h2>Services</h2>
+				<h3 class="my-10 text-[28px]">mission-driven nearshoring for high-impact projects.</h3>
+				<p>
+					At Jaya, software is more than lines of code, it’s a strategic asset built with intention,
+					precision, and purpose. Our conscious software engineering model blends technical
+					excellence with human understanding, enabling teams to collaborate better, ship faster,
+					and deliver real business outcomes. With a nearshore structure, we work in sync with your
+					operations, bridging cultural and timezone gaps to create long-term value from day one.
+				</p>
+
+				<p class="mt-5">
+					Our remote-native model ensures timezone-aligned delivery, seamless collaboration, and
+					long-term value wherever your team is based.
+				</p>
+
+				<button class="btn-get-in-touch">Get in touch</button>
+			</div>
+		</div>
+		<div class="services-list">
+			<div class="service-item">
+				<h3 class="service-item-title">nearshore staff augmentation</h3>
+				<p class="service-item-text">
+					With our nearshore consulting model, we connect the best technology professionals to
+					companies seeking expertise to accelerate projects and strengthen their teams. We
+					guarantee qualified talents with English fluency and low turnover, providing greater
+					stability and efficiency for the market.
+				</p>
+			</div>
+
+			<div class="service-item">
+				<h3 class="service-item-title">outsourcing</h3>
+				<p class="service-item-text">
+					We offer flexible outsourcing models and manage specialized squads to support strategic
+					projects and product delivery. Our approach ensures fast, aligned results, and extends to
+					training programs and pro bono initiatives designed to multiply positive impact through
+					technology.
+				</p>
+			</div>
+
+			<div class="service-item">
+				<h3 class="service-item-title">tech assesment</h3>
+				<p class="service-item-text">
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
+				</p>
+			</div>
+
+			<div class="service-item">
+				<h3 class="service-item-title">pro bono technology initiatives</h3>
+				<p class="service-item-text">
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
+				</p>
+			</div>
+
+			<div class="service-item">
+				<h3 class="service-item-title">team training programs</h3>
+				<p class="service-item-text">
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
+				</p>
+			</div>
+		</div>
+		<a href="/services" class="btn-read-more">Explore Industry Solutions</a>
+	</div>
+</section>

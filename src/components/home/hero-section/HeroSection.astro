@@ -1,32 +1,31 @@
 ---
 import { getLangFromUrl, useTranslations } from '@/i18n/utils'
 // import './HeroSection.css'
-import styles from './HeroSection.module.css'
-
+import './HeroSection.css'
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
 ---
 
-<section class="relative container py-20">
+<section class="home-hero-section relative container py-20">
 	<h1 class="mx-auto max-w-[450px] text-7xl font-bold">reliable software squad</h1>
-	<div class={styles.description}>
+	<div class="description">
 		Jaya is a fully remote software consulting company, founded in 2012 and partnering with U.S.
 		companies since 2016. We specialize in strategic staff augmentation and long-term, high-impact
 		projects, combining technical and cultural fit through a deep recruitment process. Behind every
 		delivery, we mentor our teams, nurture strong culture, and develop people who are inspired to
 		build software that truly matters.
 	</div>
-	<img src="https://picsum.photos/seed/picsum/275/260" alt="Hero Image" class={styles.leftImage} />
-	<img src="https://picsum.photos/seed/picsum/275/260" alt="Hero Image" class={styles.rightImage} />
-	<div class={styles.bigNumberSection}>
+	<img src="https://picsum.photos/seed/picsum/275/260" alt="Hero Image" class="left-image" />
+	<img src="https://picsum.photos/seed/picsum/275/260" alt="Hero Image" class="right-image" />
+	<div class="big-number-section">
 		{
 			Object.entries(t('home.bigNumbers')).map(([key, item]: [string, any]) => (
-				<div class={styles.bigNumber}>
-					<div class={styles.content}>
-						<div class={styles.numberContainer}>
-							<div class={styles.number}>{item.number}</div>
+				<div class="big-number">
+					<div class="content">
+						<div class="number-container">
+							<div class="number">{item.number}</div>
 						</div>
-						<div class={styles.text}>
+						<div class="text">
 							{item.text.bold === 'first' ? (
 								<>
 									<strong>{item.text.first}</strong>
@@ -47,7 +46,7 @@ const t = useTranslations(lang)
 		}
 	</div>
 
-	<a href="/contact" class={styles.btnContact}>
+	<a href="/contact" class="btn-contact">
 		{t('home.contactButton')}
 	</a>
 </section>

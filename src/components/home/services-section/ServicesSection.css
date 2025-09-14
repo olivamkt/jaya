@@ -1,0 +1,44 @@
+@import 'tailwindcss';
+@plugin "daisyui";
+
+.services-section {
+	@apply bg-[#36808f];
+	@apply min-h-[735px];
+
+	.services-list {
+		@apply flex;
+		@apply flex-wrap;
+		@apply gap-8;
+		@apply mt-10;
+		@apply max-w-[784px];
+		@apply mx-auto;
+	}
+
+	.service-item {
+		@apply bg-[var(--color-primary-light)];
+		@apply w-[240px];
+		@apply text-white;
+		@apply px-8 py-6;
+		border-bottom-left-radius: 50px;
+	}
+
+	.service-item-title {
+		@apply text-[16px];
+		@apply font-bold;
+		@apply mb-4;
+	}
+
+	.service-item-text {
+		@apply text-[10px];
+	}
+
+	.btn-read-more {
+		@apply btn btn-outline;
+		@apply mx-auto mt-10;
+		@apply flex text-center;
+		@apply rounded-full;
+		@apply max-w-[420px] text-[10px];
+		@apply text-[var(--color-primary-light)];
+		@apply border-[var(--color-primary-light)];
+	}
+}

@@ -7,9 +7,15 @@
 	--color-primary-light: #03b3cb;
 }
 
-/* @utility btn {
-	@apply rounded-full;
-  } */
+@utility btn {
+	@apply normal-case;
+}
+
+/* @layer components {
+	.btn {
+		@apply normal-case;
+	}
+} */
 
 @layer base {
 	html {

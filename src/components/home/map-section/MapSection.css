@@ -1,0 +1,15 @@
+@import 'tailwindcss';
+@plugin "daisyui";
+
+.map-section {
+	@apply bg-[#3b86a2];
+	@apply min-h-[735px];
+
+	.btn-get-in-touch {
+		@apply btn btn-outline;
+		@apply my-5;
+		@apply block;
+		@apply w-full;
+		@apply rounded-full;
+	}
+}
