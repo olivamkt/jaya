@@ -1,0 +1,7 @@
+@import 'tailwindcss';
+@plugin "daisyui";
+
+.services-section {
+	@apply bg-[#36808f];
+	@apply min-h-[735px];
+}

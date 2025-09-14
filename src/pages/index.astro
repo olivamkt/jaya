@@ -7,6 +7,7 @@ import { Atom, Languages, LucideZap, Waves } from 'lucide-react'
 import '@/styles/index.css'
 import Hero1 from '@/components/home/hero-section/HeroSection.astro'
 import MapSection from '@/components/home/map-section/MapSection.astro'
+import ServicesSection from '@/components/home/services-section/ServicesSection.astro'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
@@ -16,5 +17,6 @@ const t = useTranslations(lang)
 	<main>
 		<Hero1 />
 		<MapSection />
+		<ServicesSection />
 	</main>
 </Layout>

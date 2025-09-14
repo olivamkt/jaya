@@ -1,0 +1,9 @@
+---
+import { getLangFromUrl, useTranslations } from '@/i18n/utils'
+import styles from './ServicesSection.module.css'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+---
+
+<section class={`${styles.servicesSection} py-20`}></section>

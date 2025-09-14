@@ -7,6 +7,10 @@
 	--color-primary-light: #03b3cb;
 }
 
+/* @utility btn {
+	@apply rounded-full;
+  } */
+
 @layer base {
 	html {
 		font-family: 'Open Sauce One', sans-serif;
@@ -15,8 +19,8 @@
 
 	body {
 		@apply text-sm antialiased;
-		background-color: var(--color-body);
-		padding-top: 110px;
+		@apply bg-[var(--color-body)];
+		@apply pt-[110px];
 	}
 
 	* {
@@ -24,42 +28,25 @@
 	}
 
 	.nav-container {
-		display: flex;
-		height: 110px;
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100%;
+		@apply fixed top-0 left-0 z-10 w-full;
+		@apply flex h-[110px];
 
 		.background {
-			@apply w-full lg:w-[95%];
+			@apply absolute top-0 left-0 h-full w-full;
 			@apply rounded-none lg:rounded-br-[100px];
-			background-color: #fff;
-			z-index: 0;
-			position: absolute;
-			top: 0;
-			left: 0;
-			height: 100%;
+			@apply bg-white;
 		}
 
 		nav {
-			align-self: center;
-			margin-left: auto;
+			@apply ml-auto self-center;
 
 			a {
-				color: var(--color-primary);
-				font-style: italic;
-				text-transform: none;
-				text-decoration: underline;
+				@apply text-[var(--color-primary)] normal-case italic underline;
 			}
 		}
 
 		.container {
-			display: flex;
-			height: 100%;
-			flex-direction: row;
-			position: relative;
-			z-index: 1;
+			@apply relative flex h-full flex-row;
 		}
 	}
 
@@ -68,16 +55,10 @@
 	}
 
 	.logo {
-		background-color: var(--color-primary);
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		text-align: center;
-		border-bottom-right-radius: 50%;
-		color: #fff;
-		font-size: 2rem;
-		height: 135px;
-		position: absolute;
-		width: 125px;
+		@apply absolute;
+		@apply h-[135px] w-[125px];
+		@apply flex items-center justify-center text-center;
+		@apply rounded-br-[50%];
+		@apply bg-[var(--color-primary)] text-[2rem] text-white;
 	}
 }

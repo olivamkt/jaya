@@ -1,66 +1,70 @@
 @import 'tailwindcss';
 @plugin "daisyui";
 
-.big-number-section {
-	display: flex;
-	gap: 100px;
-	margin: 50px auto;
-	justify-content: center;
-
-	.big-number {
-		.content {
-			bottom: 0;
-			display: flex;
-		}
-		.number-container {
-			background-color: var(--color-primary); /* ✅ Usando variável CSS diretamente */
-			border-top-left-radius: 30%;
-			border-bottom-right-radius: 30%;
-			height: 90px;
-			position: relative;
-			width: 90px;
-			color: var(--color-body);
-			font-size: 36px;
-			&:before {
-				color: var(--color-primary);
-				content: '+';
-				font-size: 36px;
-				font-weight: bold;
-				position: absolute;
-				bottom: -14px;
-				left: -20px;
-				width: 60px;
-			}
-
-			.number {
-				font-size: 36px;
-				font-weight: bold;
-				position: absolute;
-				bottom: -14px;
-				left: 0;
-			}
-		}
-		.text {
-			@apply mt-10 mt-auto ml-2;
-			color: var(--color-primary);
-			font-style: italic;
-			font-size: 12px;
-			text-transform: none;
-		}
-	}
-}
-
 .description {
-	@apply mx-auto my-15;
-	max-width: 450px;
-	text-transform: none;
+	@apply mx-auto my-40;
+	@apply max-w-[450px];
+	@apply text-center;
+	@apply normal-case;
 }
 
-.btnContact {
-	@apply btn btn-outline btn-primary mx-auto;
-	border-radius: 50px;
-	display: flex;
-	font-size: 10px;
-	max-width: 420px;
-	text-align: center;
+.left-image {
+	@apply absolute top-1/2 left-0;
+}
+
+.right-image {
+	@apply absolute top-[30%] right-0;
+}
+
+.big-number-section {
+	@apply mx-auto my-[50px];
+	@apply flex justify-center;
+	@apply gap-[100px];
+}
+
+.big-number {
+}
+
+.content {
+	@apply flex;
+	@apply bottom-0;
+}
+
+.number-container {
+	@apply relative;
+	@apply h-[90px] w-[90px];
+	@apply bg-[var(--color-primary)];
+	@apply text-[36px] text-[var(--color-body)];
+	border-top-left-radius: 30%;
+	border-bottom-right-radius: 30%;
+}
+
+.number-container:before {
+	@apply absolute;
+	@apply -bottom-[14px] -left-[20px];
+	@apply w-[60px];
+	@apply text-[36px] font-bold text-[var(--color-primary)];
+	content: '+';
+}
+
+.number {
+	@apply absolute;
+	@apply -bottom-[14px] left-0;
+	@apply text-[36px] font-bold;
+}
+
+.text {
+	@apply mt-10 mt-auto ml-2;
+	@apply text-[12px] normal-case italic;
+	@apply text-[var(--color-primary)];
+}
+
+.btn-contact {
+	@apply btn btn-outline;
+	@apply mx-auto;
+	@apply flex text-center;
+	@apply rounded-full;
+	@apply max-w-[420px] text-[10px];
+	@apply text-[var(--color-primary-light)];
+	@apply border-[var(--color-primary-light)];
 }

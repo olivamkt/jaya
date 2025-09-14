@@ -7,8 +7,8 @@ const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
 ---
 
-<section class="container py-20">
-	<h1 class="text-5xl font-bold">reliable software squad</h1>
+<section class="relative container py-20">
+	<h1 class="mx-auto max-w-[450px] text-7xl font-bold">reliable software squad</h1>
 	<div class={styles.description}>
 		Jaya is a fully remote software consulting company, founded in 2012 and partnering with U.S.
 		companies since 2016. We specialize in strategic staff augmentation and long-term, high-impact
@@ -16,6 +16,8 @@ const t = useTranslations(lang)
 		delivery, we mentor our teams, nurture strong culture, and develop people who are inspired to
 		build software that truly matters.
 	</div>
+	<img src="https://picsum.photos/seed/picsum/275/260" alt="Hero Image" class={styles.leftImage} />
+	<img src="https://picsum.photos/seed/picsum/275/260" alt="Hero Image" class={styles.rightImage} />
 	<div class={styles.bigNumberSection}>
 		{
 			Object.entries(t('home.bigNumbers')).map(([key, item]: [string, any]) => (
