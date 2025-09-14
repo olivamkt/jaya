@@ -1,0 +1,66 @@
+@import 'tailwindcss';
+@plugin "daisyui";
+
+.big-number-section {
+	display: flex;
+	gap: 100px;
+	margin: 50px auto;
+	justify-content: center;
+
+	.big-number {
+		.content {
+			bottom: 0;
+			display: flex;
+		}
+		.number-container {
+			background-color: var(--color-primary); /* ✅ Usando variável CSS diretamente */
+			border-top-left-radius: 30%;
+			border-bottom-right-radius: 30%;
+			height: 90px;
+			position: relative;
+			width: 90px;
+			color: var(--color-body);
+			font-size: 36px;
+			&:before {
+				color: var(--color-primary);
+				content: '+';
+				font-size: 36px;
+				font-weight: bold;
+				position: absolute;
+				bottom: -14px;
+				left: -20px;
+				width: 60px;
+			}
+
+			.number {
+				font-size: 36px;
+				font-weight: bold;
+				position: absolute;
+				bottom: -14px;
+				left: 0;
+			}
+		}
+		.text {
+			@apply mt-10 mt-auto ml-2;
+			color: var(--color-primary);
+			font-style: italic;
+			font-size: 12px;
+			text-transform: none;
+		}
+	}
+}
+
+.description {
+	margin: 0 auto;
+	max-width: 450px;
+	text-transform: none;
+}
+
+.btn-contact {
+	@apply btn btn-outline btn-primary mx-auto;
+	border-radius: 50px;
+	display: flex;
+	font-size: 10px;
+	max-width: 420px;
+	text-align: center;
+}

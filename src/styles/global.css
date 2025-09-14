@@ -1,41 +1,22 @@
 @import 'tailwindcss';
 @plugin "daisyui";
 
-@theme {
-	--font-heading: 'Geist Sans', 'sans-serif';
+:root {
 	--color-body: #f7f5f2;
-	--color-green: #00616c;
-}
-
-@font-face {
-	font-family: 'Geist Sans';
-	src: url('@/assets/fonts/geist-sans-latin-500-normal.woff2') format('woff2');
-	font-weight: 500;
-	font-style: normal;
-	font-display: swap;
-}
-
-@font-face {
-	font-family: 'Geist Sans';
-	src: url('@/assets/fonts/geist-sans-latin-900-normal.woff2') format('woff2');
-	font-weight: 900;
-	font-style: normal;
-	font-display: swap;
+	--color-primary: #00616c;
+	--color-primary-light: #03b3cb;
 }
 
 @layer base {
 	html {
-		font-family: 'Geist Mono', monospace;
+		font-family: 'Open Sauce One', sans-serif;
 		@apply scroll-smooth uppercase;
-		height: 100%;
 	}
 
 	body {
-		@apply bg-body;
 		@apply text-sm antialiased;
-		height: 100%;
-		font-family: 'Open Sauce One', sans-serif;
-		padding-top: 250px;
+		background-color: var(--color-body);
+		padding-top: 110px;
 	}
 
 	* {
@@ -66,16 +47,11 @@
 			margin-left: auto;
 
 			a {
-				@apply text-green;
+				color: var(--color-primary);
 				font-style: italic;
 				text-transform: none;
 				text-decoration: underline;
 			}
-
-			/* ul {
-				@apply flex flex-row gap-4;
-				
-			} */
 		}
 
 		.container {
@@ -92,7 +68,7 @@
 	}
 
 	.logo {
-		@apply bg-green;
+		background-color: var(--color-primary);
 		display: flex;
 		align-items: center;
 		justify-content: center;

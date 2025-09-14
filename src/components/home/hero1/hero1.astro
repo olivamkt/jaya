@@ -1,0 +1,51 @@
+---
+import { getLangFromUrl, useTranslations } from '@/i18n/utils'
+import '@/components/home/hero1/hero1.css'
+import { marked } from 'marked'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+---
+
+<section class="container py-20">
+	<h1 class="text-5xl font-bold">reliable software squad</h1>
+	<div class="description">
+		Jaya is a fully remote software consulting company, founded in 2012 and partnering with U.S.
+		companies since 2016. We specialize in strategic staff augmentation and long-term, high-impact
+		projects, combining technical and cultural fit through a deep recruitment process. Behind every
+		delivery, we mentor our teams, nurture strong culture, and develop people who are inspired to
+		build software that truly matters.
+	</div>
+	<div class="big-number-section">
+		{
+			Object.entries(t('home.bigNumbers')).map(([key, item]: [string, any]) => (
+				<div class="big-number">
+					<div class="content">
+						<div class="number-container">
+							<div class="number">{item.number}</div>
+						</div>
+						<div class="text">
+							{item.text.bold === 'first' ? (
+								<>
+									<strong>{item.text.first}</strong>
+									<br />
+									{item.text.second}
+								</>
+							) : (
+								<>
+									{item.text.first}
+									<br />
+									<strong>{item.text.second}</strong>
+								</>
+							)}
+						</div>
+					</div>
+				</div>
+			))
+		}
+	</div>
+
+	<a href="/contact" class="btn-contact">
+		{t('home.contactButton')}
+	</a>
+</section>

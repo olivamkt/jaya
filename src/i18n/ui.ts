@@ -11,7 +11,34 @@ export const ui = {
 		home: {
 			title: 'Reliable software squad',
 			description:
-				'Jaya is a fully remote software consulting company, founded in 2012 and partnering with U.S. companies since 2016. We specialize in strategic staff augmentation and long-term, high-impact projects, combining technical and cultural fit through a deep recruitment process. Behind every delivery, we mentor our teams, nurture strong culture, and develop people who are inspired to build software that truly matters.',
+				'Jaya is a fully remote **software consulting company**, founded in 2012 and partnering with U.S. companies since 2016. We specialize in strategic staff augmentation and long-term, high-impact projects, combining technical and cultural fit through a deep recruitment process. Behind every delivery, we mentor our teams, nurture strong culture, and develop people who are inspired to build software that truly matters.',
+			bigNumbers: {
+				'1': {
+					number: '200',
+					text: {
+						first: 'Projects',
+						second: 'Delivered',
+						bold: 'first'
+					}
+				},
+				'2': {
+					number: '150',
+					text: {
+						first: 'Partnerships',
+						second: 'Established',
+						bold: 'second'
+					}
+				},
+				'3': {
+					number: '98%',
+					text: {
+						first: 'Active',
+						second: 'Collaborators',
+						bold: 'first'
+					}
+				}
+			},
+			contactButton: "Let's transform your business? Contact Us",
 			content: {
 				'1': {
 					title: 'Multilanguage support',
@@ -50,6 +77,32 @@ export const ui = {
 		home: {
 			title: 'Astro Full Starter',
 			description: 'Plantilla para empezar a construir tu sitio web lo antes posible',
+			bigNumbers: {
+				'1': {
+					number: '200+',
+					text: {
+						first: 'Proyectos',
+						second: 'Entregados',
+						bold: 'first'
+					}
+				},
+				'2': {
+					number: '12+',
+					text: {
+						first: 'Años de',
+						second: 'Experiencia',
+						bold: 'second'
+					}
+				},
+				'3': {
+					number: '98%',
+					text: {
+						first: 'Satisfacción',
+						second: 'del Cliente',
+						bold: 'first'
+					}
+				}
+			},
 			content: {
 				'1': {
 					title: 'Soporte multilingüe',
