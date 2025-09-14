@@ -38,14 +38,14 @@
 		@apply text-[36px] text-[var(--color-body)];
 		border-top-left-radius: 30%;
 		border-bottom-right-radius: 30%;
-	}
 
-	.number-container:before {
-		@apply absolute;
-		@apply -bottom-[14px] -left-[20px];
-		@apply w-[60px];
-		@apply text-[36px] font-bold text-[var(--color-primary)];
-		content: '+';
+		&:before {
+			@apply absolute;
+			@apply -bottom-[14px] -left-[20px];
+			@apply w-[60px];
+			@apply text-[36px] font-bold text-[var(--color-primary)];
+			content: '+';
+		}
 	}
 
 	.number {

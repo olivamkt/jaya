@@ -1,0 +1,25 @@
+---
+import { getLangFromUrl, useTranslations } from '@/i18n/utils'
+import './ImpactSection.css'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+---
+
+<section class="impact-section py-20">
+	<div class="container">
+		<h1 class="font-aswatama">Real Impact</h1>
+		<h2 class="text-[28px]">where we make an impact</h2>
+		<p>
+			The digital revolution is driven by technology, innovation, and agility. That's why Jaya Tech
+			connects companies with highly qualified development squads, ready to create, scale, and
+			maintain secure, modern digital products tailored to the unique demands of each business. We
+			partner with organizations to deliver custom solutions for management, automation, user
+			experience, and data-driven results. Our expertise allows us to accelerate time-to-market,
+			ensure compliance, and deliver innovative experiences, always focusing on security,
+			performance, and scalability. Whether you want to launch a new product, enhance your
+			processes, or turn data into value, Jaya Tech is the ideal partner for companies looking to go
+			beyond the ordinary.
+		</p>
+	</div>
+</section>

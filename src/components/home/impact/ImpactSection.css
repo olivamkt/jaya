@@ -1,0 +1,7 @@
+@import 'tailwindcss';
+@plugin "daisyui";
+
+.impact-section {
+	@apply bg-[##ececea];
+	@apply min-h-[735px];
+}

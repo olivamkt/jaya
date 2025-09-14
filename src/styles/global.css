@@ -7,20 +7,22 @@
 	--color-primary-light: #03b3cb;
 }
 
-@utility btn {
-	@apply normal-case;
+@font-face {
+	font-family: 'Aswatama';
+	src: url('/jaya/fonts/Aswatama-Rough.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
 }
 
-/* @layer components {
-	.btn {
-		@apply normal-case;
-	}
-} */
+@theme {
+	--font-aswatama: 'Aswatama', sans-serif;
+}
 
 @layer base {
 	html {
 		font-family: 'Open Sauce One', sans-serif;
-		@apply scroll-smooth uppercase;
+		@apply scroll-smooth;
 	}
 
 	body {
