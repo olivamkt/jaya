@@ -51,12 +51,12 @@
 }
 
 .description {
-	margin: 0 auto;
+	@apply mx-auto my-15;
 	max-width: 450px;
 	text-transform: none;
 }
 
-.btn-contact {
+.btnContact {
 	@apply btn btn-outline btn-primary mx-auto;
 	border-radius: 50px;
 	display: flex;

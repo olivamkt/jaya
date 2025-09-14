@@ -1,0 +1,9 @@
+---
+import { getLangFromUrl, useTranslations } from '@/i18n/utils'
+import styles from './MapSection.module.css'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+---
+
+<section class={`${styles.mapSection} container py-20`}></section>

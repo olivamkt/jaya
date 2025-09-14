@@ -1,0 +1,7 @@
+@import 'tailwindcss';
+@plugin "daisyui";
+
+.map-section {
+	background-color: #3b86a2;
+	min-height: 735px;
+}

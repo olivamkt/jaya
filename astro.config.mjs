@@ -36,6 +36,11 @@ export default defineConfig({
 			watch: {
 				usePolling: true
 			}
+		},
+		css: {
+			modules: {
+				localsConvention: 'camelCaseOnly' // ou 'camelCase' para ter camelCase + kebab-case
+			}
 		}
 	}
 })
