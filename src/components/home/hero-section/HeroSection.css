@@ -1,6 +1,5 @@
 @reference "../../../styles/global.css";
 
-/* @layer components { */
 .home-hero-section {
 	.description {
 		@apply bg-body;
@@ -71,8 +70,7 @@
 		@apply flex text-center;
 		@apply rounded-full;
 		@apply max-w-[420px] text-[10px];
-		/* @apply text-primary-light; */
-		/* @apply border-primary-light; */
+		@apply text-primary-light;
+		@apply border-primary-light;
 	}
 }
-/* } */

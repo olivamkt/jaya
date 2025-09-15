@@ -8,7 +8,7 @@ const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
 ---
 
-<section class="impact-section py-20">
+<section class="home-impact-section py-20">
 	<div class="container">
 		<div class="flex flex-row gap-10">
 			<div class="w-2/3 text-white">
@@ -32,9 +32,26 @@ const t = useTranslations(lang)
 		</div>
 		<div class="solutions-list">
 			<div class="solution-item">
-				<h3 class="solution-item-title">Solution 1</h3>
-				<p class="solution-item-text">Solution 1</p>
+				<div class="solution-container"></div>
+				<div class="solution-item-text">fintech</div>
+			</div>
+			<div class="solution-item">
+				<div class="solution-container"></div>
+				<div class="solution-item-text">healthtech</div>
+			</div>
+			<div class="solution-item">
+				<div class="solution-container"></div>
+				<div class="solution-item-text">agrotech</div>
+			</div>
+			<div class="solution-item">
+				<div class="solution-container"></div>
+				<div class="solution-item-text">SaaS</div>
+			</div>
+			<div class="solution-item">
+				<div class="solution-container"></div>
+				<div class="solution-item-text">More</div>
 			</div>
 		</div>
+		<a href="/solutions" class="btn-see-more">See how we delivery accross industries</a>
 	</div>
 </section>

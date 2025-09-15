@@ -1,24 +1,41 @@
 @reference "../../../styles/global.css";
 
-.impact-section {
-	/* @apply bg-[##ececea]; */
+.home-impact-section {
 	@apply min-h-[735px];
-}
 
-.solution-item {
-	@apply rounded-tl-[50px];
-	@apply bg-primary;
-	@apply text-white;
-	@apply px-8 py-6;
-	@apply w-[147px];
-}
+	.solutions-list {
+		@apply flex flex-row;
+		@apply gap-20;
+		@apply mt-10;
+	}
 
-.solution-item-title {
-	@apply text-[16px];
-	@apply font-bold;
-	@apply mb-4;
-}
+	.solution-item {
+		@apply w-[147px];
+	}
 
-.solution-item-text {
-	@apply text-[10px];
+	.solution-container {
+		@apply rounded-tl-[50px];
+		@apply bg-primary;
+		@apply text-white;
+		@apply px-8 py-6;
+		@apply h-[147px];
+	}
+
+	.solution-item-title {
+		@apply text-[16px];
+		@apply font-bold;
+		@apply mb-4;
+	}
+
+	.solution-item-text {
+		@apply mt-5 text-center text-[15px];
+	}
+
+	.btn-see-more {
+		@apply btn btn-outline;
+		@apply mx-auto mt-10;
+		@apply flex text-center;
+		@apply rounded-full;
+		@apply max-w-[420px] text-[10px];
+	}
 }
