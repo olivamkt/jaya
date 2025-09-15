@@ -1,6 +1,8 @@
 ---
 import { getLangFromUrl, useTranslations } from '@/i18n/utils'
 import './ServicesSection.css'
+import { Image } from 'astro:assets'
+import servicesImg from '@/assets/home/services.png'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
@@ -8,9 +10,9 @@ const t = useTranslations(lang)
 
 <section class="services-section py-20">
 	<div class="container">
-		<div class="flex">
+		<div class="flex gap-10">
 			<div class="w-1/4 text-white">
-				<img src="https://picsum.photos/seed/picsum/275/260" alt="Hero Image" class="left-image" />
+				<Image src={servicesImg} alt="Hero Image" class="services-image" />
 			</div>
 			<div class="w-3/4 text-white">
 				<h2 class="font-aswatama">Services</h2>

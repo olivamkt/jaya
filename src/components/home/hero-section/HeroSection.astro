@@ -4,6 +4,9 @@ import { getLangFromUrl, useTranslations } from '@/i18n/utils'
 import './HeroSection.css'
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
+import heroLeft from '@/assets/home/hero-left.png'
+import heroRight from '@/assets/home/hero-right.png'
+import { Image } from 'astro:assets'
 ---
 
 <section class="home-hero-section relative container py-20">
@@ -15,8 +18,8 @@ const t = useTranslations(lang)
 		delivery, we mentor our teams, nurture strong culture, and develop people who are inspired to
 		build software that truly matters.
 	</div>
-	<img src="https://picsum.photos/seed/picsum/275/260" alt="Hero Image" class="left-image" />
-	<img src="https://picsum.photos/seed/picsum/275/260" alt="Hero Image" class="right-image" />
+	<Image src={heroLeft} alt="Hero Image" class="left-image" />
+	<Image src={heroRight} alt="Hero Image" class="right-image" />
 	<div class="big-number-section">
 		{
 			Object.entries(t('home.bigNumbers')).map(([key, item]: [string, any]) => (

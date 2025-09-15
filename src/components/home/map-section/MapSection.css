@@ -1,5 +1,4 @@
-@import 'tailwindcss';
-@plugin "daisyui";
+@reference "../../../styles/global.css";
 
 .map-section {
 	@apply bg-[#3b86a2];

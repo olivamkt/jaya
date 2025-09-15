@@ -1,7 +1,24 @@
-@import 'tailwindcss';
-@plugin "daisyui";
+@reference "../../../styles/global.css";
 
 .impact-section {
-	@apply bg-[##ececea];
+	/* @apply bg-[##ececea]; */
 	@apply min-h-[735px];
+}
+
+.solution-item {
+	@apply rounded-tl-[50px];
+	@apply bg-primary;
+	@apply text-white;
+	@apply px-8 py-6;
+	@apply w-[147px];
+}
+
+.solution-item-title {
+	@apply text-[16px];
+	@apply font-bold;
+	@apply mb-4;
+}
+
+.solution-item-text {
+	@apply text-[10px];
 }

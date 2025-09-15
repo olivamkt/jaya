@@ -1,8 +1,9 @@
-@import 'tailwindcss';
-@plugin "daisyui";
+@reference "../../../styles/global.css";
 
+/* @layer components { */
 .home-hero-section {
 	.description {
+		@apply bg-body;
 		@apply mx-auto my-40;
 		@apply max-w-[450px];
 		@apply text-center;
@@ -11,10 +12,14 @@
 
 	.left-image {
 		@apply absolute top-1/2 left-0;
+		@apply w-[275px];
+		@apply h-[260px];
 	}
 
 	.right-image {
 		@apply absolute top-[30%] right-0;
+		@apply w-[275px];
+		@apply h-[260px];
 	}
 
 	.big-number-section {
@@ -34,16 +39,16 @@
 	.number-container {
 		@apply relative;
 		@apply h-[90px] w-[90px];
-		@apply bg-[var(--color-primary)];
-		@apply text-[36px] text-[var(--color-body)];
-		border-top-left-radius: 30%;
-		border-bottom-right-radius: 30%;
+		@apply bg-primary;
+		@apply text-body text-[36px];
+		@apply rounded-tl-[30%];
+		@apply rounded-br-[30%];
 
 		&:before {
 			@apply absolute;
 			@apply -bottom-[14px] -left-[20px];
 			@apply w-[60px];
-			@apply text-[36px] font-bold text-[var(--color-primary)];
+			@apply text-primary text-[36px] font-bold;
 			content: '+';
 		}
 	}
@@ -57,7 +62,7 @@
 	.text {
 		@apply mt-10 mt-auto ml-2;
 		@apply text-[12px] normal-case italic;
-		@apply text-[var(--color-primary)];
+		@apply text-primary;
 	}
 
 	.btn-contact {
@@ -66,7 +71,8 @@
 		@apply flex text-center;
 		@apply rounded-full;
 		@apply max-w-[420px] text-[10px];
-		@apply text-[var(--color-primary-light)];
-		@apply border-[var(--color-primary-light)];
+		/* @apply text-primary-light; */
+		/* @apply border-primary-light; */
 	}
 }
+/* } */
