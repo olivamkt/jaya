@@ -1,0 +1,24 @@
+---
+import { getLangFromUrl, useTranslations } from '@/i18n/utils'
+import './TeamSection.css'
+import { Image } from 'astro:assets'
+import teamImg from '@/assets/home/team.png'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+---
+
+<section class="home-team-section py-20">
+	<div class="relative container">
+		<div class="text-center">Great People Build Great Products</div>
+		<h2 class="title text-center">we develop people while they develop software</h2>
+		<p class="text-center">
+			Get to know how our people-first culture fuels performance, creating committed, resilient
+			teams with low turnover and high delivery consistency.
+		</p>
+		<a href="/about" class="btn-see-more">Meet our culture</a>
+		<div class="team-grid relative z-1">
+			<Image src={teamImg} alt="Team Image" class="team-image" />
+		</div>
+	</div>
+</section>

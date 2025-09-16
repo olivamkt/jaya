@@ -9,6 +9,8 @@ import Hero1 from '@/components/home/hero-section/HeroSection.astro'
 import MapSection from '@/components/home/map-section/MapSection.astro'
 import ServicesSection from '@/components/home/services-section/ServicesSection.astro'
 import ImpactSection from '@/components/home/impact/ImpactSection.astro'
+import ClientsSection from '@/components/home/clients/ClientsSection.astro'
+import TeamSection from '@/components/home/team-section/TeamSection.astro'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
@@ -20,5 +22,7 @@ const t = useTranslations(lang)
 		<MapSection />
 		<ServicesSection />
 		<ImpactSection />
+		<ClientsSection />
+		<TeamSection />
 	</main>
 </Layout>

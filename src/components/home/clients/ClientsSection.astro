@@ -1,0 +1,22 @@
+---
+import { getLangFromUrl, useTranslations } from '@/i18n/utils'
+import './ClientsSection.css'
+import { Image } from 'astro:assets'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+---
+
+<section class="home-clients-section py-20">
+	<div class="container">
+		<div class="text-center">Trusted by innovators</div>
+		<h2 class="title text-center">Our clients</h2>
+		<p class="text-center">
+			We partner with forward-thinking companies in finance, logistics, healthcare, retail, and
+			more,<br /> delivering long-term software solutions with real business impact.
+		</p>
+		<div class="flags"></div>
+		<div class="clients-list"></div>
+		<a href="/clients" class="btn-see-more">See our cases</a>
+	</div>
+</section>

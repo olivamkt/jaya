@@ -1,0 +1,32 @@
+@reference "../../styles/global.css";
+
+.footer-section {
+	@apply bg-[#ececea];
+	@apply py-20;
+
+	.lets-talk {
+		@apply text-[85px] font-bold;
+		@apply text-primary;
+	}
+
+	.btn-contact {
+		@apply w-[137px];
+		@apply h-[137px];
+		@apply rounded-bl-[50px];
+		@apply bg-primary-light;
+		@apply text-white;
+		@apply flex items-center justify-center;
+		@apply text-[10px];
+		@apply relative;
+		@apply ml-5;
+
+		.icon {
+			@apply w-[52px];
+			@apply h-[48px];
+			@apply absolute;
+			@apply top-0;
+			@apply right-0;
+			/* @apply text-white; */
+		}
+	}
+}
