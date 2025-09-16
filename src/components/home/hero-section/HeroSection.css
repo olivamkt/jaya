@@ -2,50 +2,39 @@
 
 .home-hero-section {
 	.description {
-		@apply bg-body;
-		@apply mx-auto my-40;
-		@apply max-w-[450px];
-		@apply text-center;
-		@apply normal-case;
+		@apply bg-body mx-auto my-40;
+		@apply max-w-[450px] text-center normal-case;
 	}
 
 	.left-image {
 		@apply absolute top-1/2 left-0;
-		@apply w-[275px];
-		@apply h-[260px];
+		@apply h-[260px] w-[275px];
 	}
 
 	.right-image {
 		@apply absolute top-[30%] right-0;
-		@apply w-[275px];
-		@apply h-[260px];
+		@apply h-[260px] w-[275px];
 	}
 
 	.big-number-section {
 		@apply mx-auto my-[50px];
-		@apply flex justify-center;
-		@apply gap-[100px];
+		@apply flex justify-center gap-[100px];
 	}
 
 	.big-number {
 	}
 
 	.content {
-		@apply flex;
-		@apply bottom-0;
+		@apply bottom-0 flex;
 	}
 
 	.number-container {
-		@apply relative;
-		@apply h-[90px] w-[90px];
-		@apply bg-primary;
-		@apply text-body text-[36px];
-		@apply rounded-tl-[30%];
-		@apply rounded-br-[30%];
+		@apply relative h-[90px] w-[90px];
+		@apply bg-primary text-body text-[36px];
+		@apply rounded-tl-[30%] rounded-br-[30%];
 
 		&:before {
-			@apply absolute;
-			@apply -bottom-[14px] -left-[20px];
+			@apply absolute -bottom-[14px] -left-[20px];
 			@apply w-[60px];
 			@apply text-primary text-[36px] font-bold;
 			content: '+';
@@ -53,24 +42,20 @@
 	}
 
 	.number {
-		@apply absolute;
-		@apply -bottom-[14px] left-0;
+		@apply absolute -bottom-[14px] left-0;
 		@apply text-[36px] font-bold;
 	}
 
 	.text {
 		@apply mt-10 mt-auto ml-2;
-		@apply text-[12px] normal-case italic;
-		@apply text-primary;
+		@apply text-primary text-[12px] normal-case italic;
 	}
 
 	.btn-contact {
 		@apply btn btn-outline;
 		@apply mx-auto;
 		@apply flex text-center;
-		@apply rounded-full;
-		@apply max-w-[420px] text-[10px];
-		@apply text-primary-light;
-		@apply border-primary-light;
+		@apply max-w-[420px] rounded-full text-[10px];
+		@apply text-primary-light border-primary-light;
 	}
 }

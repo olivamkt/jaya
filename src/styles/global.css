@@ -9,8 +9,17 @@
 }
 
 @theme {
-	--color-body: #f7f5f2;
+	/* Primary colors */
 	--color-primary-light: #03b3cb;
+
+	/* Neutral/Gray colors */
+	--color-body: #f7f5f2;
+	--color-neutral-light: #ececea;
+	--color-gray-light: #fbfbfb;
+
+	/* Blue/Teal colors */
+	--color-teal: #36808f;
+	--color-blue: #3b86a2;
 }
 
 // custom colors
@@ -35,9 +44,7 @@
 	}
 
 	body {
-		@apply text-sm antialiased;
-		@apply bg-body;
-		@apply pt-[110px];
+		@apply bg-body pt-[110px] text-sm antialiased;
 	}
 
 	* {
@@ -51,8 +58,7 @@
 
 	.background {
 		@apply absolute top-0 left-0 h-full w-full;
-		@apply rounded-none lg:rounded-br-[100px];
-		@apply bg-white;
+		@apply rounded-none bg-white lg:rounded-br-[100px];
 	}
 
 	nav {
@@ -69,9 +75,7 @@
 }
 
 .logo {
-	@apply absolute;
-	@apply h-[135px] w-[125px];
+	@apply absolute h-[135px] w-[125px];
 	@apply flex items-center justify-center text-center;
-	@apply rounded-br-[50%];
-	@apply bg-primary text-[2rem] text-white;
+	@apply bg-primary rounded-br-[50%] text-[2rem] text-white;
 }

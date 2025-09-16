@@ -4,9 +4,7 @@
 	@apply min-h-[735px];
 
 	.solutions-list {
-		@apply flex flex-row;
-		@apply gap-20;
-		@apply mt-10;
+		@apply mt-10 flex flex-row gap-20;
 	}
 
 	.solution-item {
@@ -15,16 +13,12 @@
 
 	.solution-container {
 		@apply rounded-tl-[50px];
-		@apply bg-primary;
-		@apply text-white;
-		@apply px-8 py-6;
-		@apply h-[147px];
+		@apply bg-primary text-white;
+		@apply h-[147px] px-8 py-6;
 	}
 
 	.solution-item-title {
-		@apply text-[16px];
-		@apply font-bold;
-		@apply mb-4;
+		@apply mb-4 text-[16px] font-bold;
 	}
 
 	.solution-item-text {
@@ -36,7 +30,6 @@
 		@apply btn btn-outline btn-primary;
 		@apply mx-auto mt-10;
 		@apply flex text-center;
-		@apply rounded-full;
-		@apply max-w-[420px] text-[10px];
+		@apply max-w-[420px] rounded-full text-[10px];
 	}
 }

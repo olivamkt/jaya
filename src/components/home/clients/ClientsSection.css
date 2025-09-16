@@ -1,14 +1,12 @@
 @reference "../../../styles/global.css";
 
 .home-clients-section {
-	@apply bg-[#fbfbfb];
-	@apply text-primary;
+	@apply text-primary bg-gray-light;
 
 	.btn-see-more {
 		@apply btn btn-outline btn-primary;
 		@apply mx-auto mt-10;
 		@apply flex text-center;
-		@apply rounded-full;
-		@apply max-w-[420px] text-[10px];
+		@apply max-w-[420px] rounded-full text-[10px];
 	}
 }
