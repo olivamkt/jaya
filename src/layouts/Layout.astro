@@ -13,6 +13,8 @@ import { getLangFromUrl } from '@/i18n/utils'
 import { AstroFont } from 'astro-font'
 import { withBase } from '@/utils/url'
 import Footer from '@/components/layout/Footer.astro'
+import { Image } from 'astro:assets'
+import logoIcon from '@/assets/logo.svg'
 
 const lang = getLangFromUrl(Astro.url)
 ---
@@ -70,7 +72,7 @@ const lang = getLangFromUrl(Astro.url)
 		<div class="nav-container">
 			<div class="background"></div>
 			<div class="container md:pr-15">
-				<a class="logo" href={withBase('')}>jaya</a>
+				<a class="logo" href={withBase('')}><Image src={logoIcon} alt="Logo" /></a>
 				<nav>
 					<ul class="menu menu-vertical lg:menu-horizontal">
 						<li>

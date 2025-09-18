@@ -2,6 +2,10 @@
 import { getLangFromUrl, useTranslations } from '@/i18n/utils'
 import './Footer.css'
 import { withBase } from '@/utils/url'
+import { Image } from 'astro:assets'
+import linkedinIcon from '@/assets/icons/linkedin.svg'
+import githubIcon from '@/assets/icons/github.svg'
+import mediumIcon from '@/assets/icons/medium.svg'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
@@ -28,6 +32,51 @@ const t = useTranslations(lang)
 						stroke-linejoin="round"></path>
 				</svg>
 			</a>
+			<div class="address-container ml-auto">
+				<div class="address-item mb-5 text-right">
+					<div>Austin, TX - USA</div>
+					<div><strong>+1 (512) 555-1212</strong></div>
+				</div>
+				<div class="address-item text-right">
+					<div>São Paulo, SP - Brazil</div>
+					<div><strong>+55(11) 333-1212</strong></div>
+				</div>
+			</div>
+		</div>
+		<div class="footer-links">
+			<nav>
+				<ul class="menu menu-vertical lg:menu-horizontal">
+					<li>
+						<a href="/">home</a>
+					</li>
+					<li>
+						<a href="/">about</a>
+					</li>
+					<li>
+						<a href="/">services</a>
+					</li>
+					<li>
+						<a href="/">solutions</a>
+					</li>
+					<li>
+						<a href="/">culture</a>
+					</li>
+					<li>
+						<a href="/">contact</a>
+					</li>
+				</ul>
+			</nav>
+			<div class="social ml-auto flex items-center gap-7">
+				<a href="/">
+					<Image src={linkedinIcon} alt="Linkedin" />
+				</a>
+				<a href="/">
+					<Image src={githubIcon} alt="Github" />
+				</a>
+				<a href="/">
+					<Image src={mediumIcon} alt="Medium" />
+				</a>
+			</div>
 		</div>
 	</div>
 </footer>

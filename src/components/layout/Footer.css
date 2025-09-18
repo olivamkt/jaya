@@ -17,7 +17,17 @@
 		.icon {
 			@apply h-[48px] w-[52px];
 			@apply absolute top-0 right-0;
-			/* @apply text-white; */
 		}
+	}
+
+	.footer-links {
+		@apply flex;
+		@apply mt-20 py-10;
+		@apply border-primary border-t;
+		@apply border-primary border-b;
+	}
+
+	.address-item {
+		@apply text-primary;
 	}
 }
