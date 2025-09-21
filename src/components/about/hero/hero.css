@@ -1,0 +1,25 @@
+@reference "../../../styles/global.css";
+
+.about-hero-section {
+	.text-box {
+		@apply relative;
+
+		&::before {
+			@apply bg-primary-light;
+			content: '';
+			width: 50vw;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			right: 0;
+		}
+
+		.text-box-container {
+			@apply relative z-10 text-white;
+		}
+	}
+
+	.video-box-container {
+		width: 50vw;
+	}
+}

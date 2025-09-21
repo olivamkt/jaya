@@ -5,15 +5,16 @@
 
 	.services-image {
 		@apply w-[318px];
+		@apply absolute top-[-50px] left-[-20px];
 	}
 
 	.services-list {
-		@apply mt-10 flex flex-wrap gap-8;
+		@apply mt-40 flex flex-wrap gap-8;
 		@apply mx-auto max-w-[784px];
 	}
 
 	.service-item {
-		@apply bg-primary w-[240px] text-white;
+		@apply bg-primary-light w-[240px] text-white;
 		@apply rounded-bl-[50px] px-8 py-6;
 	}
 
