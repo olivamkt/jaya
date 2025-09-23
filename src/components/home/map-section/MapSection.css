@@ -5,8 +5,5 @@
 
 	.btn-get-in-touch {
 		@apply btn btn-outline my-5;
-		/* @apply block; */
-		/* @apply w-full; */
-		/* @apply rounded-full; */
 	}
 }
