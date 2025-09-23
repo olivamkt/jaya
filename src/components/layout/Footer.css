@@ -2,6 +2,7 @@
 
 .footer-section {
 	@apply bg-neutral-light py-20;
+	@apply mt-auto;
 
 	.lets-talk {
 		@apply text-primary text-[85px] font-bold;
