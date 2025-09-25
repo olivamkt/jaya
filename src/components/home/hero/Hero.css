@@ -52,7 +52,6 @@
 	}
 
 	.btn-contact {
-		@apply btn btn-outline;
 		@apply mx-auto;
 		@apply flex text-center;
 		@apply max-w-[420px] rounded-full text-[10px];

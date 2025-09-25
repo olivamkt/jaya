@@ -1,14 +1,12 @@
 ---
-import { Image } from 'astro:assets'
 import Layout from '@/layouts/Layout.astro'
-import { Atom, Languages, LucideZap, Waves } from 'lucide-react'
 import '@/styles/index.css'
-import Hero1 from '@/components/home/hero-section/HeroSection.astro'
-import MapSection from '@/components/home/map-section/MapSection.astro'
-import ServicesSection from '@/components/home/services-section/ServicesSection.astro'
-import ImpactSection from '@/components/home/impact/ImpactSection.astro'
-import ClientsSection from '@/components/home/clients/ClientsSection.astro'
-import TeamSection from '@/components/home/team-section/TeamSection.astro'
+import Hero from '@/components/home/hero/Hero.astro'
+import Map from '@/components/home/map/Map.astro'
+import Services from '@/components/home/services/Services.astro'
+import Impact from '@/components/home/impact/Impact.astro'
+import Clients from '@/components/home/clients/Clients.astro'
+import Team from '@/components/home/team/Team.astro'
 
 // Home page content
 const pageContent = {
@@ -20,11 +18,11 @@ const pageContent = {
 
 <Layout title={pageContent.title} description={pageContent.description}>
 	<main class="nav-padding">
-		<Hero1 />
-		<MapSection />
-		<ServicesSection />
-		<ImpactSection />
-		<ClientsSection />
-		<TeamSection />
+		<Hero />
+		<Map />
+		<Services />
+		<Impact />
+		<Clients />
+		<Team />
 	</main>
 </Layout>

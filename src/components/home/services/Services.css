@@ -27,7 +27,6 @@
 	}
 
 	.btn-read-more {
-		@apply btn btn-outline;
 		@apply mx-auto mt-10;
 		@apply flex text-center;
 		@apply max-w-[420px] rounded-full text-[10px];
