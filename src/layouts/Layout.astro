@@ -9,13 +9,12 @@ import '@fontsource/geist-mono'
 import '@/styles/global.css'
 import { ClientRouter } from 'astro:transitions'
 import { SEO } from 'astro-seo'
-import { getLangFromUrl } from '@/i18n/utils'
 import { withBase } from '@/utils/url'
 import Footer from '@/components/layout/Footer.astro'
 import { Image } from 'astro:assets'
 import logoIcon from '@/assets/logo.svg'
 
-const lang = getLangFromUrl(Astro.url)
+const lang = 'en'
 ---
 
 <!doctype html>

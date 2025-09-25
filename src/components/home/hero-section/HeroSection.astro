@@ -1,11 +1,36 @@
 ---
-import { getLangFromUrl, useTranslations } from '@/i18n/utils'
 import './HeroSection.css'
-const lang = getLangFromUrl(Astro.url)
-const t = useTranslations(lang)
 import heroLeftImg from '@/assets/home/hero-left.png'
 import heroRightImg from '@/assets/home/hero-right.png'
 import { Image } from 'astro:assets'
+
+// Big numbers data
+const bigNumbers = [
+	{
+		number: '200',
+		text: {
+			first: 'Projects',
+			second: 'Delivered',
+			bold: 'first'
+		}
+	},
+	{
+		number: '150',
+		text: {
+			first: 'Partnerships',
+			second: 'Established',
+			bold: 'second'
+		}
+	},
+	{
+		number: '98%',
+		text: {
+			first: 'Active',
+			second: 'Collaborators',
+			bold: 'first'
+		}
+	}
+]
 ---
 
 <section class="home-hero-section relative container py-20">
@@ -21,7 +46,7 @@ import { Image } from 'astro:assets'
 	<Image src={heroRightImg} alt="Hero Image" class="right-image" />
 	<div class="big-number-section">
 		{
-			Object.entries(t('home.bigNumbers')).map(([key, item]: [string, any]) => (
+			bigNumbers.map((item) => (
 				<div class="big-number">
 					<div class="content">
 						<div class="number-container">
@@ -48,7 +73,5 @@ import { Image } from 'astro:assets'
 		}
 	</div>
 
-	<a href="/contact" class="btn-contact">
-		{t('home.contactButton')}
-	</a>
+	<a href="/contact" class="btn-contact"> Let's transform your business? Contact Us </a>
 </section>

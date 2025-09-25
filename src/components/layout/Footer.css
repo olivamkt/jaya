@@ -15,14 +15,14 @@
 		@apply flex items-center justify-center;
 		@apply relative ml-5 text-[10px];
 
+		&:hover .icon {
+			transform: rotate(45deg);
+		}
+
 		.icon {
 			@apply h-[48px] w-[52px];
 			@apply absolute top-0 right-0;
 			transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
-
-			&:hover {
-				transform: rotate(45deg);
-			}
 		}
 	}
 

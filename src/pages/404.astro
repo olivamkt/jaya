@@ -1,21 +1,26 @@
 ---
 import Layout from '@/layouts/Layout.astro'
-import { getLangFromUrl, useTranslations, getTranslatedPath } from '@/i18n/utils'
 
-const lang = getLangFromUrl(Astro.url)
-const t = useTranslations(lang)
+// 404 page content
+const pageContent = {
+	title: 'Page not found',
+	description: 'The page you are looking for does not exist',
+	heading: 'Page not found',
+	message: 'The page you are looking for does not exist',
+	backLink: 'Back to home'
+}
 ---
 
-<Layout title={t('404.title')} description={t('404.description')}>
+<Layout title={pageContent.title} description={pageContent.description}>
 	<main>
 		<section class="flex lg:min-h-[92svh]">
 			<div class="container flex flex-col items-center justify-center gap-6 py-20 md:py-40">
 				<p class="font-heading text-6xl font-bold">404</p>
 				<h1 class="font-heading text-4xl font-medium">
-					{t('404.content.1')}
+					{pageContent.heading}
 				</h1>
-				<p class="mt-4 text-center">{t('404.content.2')}</p>
-				<a href={getTranslatedPath('/', lang)}>{t('404.back')}</a>
+				<p class="mt-4 text-center">{pageContent.message}</p>
+				<a href="/">{pageContent.backLink}</a>
 			</div>
 		</section>
 	</main>

@@ -1,11 +1,7 @@
 ---
-import { getLangFromUrl, useTranslations } from '@/i18n/utils'
 import './TeamSection.css'
 import { Image } from 'astro:assets'
 import teamImg from '@/assets/home/team.png'
-
-const lang = getLangFromUrl(Astro.url)
-const t = useTranslations(lang)
 ---
 
 <section class="home-team-section py-20">
