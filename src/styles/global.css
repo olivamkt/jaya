@@ -52,6 +52,9 @@
 }
 
 @layer base {
+	* {
+		@apply focus:outline-none focus-visible:ring;
+	}
 	html {
 		font-family: 'Open Sauce One', sans-serif;
 		@apply scroll-smooth;
@@ -62,8 +65,8 @@
 		@apply bg-body text-sm antialiased;
 	}
 
-	* {
-		@apply focus:outline-none focus-visible:ring;
+	.nav-padding {
+		@apply pt-[110px];
 	}
 }
 
