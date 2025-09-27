@@ -78,7 +78,7 @@ const lang = 'en'
 						</li>
 						<li>
 							<!-- <a href={withBase('services')}>services</a> -->
-							<div class="dropdown">
+							<div class="dropdown dropdown-hover">
 								<a tabindex="0" role="button">services</a>
 								<ul
 									tabindex="0"
@@ -103,3 +103,19 @@ const lang = 'en'
 		<Footer />
 	</body>
 </html>
+
+<style>
+	/* Fix para dropdown hover - evita que feche quando o mouse passa entre o botão e o dropdown */
+	.dropdown-hover:hover .dropdown-content {
+		display: block;
+	}
+
+	.dropdown-hover .dropdown-content {
+		margin-top: 4px; /* Adiciona um pequeno gap visual */
+	}
+
+	/* Garante que o dropdown permaneça aberto quando o mouse está sobre ele */
+	.dropdown-hover .dropdown-content:hover {
+		display: block;
+	}
+</style>
