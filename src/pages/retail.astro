@@ -1,0 +1,43 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import ServiceHero from '@/components/services/hero/ServiceHero.astro'
+
+const title = 'revolutionizing retail with'
+const subtitle = 'digital innovation.'
+const description =
+	'We create powerful retail technology solutions that enhance customer experiences, optimize operations, and drive growth for modern retailers in an increasingly digital marketplace.'
+
+const metrics = [
+	{
+		value: '+75M',
+		label: 'transactions processed'
+	},
+	{
+		value: '+20',
+		label: 'retail projects'
+	},
+	{
+		value: '+6',
+		label: 'years experience'
+	}
+]
+
+const ctaText = 'Get in touch'
+const ctaLink = '/contact'
+---
+
+<Layout
+	title="Retail Solutions - Jaya Tech"
+	description="Revolutionizing retail with digital innovation and technology solutions"
+>
+	<main>
+		<ServiceHero
+			title={title}
+			subtitle={subtitle}
+			description={description}
+			metrics={metrics}
+			ctaText={ctaText}
+			ctaLink={ctaLink}
+		/>
+	</main>
+</Layout>

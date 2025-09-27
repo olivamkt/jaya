@@ -35,20 +35,48 @@ const bigNumbers = [
 <style>
 	@reference "../../../styles/global.css";
 
+	@keyframes slide-right {
+		0% {
+			-webkit-transform: translateX(0);
+			transform: translateX(0);
+		}
+		100% {
+			-webkit-transform: translateX(100px);
+			transform: translateX(100px);
+		}
+	}
+
+	@keyframes slide-left {
+		0% {
+			-webkit-transform: translateX(0);
+			transform: translateX(0);
+		}
+		100% {
+			-webkit-transform: translateX(-100px);
+			transform: translateX(-100px);
+		}
+	}
+
 	.hero-section {
 		.description {
-			@apply bg-body mx-auto my-40;
-			@apply max-w-[450px] text-center normal-case;
+			@apply bg-body;
+			@apply mx-auto my-40;
+			@apply max-w-[450px];
+			@apply text-center normal-case;
 		}
 
 		.left-image {
-			@apply absolute top-1/2 left-0;
+			@apply absolute;
+			@apply top-1/2 left-[-100px];
 			@apply h-[260px] w-[275px];
+			animation: slide-right 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 		}
 
 		.right-image {
-			@apply absolute top-[30%] right-0;
+			@apply absolute;
+			@apply top-[30%] right-[-100px];
 			@apply h-[260px] w-[275px];
+			animation: slide-left 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 		}
 
 		.big-number-section {
@@ -64,12 +92,14 @@ const bigNumbers = [
 		}
 
 		.number-container {
-			@apply relative h-[90px] w-[90px];
+			@apply relative;
+			@apply h-[90px] w-[90px];
 			@apply bg-primary text-body text-[36px];
 			@apply rounded-tl-[30%] rounded-br-[30%];
 
 			&:before {
-				@apply absolute -bottom-[14px] -left-[20px];
+				@apply absolute;
+				@apply -bottom-[14px] -left-[20px];
 				@apply w-[60px];
 				@apply text-primary text-[36px] font-bold;
 				content: '+';
@@ -77,7 +107,8 @@ const bigNumbers = [
 		}
 
 		.number {
-			@apply absolute -bottom-[14px] left-0;
+			@apply absolute;
+			@apply -bottom-[14px] left-0;
 			@apply text-[36px] font-bold;
 		}
 

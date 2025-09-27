@@ -6,17 +6,20 @@
 	@reference "../../../styles/global.css";
 
 	.reviews-section {
-		@apply bg-primary py-20;
+		@apply bg-primary;
+		@apply py-20;
 
 		.container {
 			@apply relative;
 		}
 
 		.section-header {
-			@apply mb-16 text-center;
+			@apply mb-16;
+			@apply text-center;
 
 			.section-label {
-				@apply mb-4 text-sm tracking-wider text-white uppercase;
+				@apply mb-4;
+				@apply text-sm tracking-wider text-white uppercase;
 			}
 
 			.section-title {
@@ -33,17 +36,20 @@
 		}
 
 		.testimonial-content {
-			@apply mb-12 text-center;
+			@apply mb-12;
+			@apply text-center;
 
 			.testimonial-text {
-				@apply mx-auto mb-8 max-w-4xl text-lg leading-relaxed text-white;
+				@apply mx-auto mb-8;
+				@apply max-w-4xl text-lg leading-relaxed text-white;
 			}
 
 			.testimonial-attribution {
 				@apply text-white;
 
 				.name {
-					@apply mb-1 text-xl font-bold;
+					@apply mb-1;
+					@apply text-xl font-bold;
 				}
 
 				.company {
@@ -53,13 +59,21 @@
 		}
 
 		.navigation-arrows {
-			@apply pointer-events-none absolute top-1/2 flex w-full -translate-y-1/2 transform justify-between;
+			@apply absolute top-1/2;
+			@apply flex w-full;
+			@apply -translate-y-1/2 transform justify-between;
+			@apply pointer-events-none;
 
 			.arrow {
-				@apply bg-primary-light hover:bg-primary-light/80 pointer-events-auto flex h-12 w-12 cursor-pointer items-center justify-center rounded-full transition-colors;
+				@apply bg-primary-light hover:bg-primary-light/80;
+				@apply flex h-12 w-12;
+				@apply cursor-pointer items-center justify-center;
+				@apply rounded-full transition-colors;
+				@apply pointer-events-auto;
 
 				svg {
-					@apply h-6 w-6 text-white;
+					@apply h-6 w-6;
+					@apply text-white;
 				}
 			}
 
@@ -73,23 +87,23 @@
 		}
 
 		.decorative-lines {
-			@apply absolute inset-y-0 w-px;
+			@apply absolute inset-y-0;
+			@apply w-px;
 
 			&.line-left {
-				@apply left-0 bg-purple-500;
+				@apply left-0;
+				@apply bg-purple-500;
 			}
 
 			&.line-right {
-				@apply right-0 bg-purple-500;
+				@apply right-0;
+				@apply bg-purple-500;
 			}
 		}
 	}
 </style>
 
 <section class="reviews-section">
-	<div class="decorative-lines line-left"></div>
-	<div class="decorative-lines line-right"></div>
-
 	<div class="container">
 		<div class="section-header">
 			<div class="section-label">REVIEWS</div>

@@ -1,0 +1,43 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import ServiceHero from '@/components/services/hero/ServiceHero.astro'
+
+const title = 'building the future of finance, safely.'
+const subtitle = ''
+const description =
+	'We partner with fintech companies to build secure, scalable, and innovative financial solutions that transform how people manage money and conduct transactions.'
+
+const metrics = [
+	{
+		value: '+100M',
+		label: 'users impacted'
+	},
+	{
+		value: '+30',
+		label: 'fintech squads'
+	},
+	{
+		value: '+10',
+		label: 'years experience'
+	}
+]
+
+const ctaText = 'Get in touch'
+const ctaLink = '/contact'
+---
+
+<Layout
+	title="Fintech Solutions - Jaya Tech"
+	description="Building the future of finance with secure, scalable fintech solutions"
+>
+	<main>
+		<ServiceHero
+			title={title}
+			subtitle={subtitle}
+			description={description}
+			metrics={metrics}
+			ctaText={ctaText}
+			ctaLink={ctaLink}
+		/>
+	</main>
+</Layout>

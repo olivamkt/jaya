@@ -1,0 +1,134 @@
+---
+interface Props {
+	title: string
+	subtitle: string
+	description: string
+	metrics: Array<{
+		value: string
+		label: string
+	}>
+	ctaText: string
+	ctaLink: string
+}
+const { title, subtitle, description, metrics, ctaText, ctaLink } = Astro.props
+---
+
+<style>
+	@reference "../../../styles/global.css";
+
+	.service-hero-section {
+		@apply py-20;
+		@apply min-h-[600px];
+
+		.container {
+			@apply container;
+			@apply flex items-center gap-10;
+		}
+
+		.image-column {
+			@apply relative;
+			@apply w-1/2;
+
+			.placeholder-image {
+				@apply h-[400px] w-full;
+				@apply border-2 border-dashed;
+				@apply border-primary/30;
+				@apply rounded-lg;
+				@apply bg-gray-50;
+				@apply flex items-center justify-center;
+				@apply text-primary/50;
+			}
+		}
+
+		.content-column {
+			@apply w-1/2;
+
+			h1 {
+				@apply text-primary;
+				@apply mb-8;
+				@apply text-4xl leading-tight font-bold;
+
+				.title-bold {
+					@apply font-bold;
+				}
+
+				.title-normal {
+					@apply font-normal;
+				}
+			}
+
+			.description {
+				@apply text-primary;
+				@apply mb-12;
+				@apply text-lg leading-relaxed;
+			}
+
+			.metrics-grid {
+				@apply mb-12;
+				@apply grid grid-cols-1 gap-4;
+			}
+
+			.metric-card {
+				@apply bg-primary text-white;
+				@apply p-6;
+				@apply rounded-tl-[20px] rounded-br-[20px];
+
+				.metric-value {
+					@apply text-3xl font-bold;
+					@apply mb-2;
+				}
+
+				.metric-label {
+					@apply text-sm;
+					@apply opacity-90;
+				}
+			}
+
+			.cta-button {
+				@apply btn btn-outline btn-primary btn-wide;
+				@apply rounded-full;
+			}
+		}
+	}
+</style>
+
+<section class="service-hero-section">
+	<div class="container">
+		<div class="image-column">
+			<div class="placeholder-image">
+				<div class="text-center">
+					<svg class="mx-auto mb-4 h-16 w-16 opacity-50" fill="currentColor" viewBox="0 0 20 20">
+						<path
+							fill-rule="evenodd"
+							d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"
+							clip-rule="evenodd"></path>
+					</svg>
+					<p>Service Image Placeholder</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="content-column">
+			<h1>
+				<span class="title-bold">{title}</span>
+				<br />
+				<span class="title-normal">{subtitle}</span>
+			</h1>
+
+			<p class="description">{description}</p>
+
+			<div class="metrics-grid">
+				{
+					metrics.map((metric) => (
+						<div class="metric-card">
+							<div class="metric-value">{metric.value}</div>
+							<div class="metric-label">{metric.label}</div>
+						</div>
+					))
+				}
+			</div>
+
+			<a href={ctaLink} class="cta-button">{ctaText}</a>
+		</div>
+	</div>
+</section>

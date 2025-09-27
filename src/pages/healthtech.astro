@@ -1,0 +1,43 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import ServiceHero from '@/components/services/hero/ServiceHero.astro'
+
+const title = 'transforming healthcare through'
+const subtitle = 'innovative technology.'
+const description =
+	'We develop cutting-edge healthtech solutions that improve patient care, streamline medical workflows, and enhance healthcare accessibility for providers and patients worldwide.'
+
+const metrics = [
+	{
+		value: '+50M',
+		label: 'patients served'
+	},
+	{
+		value: '+25',
+		label: 'healthtech projects'
+	},
+	{
+		value: '+8',
+		label: 'years experience'
+	}
+]
+
+const ctaText = 'Get in touch'
+const ctaLink = '/contact'
+---
+
+<Layout
+	title="Healthtech Solutions - Jaya Tech"
+	description="Transforming healthcare through innovative technology solutions"
+>
+	<main>
+		<ServiceHero
+			title={title}
+			subtitle={subtitle}
+			description={description}
+			metrics={metrics}
+			ctaText={ctaText}
+			ctaLink={ctaLink}
+		/>
+	</main>
+</Layout>

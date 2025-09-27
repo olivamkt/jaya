@@ -7,25 +7,30 @@ import servicesImg from '@/assets/home/services.png'
 	@reference "../../../styles/global.css";
 
 	.services-section {
-		@apply bg-teal min-h-[735px];
+		@apply bg-teal;
+		@apply min-h-[735px];
 
 		.services-image {
+			@apply absolute;
+			@apply top-[-50px] left-[-20px];
 			@apply w-[318px];
-			@apply absolute top-[-50px] left-[-20px];
 		}
 
 		.services-list {
-			@apply mt-40 flex flex-wrap gap-8;
+			@apply mt-40;
+			@apply flex flex-wrap gap-8;
 			@apply mx-auto max-w-[784px];
 		}
 
 		.service-item {
-			@apply bg-primary-light w-[240px] text-white;
+			@apply bg-primary-light text-white;
+			@apply w-[240px];
 			@apply rounded-bl-[50px] px-8 py-6;
 		}
 
 		.service-item-title {
-			@apply mb-4 text-[16px] font-bold;
+			@apply mb-4;
+			@apply text-[16px] font-bold;
 		}
 
 		.service-item-text {

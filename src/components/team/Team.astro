@@ -11,11 +11,13 @@ import teamImg from '@/assets/home/team.png'
 
 		.container {
 			&:after {
-				@apply bg-white content-[''];
-				@apply absolute bottom-[-5rem];
+				@apply bg-white;
+				@apply absolute;
+				@apply bottom-[-5rem];
 				@apply h-[200px] w-full;
 				@apply rounded-tl-[50px] rounded-tr-[50px];
 				@apply z-0;
+				content: '';
 			}
 		}
 

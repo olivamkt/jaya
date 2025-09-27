@@ -1,0 +1,43 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import ServiceHero from '@/components/services/hero/ServiceHero.astro'
+
+const title = 'scaling SaaS platforms with'
+const subtitle = 'enterprise-grade solutions.'
+const description =
+	'We build robust, scalable SaaS applications that grow with your business, providing seamless user experiences and powerful backend infrastructure for sustainable growth.'
+
+const metrics = [
+	{
+		value: '+200M',
+		label: 'API calls handled'
+	},
+	{
+		value: '+40',
+		label: 'SaaS platforms built'
+	},
+	{
+		value: '+12',
+		label: 'years experience'
+	}
+]
+
+const ctaText = 'Get in touch'
+const ctaLink = '/contact'
+---
+
+<Layout
+	title="SaaS Solutions - Jaya Tech"
+	description="Scaling SaaS platforms with enterprise-grade technology solutions"
+>
+	<main>
+		<ServiceHero
+			title={title}
+			subtitle={subtitle}
+			description={description}
+			metrics={metrics}
+			ctaText={ctaText}
+			ctaLink={ctaLink}
+		/>
+	</main>
+</Layout>
