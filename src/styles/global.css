@@ -73,17 +73,18 @@
 .nav-container {
 	@apply fixed top-0 left-0 z-10 w-full;
 	@apply flex h-[110px];
+	@apply z-100;
 
 	.background {
-		@apply absolute top-0 left-0 h-full w-full;
-		@apply rounded-none bg-white lg:rounded-br-[100px];
+		@apply absolute top-0 left-0 h-full w-[95vw];
+		@apply rounded-none bg-white lg:rounded-br-[50px];
 	}
 
 	nav {
 		@apply ml-auto self-center;
 
 		a {
-			@apply text-primary normal-case italic underline;
+			@apply text-primary normal-case italic;
 		}
 	}
 

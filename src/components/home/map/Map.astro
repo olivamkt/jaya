@@ -1,6 +1,18 @@
 ---
-import './Map.css'
+
 ---
+
+<style>
+	@reference "../../../styles/global.css";
+
+	.map-section {
+		@apply bg-blue min-h-[735px];
+
+		.btn-get-in-touch {
+			@apply my-5;
+		}
+	}
+</style>
 
 <section class="map-section py-20">
 	<div class="container">
@@ -9,7 +21,7 @@ import './Map.css'
 				<h2 class="font-aswatama">Driving results nationwide</h2>
 				<h3 class="my-10 text-[28px]">Our presence<br /> across america</h3>
 				<p>
-					Jaya’s nearshore teams are already delivering impact across the U.S. from California to
+					Jaya's nearshore teams are already delivering impact across the U.S. from California to
 					New York.
 				</p>
 
@@ -18,7 +30,7 @@ import './Map.css'
 					long-term value wherever your team is based.
 				</p>
 
-				<a class="btn btn-outline btn-get-in-touch">Get in touch</a>
+				<a class="btn btn-outline btn-get-in-touch btn-wide rounded-full">Get in touch</a>
 			</div>
 			<div class="w-3/4">
 				<!-- Map component would go here -->

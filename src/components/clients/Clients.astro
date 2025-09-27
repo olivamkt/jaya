@@ -1,9 +1,22 @@
 ---
-import './Clients.css'
 import { Image } from 'astro:assets'
 ---
 
-<section class="home-clients-section py-20">
+<style>
+	@reference "../../styles/global.css";
+
+	.clients-section {
+		@apply text-primary bg-gray-light;
+
+		.btn-see-more {
+			@apply mx-auto mt-10;
+			@apply flex text-center;
+			@apply max-w-[420px] rounded-full;
+		}
+	}
+</style>
+
+<section class="clients-section py-20">
 	<div class="container">
 		<div class="text-center">Trusted by innovators</div>
 		<h2 class="title text-center">Our clients</h2>
@@ -13,6 +26,6 @@ import { Image } from 'astro:assets'
 		</p>
 		<div class="flags"></div>
 		<div class="clients-list"></div>
-		<a href="/clients" class="btn-see-more">See our cases</a>
+		<a href="/clients" class="btn btn-outline btn-see-more btn-wide rounded-full">See our cases</a>
 	</div>
 </section>

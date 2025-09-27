@@ -1,5 +1,4 @@
 ---
-import './Hero.css'
 import heroLeftImg from '@/assets/home/hero-left.png'
 import heroRightImg from '@/assets/home/hero-right.png'
 import { Image } from 'astro:assets'
@@ -33,7 +32,70 @@ const bigNumbers = [
 ]
 ---
 
-<section class="home-hero-section relative container py-20">
+<style>
+	@reference "../../../styles/global.css";
+
+	.hero-section {
+		.description {
+			@apply bg-body mx-auto my-40;
+			@apply max-w-[450px] text-center normal-case;
+		}
+
+		.left-image {
+			@apply absolute top-1/2 left-0;
+			@apply h-[260px] w-[275px];
+		}
+
+		.right-image {
+			@apply absolute top-[30%] right-0;
+			@apply h-[260px] w-[275px];
+		}
+
+		.big-number-section {
+			@apply mx-auto my-[50px];
+			@apply flex justify-center gap-[100px];
+		}
+
+		.big-number {
+		}
+
+		.content {
+			@apply bottom-0 flex;
+		}
+
+		.number-container {
+			@apply relative h-[90px] w-[90px];
+			@apply bg-primary text-body text-[36px];
+			@apply rounded-tl-[30%] rounded-br-[30%];
+
+			&:before {
+				@apply absolute -bottom-[14px] -left-[20px];
+				@apply w-[60px];
+				@apply text-primary text-[36px] font-bold;
+				content: '+';
+			}
+		}
+
+		.number {
+			@apply absolute -bottom-[14px] left-0;
+			@apply text-[36px] font-bold;
+		}
+
+		.text {
+			@apply mt-10 mt-auto ml-2;
+			@apply text-primary text-[12px] normal-case italic;
+		}
+
+		.btn-contact {
+			@apply mx-auto;
+			@apply flex max-w-[420px] text-center;
+			@apply rounded-full;
+			@apply text-primary-light border-primary-light;
+		}
+	}
+</style>
+
+<section class="hero-section relative container py-20">
 	<h1 class="mx-auto max-w-[450px] text-7xl font-bold">reliable software squad</h1>
 	<div class="description">
 		Jaya is a fully remote software consulting company, founded in 2012 and partnering with U.S.
@@ -73,7 +135,7 @@ const bigNumbers = [
 		}
 	</div>
 
-	<a href="/contact" class="btn btn-outline btn-contact">
+	<a href="/contact" class="btn btn-outline btn-contact rounded-full">
 		Let's transform your business? Contact Us
 	</a>
 </section>

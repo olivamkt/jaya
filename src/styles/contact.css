@@ -108,7 +108,6 @@
 				}
 
 				.btn-submit {
-					@apply btn btn-outline;
 					@apply flex text-center;
 					@apply max-w-[420px] rounded-full;
 					@apply text-primary-light border-primary-light;

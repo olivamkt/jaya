@@ -1,8 +1,45 @@
 ---
-import './Services.css'
 import { Image } from 'astro:assets'
 import servicesImg from '@/assets/home/services.png'
 ---
+
+<style>
+	@reference "../../../styles/global.css";
+
+	.services-section {
+		@apply bg-teal min-h-[735px];
+
+		.services-image {
+			@apply w-[318px];
+			@apply absolute top-[-50px] left-[-20px];
+		}
+
+		.services-list {
+			@apply mt-40 flex flex-wrap gap-8;
+			@apply mx-auto max-w-[784px];
+		}
+
+		.service-item {
+			@apply bg-primary-light w-[240px] text-white;
+			@apply rounded-bl-[50px] px-8 py-6;
+		}
+
+		.service-item-title {
+			@apply mb-4 text-[16px] font-bold;
+		}
+
+		.service-item-text {
+			@apply text-sm;
+		}
+
+		.btn-read-more {
+			@apply mx-auto mt-10;
+			@apply flex text-center;
+			@apply max-w-[420px] rounded-full;
+			@apply text-primary-light border-primary-light;
+		}
+	}
+</style>
 
 <section class="services-section py-20">
 	<div class="container">
@@ -14,7 +51,7 @@ import servicesImg from '@/assets/home/services.png'
 				<h2 class="font-aswatama">Services</h2>
 				<h3 class="my-8 text-[28px]">mission-driven nearshoring for high-impact projects.</h3>
 				<p>
-					At Jaya, software is more than lines of code, it’s a strategic asset built with intention,
+					At Jaya, software is more than lines of code, it's a strategic asset built with intention,
 					precision, and purpose. Our conscious software engineering model blends technical
 					excellence with human understanding, enabling teams to collaborate better, ship faster,
 					and deliver real business outcomes. With a nearshore structure, we work in sync with your
@@ -69,6 +106,8 @@ import servicesImg from '@/assets/home/services.png'
 				</p>
 			</div>
 		</div>
-		<a href="/services" class="btn btn-outline btn-read-more">Explore Industry Solutions</a>
+		<a href="/services" class="btn btn-outline btn-read-more btn-wide rounded-full"
+			>Explore Industry Solutions</a
+		>
 	</div>
 </section>

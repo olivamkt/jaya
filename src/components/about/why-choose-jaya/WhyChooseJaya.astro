@@ -1,0 +1,117 @@
+---
+import { Image } from 'astro:assets'
+import teamImg from '@/assets/home/team.png'
+---
+
+<style>
+	@reference "../../../styles/global.css";
+
+	.why-choose-jaya-section {
+		@apply py-20;
+
+		.content-container {
+			@apply container flex items-center gap-10;
+		}
+
+		.image-content {
+			@apply relative w-1/2;
+
+			.teamwork-image {
+				@apply h-auto w-full rounded-lg;
+			}
+
+			.organic-shape {
+				@apply absolute -top-10 -left-10 h-32 w-32 rounded-full bg-purple-500/30 blur-xl;
+			}
+		}
+
+		.text-content {
+			h2 {
+				@apply text-primary mb-8 text-4xl font-bold;
+			}
+
+			.intro-text {
+				@apply text-primary mb-12 text-lg leading-relaxed;
+			}
+
+			.advantages-grid {
+				@apply flex gap-6;
+			}
+
+			.advantage-box {
+				@apply bg-primary-light rounded-tr-[50px] rounded-bl-[50px] p-6 text-white;
+			}
+
+			.advantage-number {
+				@apply mb-2 text-lg font-bold;
+			}
+
+			.advantage-title {
+				@apply mb-2 font-bold;
+			}
+
+			.advantage-text {
+				@apply text-sm;
+			}
+		}
+
+		.cta-button {
+			@apply btn btn-outline mt-10 max-w-[420px] rounded-full;
+			@apply text-primary-light border-primary-light;
+			@apply ml-auto flex;
+		}
+	}
+</style>
+
+<section class="why-choose-jaya-section">
+	<div class="content-container">
+		<div class="image-content">
+			<!-- <Image
+				src={teamImg}
+				alt="Teamwork hands stacked together"
+				class="teamwork-image"
+				width={500}
+				height={400}
+			/> -->
+		</div>
+
+		<div class="text-content">
+			<h2>why choose Jaya?</h2>
+			<p class="intro-text">
+				In the digital age, finding the right partner to boost your company with strategic
+				technology is essential. Jaya Tech goes beyond software development - we build custom teams,
+				combining technology and business vision to generate real impact. With an innovative and
+				humanized approach, we guarantee agility, precision and personalization in each project. See
+				what sets us apart:
+			</p>
+
+			<div class="advantages-grid">
+				<div class="advantage-box">
+					<div class="advantage-number">1. Agility</div>
+					<div class="advantage-text">
+						Our team works with dynamism and efficiency to deliver solutions that meet your business
+						demands in the shortest possible time, without losing quality.
+					</div>
+				</div>
+
+				<div class="advantage-box">
+					<div class="advantage-number">2. Capability</div>
+					<div class="advantage-text">
+						We have a highly qualified team, specialists in technology and innovation, ready to
+						solve complex challenges and create scalable solutions.
+					</div>
+				</div>
+
+				<div class="advantage-box">
+					<div class="advantage-number">3. Flexibility</div>
+					<div class="advantage-text">
+						Every company is unique. That's why we adapt our solutions to your needs, ensuring
+						personalized, strategic and high-performance service.
+					</div>
+				</div>
+			</div>
+
+			<a href="/contact" class="cta-button">Let's transform your business? Contact Us</a>
+		</div>
+	</div>
+</section>

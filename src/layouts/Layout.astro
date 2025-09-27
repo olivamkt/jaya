@@ -77,10 +77,19 @@ const lang = 'en'
 							<a href={withBase('about')}>about</a>
 						</li>
 						<li>
-							<a href={withBase('services')}>services</a>
-						</li>
-						<li>
-							<a href={withBase('cases')}>cases</a>
+							<!-- <a href={withBase('services')}>services</a> -->
+							<div class="dropdown">
+								<a tabindex="0" role="button">services</a>
+								<ul
+									tabindex="0"
+									class="dropdown-content menu bg-base-100 rounded-box z-1 ml-0 w-52 p-2 shadow-sm"
+								>
+									<li><a>fintech</a></li>
+									<li><a>healthtech</a></li>
+									<li><a>retail</a></li>
+									<li><a>saas</a></li>
+								</ul>
+							</div>
 						</li>
 						<li>
 							<a href={withBase('contact')}>contact</a>

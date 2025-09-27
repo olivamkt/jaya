@@ -1,10 +1,33 @@
 ---
-import './Team.css'
 import { Image } from 'astro:assets'
 import teamImg from '@/assets/home/team.png'
 ---
 
-<section class="home-team-section py-20">
+<style>
+	@reference "../../styles/global.css";
+
+	.team-section {
+		@apply bg-primary-light text-white;
+
+		.container {
+			&:after {
+				@apply bg-white content-[''];
+				@apply absolute bottom-[-5rem];
+				@apply h-[200px] w-full;
+				@apply rounded-tl-[50px] rounded-tr-[50px];
+				@apply z-0;
+			}
+		}
+
+		.btn-see-more {
+			@apply mx-auto mt-10;
+			@apply flex text-center;
+			@apply max-w-[420px] rounded-full;
+		}
+	}
+</style>
+
+<section class="team-section py-20">
 	<div class="relative container">
 		<div class="text-center">Great People Build Great Products</div>
 		<h2 class="title text-center">we develop people while they develop software</h2>
@@ -12,7 +35,7 @@ import teamImg from '@/assets/home/team.png'
 			Get to know how our people-first culture fuels performance, creating committed, resilient
 			teams with low turnover and high delivery consistency.
 		</p>
-		<a href="/about" class="btn-see-more">Meet our culture</a>
+		<a href="/about" class="btn btn-outline btn-see-more btn-wide rounded-full">Meet our culture</a>
 		<div class="team-grid relative z-1">
 			<Image src={teamImg} alt="Team Image" class="team-image" />
 		</div>

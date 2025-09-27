@@ -1,0 +1,141 @@
+---
+
+---
+
+<style>
+	@reference "../../../styles/global.css";
+
+	.reviews-section {
+		@apply bg-primary py-20;
+
+		.container {
+			@apply relative;
+		}
+
+		.section-header {
+			@apply mb-16 text-center;
+
+			.section-label {
+				@apply mb-4 text-sm tracking-wider text-white uppercase;
+			}
+
+			.section-title {
+				@apply text-4xl font-bold text-white;
+
+				.title-part-1 {
+					@apply font-bold;
+				}
+
+				.title-part-2 {
+					@apply font-normal italic;
+				}
+			}
+		}
+
+		.testimonial-content {
+			@apply mb-12 text-center;
+
+			.testimonial-text {
+				@apply mx-auto mb-8 max-w-4xl text-lg leading-relaxed text-white;
+			}
+
+			.testimonial-attribution {
+				@apply text-white;
+
+				.name {
+					@apply mb-1 text-xl font-bold;
+				}
+
+				.company {
+					@apply text-sm font-light opacity-90;
+				}
+			}
+		}
+
+		.navigation-arrows {
+			@apply pointer-events-none absolute top-1/2 flex w-full -translate-y-1/2 transform justify-between;
+
+			.arrow {
+				@apply bg-primary-light hover:bg-primary-light/80 pointer-events-auto flex h-12 w-12 cursor-pointer items-center justify-center rounded-full transition-colors;
+
+				svg {
+					@apply h-6 w-6 text-white;
+				}
+			}
+
+			.arrow-left {
+				@apply -left-6;
+			}
+
+			.arrow-right {
+				@apply -right-6;
+			}
+		}
+
+		.decorative-lines {
+			@apply absolute inset-y-0 w-px;
+
+			&.line-left {
+				@apply left-0 bg-purple-500;
+			}
+
+			&.line-right {
+				@apply right-0 bg-purple-500;
+			}
+		}
+	}
+</style>
+
+<section class="reviews-section">
+	<div class="decorative-lines line-left"></div>
+	<div class="decorative-lines line-right"></div>
+
+	<div class="container">
+		<div class="section-header">
+			<div class="section-label">REVIEWS</div>
+			<h2 class="section-title">
+				<span class="title-part-1">customer</span>
+				<span class="title-part-2">voices</span>
+			</h2>
+		</div>
+
+		<div class="testimonial-content">
+			<p class="testimonial-text">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+				labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+				laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+				voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+				cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			</p>
+
+			<div class="testimonial-attribution">
+				<div class="name">Ana Silva</div>
+				<div class="company">Healthtech</div>
+			</div>
+		</div>
+
+		<div class="navigation-arrows">
+			<button class="arrow arrow-left" aria-label="Previous testimonial">
+				<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path
+						d="M15 18L9 12L15 6"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"></path>
+				</svg>
+			</button>
+
+			<button class="arrow arrow-right" aria-label="Next testimonial">
+				<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path
+						d="M9 18L15 12L9 6"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"></path>
+				</svg>
+			</button>
+		</div>
+	</div>
+</section>
