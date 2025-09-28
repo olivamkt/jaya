@@ -2,9 +2,10 @@
 import heroLeftImg from '@/assets/home/hero-left.png'
 import heroRightImg from '@/assets/home/hero-right.png'
 import { Image } from 'astro:assets'
+import { withBase } from '@/utils/url'
 
-// Big numbers data
-const bigNumbers = [
+// Statistics data
+const statistics = [
 	{
 		number: '200',
 		text: {
@@ -33,140 +34,231 @@ const bigNumbers = [
 ---
 
 <style>
-	@reference "../../../styles/global.css";
+	@import '../../../styles/global.css';
 
-	@keyframes slide-right {
+	@keyframes slideInFromRight {
 		0% {
-			-webkit-transform: translateX(0);
-			transform: translateX(0);
+			transform: translateX(-100px);
+			opacity: 0;
 		}
 		100% {
-			-webkit-transform: translateX(100px);
-			transform: translateX(100px);
+			transform: translateX(0);
+			opacity: 1;
 		}
 	}
 
-	@keyframes slide-left {
+	@keyframes slideInFromLeft {
 		0% {
-			-webkit-transform: translateX(0);
-			transform: translateX(0);
+			transform: translateX(100px);
+			opacity: 0;
 		}
 		100% {
-			-webkit-transform: translateX(-100px);
-			transform: translateX(-100px);
+			transform: translateX(0);
+			opacity: 1;
+		}
+	}
+
+	@keyframes slideFromLeft {
+		0% {
+			transform: translateX(-100%);
+			opacity: 0;
+		}
+		10% {
+			transform: translateX(0);
+		}
+		30% {
+			transform: translateX(0);
+			opacity: 1;
+		}
+		40% {
+			transform: translateX(-100%);
+			opacity: 0;
+		}
+		100% {
+			opacity: 0;
+		}
+	}
+
+	@keyframes slideFromRight {
+		0% {
+			transform: translateX(100%);
+			opacity: 0;
+		}
+		10% {
+			transform: translateX(0);
+		}
+		30% {
+			transform: translateX(0);
+			opacity: 1;
+		}
+		40% {
+			transform: translateX(100%);
+			opacity: 0;
+		}
+		100% {
+			opacity: 0;
 		}
 	}
 
 	.hero-section {
-		.description {
-			@apply bg-body;
-			@apply mx-auto my-40;
-			@apply max-w-[450px];
-			@apply text-center normal-case;
-		}
+		@apply relative;
+	}
 
-		.left-image {
-			@apply absolute;
-			@apply top-1/2 left-[-100px];
-			@apply h-[260px] w-[275px];
-			animation: slide-right 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-		}
+	.hero-slider {
+		@apply relative mx-auto;
+		@apply flex items-center justify-center;
+		@apply min-h-[300px];
+	}
 
-		.right-image {
-			@apply absolute;
-			@apply top-[30%] right-[-100px];
-			@apply h-[260px] w-[275px];
-			animation: slide-left 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-		}
+	.hero-slide-text {
+		@apply absolute text-center;
+		@apply text-primary;
+		font-size: 80px;
+		line-height: 80px;
+		opacity: 0;
+		letter-spacing: -2px;
+	}
 
-		.big-number-section {
-			@apply mx-auto my-[50px];
-			@apply flex justify-center gap-[100px];
-		}
+	.slide-group-1 {
+		animation: slideFromLeft 9s infinite;
+	}
 
-		.big-number {
-		}
+	.slide-group-2 {
+		animation: slideFromRight 9s infinite;
+		animation-delay: 3s;
+	}
 
-		.content {
-			@apply bottom-0 flex;
-		}
+	.slide-group-3 {
+		animation: slideFromLeft 9s infinite;
+		animation-delay: 6s;
+	}
 
-		.number-container {
-			@apply relative;
-			@apply h-[90px] w-[90px];
-			@apply bg-primary text-body text-[36px];
-			@apply rounded-tl-[30%] rounded-br-[30%];
+	.hero-description {
+		@apply mx-auto my-20 max-w-[415px];
+		@apply text-center leading-[1.58] normal-case;
+		@apply bg-body;
+	}
 
-			&:before {
-				@apply absolute;
-				@apply -bottom-[14px] -left-[20px];
-				@apply w-[60px];
-				@apply text-primary text-[36px] font-bold;
-				content: '+';
-			}
-		}
+	.hero-left-image {
+		@apply absolute top-1/2 left-[-100px];
+		@apply h-[260px] w-[275px];
+		animation: slideInFromRight 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+	}
 
-		.number {
-			@apply absolute;
-			@apply -bottom-[14px] left-0;
-			@apply text-[36px] font-bold;
-		}
+	.hero-right-image {
+		@apply absolute top-[30%] right-[-110px];
+		@apply h-[260px] w-[275px];
+		animation: slideInFromLeft 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+	}
 
-		.text {
-			@apply mt-10 mt-auto ml-2;
-			@apply text-primary text-[12px] normal-case italic;
-		}
+	.statistics-section {
+		@apply mx-auto mt-10 mb-25;
+		@apply flex justify-center gap-[100px];
+	}
 
-		.btn-contact {
-			@apply mx-auto;
-			@apply flex max-w-[420px] text-center;
-			@apply rounded-full;
-			@apply text-primary-light border-primary-light;
+	.statistic-item {
+		@apply flex items-end;
+	}
+
+	.statistic-number-container {
+		@apply relative h-[90px] w-[90px];
+		@apply bg-primary text-body;
+		@apply text-[36px];
+		@apply rounded-tl-[30%] rounded-br-[30%];
+
+		&::before {
+			@apply absolute -bottom-[14px] -left-[20px];
+			@apply w-[60px];
+			@apply text-primary text-[36px] font-bold;
+			content: '+';
 		}
+	}
+
+	.statistic-number {
+		@apply absolute -bottom-[14px] left-0;
+		@apply text-[36px] font-bold;
+	}
+
+	.statistic-text {
+		@apply mt-10 ml-2;
+		@apply text-primary text-[12px] normal-case italic;
+	}
+
+	.contact-button {
+		@apply mx-auto;
+		@apply flex max-w-[420px];
+		@apply text-center;
+		@apply rounded-full;
+		@apply text-primary-light border-primary-light;
 	}
 </style>
 
 <section class="hero-section relative container py-20">
-	<h1 class="mx-auto max-w-[450px] text-7xl font-bold">reliable software squad</h1>
-	<div class="description">
-		Jaya is a fully remote software consulting company, founded in 2012 and partnering with U.S.
-		companies since 2016. We specialize in strategic staff augmentation and long-term, high-impact
-		projects, combining technical and cultural fit through a deep recruitment process. Behind every
-		delivery, we mentor our teams, nurture strong culture, and develop people who are inspired to
-		build software that truly matters.
+	<div class="hero-slider">
+		<div class="hero-slide-text slide-group-1">
+			<em>reliable</em><br />
+			<strong>software</strong><br />
+			<strong>squad</strong>
+		</div>
+		<div class="hero-slide-text slide-group-2">
+			<strong>strategic</strong><br />
+			<em>nearshoring</em><br />
+			<strong>partner</strong>
+		</div>
+		<div class="hero-slide-text slide-group-3">
+			<strong>high-</strong><em>performing</em><br />
+			<strong>remote team</strong>
+		</div>
 	</div>
-	<Image src={heroLeftImg} alt="Hero Image" class="left-image" />
-	<Image src={heroRightImg} alt="Hero Image" class="right-image" />
-	<div class="big-number-section">
+
+	<div class="hero-description">
+		Jaya is a fully remote <b>software consulting company,</b> founded in <b>2012</b> and partnering
+		with <b>U.S. companies since 2016.</b> We specialize in strategic staff augmentation and long-term,
+		high-impact projects, combining technical and cultural fit through a deep recruitment process. Behind
+		every delivery, <b>we mentor our teams,</b> nurture <b>strong culture,</b> and <b
+			>develop people who are inspired to build software that truly matters.</b
+		>
+	</div>
+
+	<Image
+		src={heroLeftImg}
+		alt="Hero left illustration showing collaborative team work"
+		class="hero-left-image"
+	/>
+	<Image
+		src={heroRightImg}
+		alt="Hero right illustration showing technology solutions"
+		class="hero-right-image"
+	/>
+
+	<div class="statistics-section">
 		{
-			bigNumbers.map((item) => (
-				<div class="big-number">
-					<div class="content">
-						<div class="number-container">
-							<div class="number">{item.number}</div>
-						</div>
-						<div class="text">
-							{item.text.bold === 'first' ? (
-								<>
-									<strong>{item.text.first}</strong>
-									<br />
-									{item.text.second}
-								</>
-							) : (
-								<>
-									{item.text.first}
-									<br />
-									<strong>{item.text.second}</strong>
-								</>
-							)}
-						</div>
+			statistics.map((statistic) => (
+				<div class="statistic-item">
+					<div class="statistic-number-container">
+						<div class="statistic-number">{statistic.number}</div>
+					</div>
+					<div class="statistic-text">
+						{statistic.text.bold === 'first' ? (
+							<>
+								<strong>{statistic.text.first}</strong>
+								<br />
+								{statistic.text.second}
+							</>
+						) : (
+							<>
+								{statistic.text.first}
+								<br />
+								<strong>{statistic.text.second}</strong>
+							</>
+						)}
 					</div>
 				</div>
 			))
 		}
 	</div>
 
-	<a href="/contact" class="btn btn-outline btn-contact rounded-full">
+	<a href={withBase('contact')} class="btn btn-outline contact-button">
 		Let's transform your business? Contact Us
 	</a>
 </section>

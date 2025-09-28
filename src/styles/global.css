@@ -63,6 +63,7 @@
 	body {
 		/* @apply bg-body pt-[110px] text-sm antialiased; */
 		@apply bg-body text-sm antialiased;
+		@apply overflow-x-hidden;
 	}
 
 	.nav-padding {
