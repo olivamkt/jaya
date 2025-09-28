@@ -3,7 +3,7 @@
 ---
 
 <style>
-	@reference "../../../styles/global.css";
+	@import '../../../styles/global.css';
 
 	.map-section {
 		@apply bg-blue;
@@ -12,6 +12,11 @@
 		.btn-get-in-touch {
 			@apply my-5;
 		}
+
+		.driving-title {
+			@apply text-[16px] uppercase;
+			font-family: 'Space Grotesk';
+		}
 	}
 </style>
 
@@ -19,7 +24,7 @@
 	<div class="container">
 		<div class="flex px-8">
 			<div class="w-1/4 text-white">
-				<h2 class="font-aswatama">Driving results nationwide</h2>
+				<h2 class="driving-title">Driving results nationwide</h2>
 				<h3 class="my-10 text-[28px]">Our presence<br /> across america</h3>
 				<p>
 					Jaya's nearshore teams are already delivering impact across the U.S. from California to

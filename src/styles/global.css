@@ -8,28 +8,13 @@
 	--color-primary: #00616c;
 }
 
-@theme {
-	/* Primary colors */
-	--color-primary-light: #03b3cb;
-
-	/* Neutral/Gray colors */
-	--color-body: #f7f5f2;
-	--color-neutral-light: #ececea;
-	--color-gray-light: #fbfbfb;
-
-	/* Blue/Teal colors */
-	--color-teal: #36808f;
-	--color-blue: #3b86a2;
-}
-
-// custom colors
-
 @font-face {
-	font-family: 'Aswatama';
-	src: url('/jaya/fonts/Aswatama-Rough.woff2') format('woff2');
-	font-weight: normal;
+	font-family: 'Space Grotesk';
+	src: url('/jaya/fonts/SpaceGrotesk-Medium.ttf') format('truetype');
+	font-weight: 500;
 	font-style: normal;
 	font-display: swap;
+	font-feature-settings: normal;
 }
 
 @font-face {
@@ -46,6 +31,23 @@
 	font-display: swap;
 }
 
+@theme {
+	/* Primary colors */
+	--color-primary-light: #03b3cb;
+
+	/* Neutral/Gray colors */
+	--color-body: #f7f5f2;
+	--color-neutral-light: #ececea;
+	--color-gray-light: #fbfbfb;
+
+	/* Blue/Teal colors */
+	--color-teal: #36808f;
+	--color-blue: #3b86a2;
+
+	--font-space-grotesk: 'Space Grotesk', sans-serif;
+	--font-open-sauce-one: 'Open Sauce One', sans-serif;
+}
+
 @utility container {
 	max-width: 1280px;
 	@apply mx-auto;
@@ -56,12 +58,11 @@
 		@apply focus:outline-none focus-visible:ring;
 	}
 	html {
-		font-family: 'Open Sauce One', sans-serif;
+		@apply font-open-sauce-one;
 		@apply scroll-smooth;
 	}
 
 	body {
-		/* @apply bg-body pt-[110px] text-sm antialiased; */
 		@apply bg-body text-sm antialiased;
 		@apply overflow-x-hidden;
 	}
