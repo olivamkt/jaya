@@ -9,13 +9,16 @@
 		@apply bg-blue;
 		@apply min-h-[735px];
 
-		.btn-get-in-touch {
-			@apply my-5;
+		.driving-subtitle {
+			@apply uppercase;
+			@apply font-space-grotesk;
 		}
-
 		.driving-title {
-			@apply text-[16px] uppercase;
-			font-family: 'Space Grotesk';
+			@apply text-[28px] leading-[0.99];
+			@apply my-10;
+		}
+		.btn-get-in-touch {
+			@apply my-20;
 		}
 	}
 </style>
@@ -24,8 +27,13 @@
 	<div class="container">
 		<div class="flex px-8">
 			<div class="w-1/4 text-white">
-				<h2 class="driving-title">Driving results nationwide</h2>
-				<h3 class="my-10 text-[28px]">Our presence<br /> across america</h3>
+				<h2 class="driving-subtitle">Driving results nationwide</h2>
+				<h3 class="driving-title">
+					<b>our</b>
+					<i>presence</i><br />
+					<i>across</i>
+					<b>america</b>
+				</h3>
 				<p>
 					Jaya's nearshore teams are already delivering impact across the U.S. from California to
 					New York.

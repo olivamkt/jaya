@@ -10,10 +10,16 @@ import servicesImg from '@/assets/home/services.png'
 		@apply bg-teal;
 		@apply min-h-[735px];
 
+		.service-title {
+			@apply uppercase;
+			@apply font-space-grotesk;
+		}
+
 		.services-image {
 			@apply absolute;
 			@apply top-[-50px] left-[-20px];
 			@apply w-[318px];
+			animation: slideInFromRight 2s;
 		}
 
 		.services-list {
@@ -23,14 +29,14 @@ import servicesImg from '@/assets/home/services.png'
 		}
 
 		.service-item {
-			@apply bg-primary-light text-white;
+			@apply bg-primary-light text-[16px] leading-[0.99] text-white;
 			@apply w-[240px];
 			@apply rounded-bl-[50px] px-8 py-6;
 		}
 
 		.service-item-title {
 			@apply mb-4;
-			@apply text-[16px] font-bold;
+			@apply text-[16px];
 		}
 
 		.service-item-text {
@@ -52,26 +58,23 @@ import servicesImg from '@/assets/home/services.png'
 			<div class="relative w-1/4 text-white">
 				<Image src={servicesImg} alt="Hero Image" class="services-image" />
 			</div>
-			<div class="w-3/4 text-white">
-				<h2>Services</h2>
-				<h3 class="my-8 text-[28px]">mission-driven nearshoring for high-impact projects.</h3>
+			<div class="w-3/4 max-w-[726px] text-white">
+				<h2 class="service-title">Services</h2>
+				<h3 class="my-8 text-[28px] font-bold">
+					mission-driven nearshoring for high-impact projects.
+				</h3>
 				<p>
 					At Jaya, software is more than lines of code, it's a strategic asset built with intention,
-					precision, and purpose. Our conscious software engineering model blends technical
-					excellence with human understanding, enabling teams to collaborate better, ship faster,
-					and deliver real business outcomes. With a nearshore structure, we work in sync with your
-					operations, bridging cultural and timezone gaps to create long-term value from day one.
-				</p>
-
-				<p class="mt-5">
-					Our remote-native model ensures timezone-aligned delivery, seamless collaboration, and
-					long-term value wherever your team is based.
+					precision, and purpose. Our <b>conscious software engineering model</b> blends technical excellence
+					with human understanding, enabling teams to collaborate better, ship faster, and deliver real
+					business outcomes. With a nearshore structure, we work in sync with your operations, bridging
+					cultural and timezone gaps to create long-term value from day one.
 				</p>
 			</div>
 		</div>
 		<div class="services-list">
 			<div class="service-item">
-				<h3 class="service-item-title">nearshore staff augmentation</h3>
+				<h3 class="service-item-title"><i>nearshore</i> <b>staff augmentation</b></h3>
 				<p class="service-item-text">
 					With our nearshore consulting model, we connect the best technology professionals to
 					companies seeking expertise to accelerate projects and strengthen their teams. We
@@ -81,7 +84,7 @@ import servicesImg from '@/assets/home/services.png'
 			</div>
 
 			<div class="service-item">
-				<h3 class="service-item-title">outsourcing</h3>
+				<h3 class="service-item-title"><b>outsourcing</b></h3>
 				<p class="service-item-text">
 					We offer flexible outsourcing models and manage specialized squads to support strategic
 					projects and product delivery. Our approach ensures fast, aligned results, and extends to
@@ -91,21 +94,21 @@ import servicesImg from '@/assets/home/services.png'
 			</div>
 
 			<div class="service-item">
-				<h3 class="service-item-title">tech assesment</h3>
+				<h3 class="service-item-title"><b>tech</b> assesment</h3>
 				<p class="service-item-text">
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
 				</p>
 			</div>
 
 			<div class="service-item">
-				<h3 class="service-item-title">pro bono technology initiatives</h3>
+				<h3 class="service-item-title"><b>pro bono</b><br /> technology<br /> initiatives</h3>
 				<p class="service-item-text">
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
 				</p>
 			</div>
 
 			<div class="service-item">
-				<h3 class="service-item-title">team training programs</h3>
+				<h3 class="service-item-title"><b>team</b> training <b>programs</b></h3>
 				<p class="service-item-text">
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
 				</p>
