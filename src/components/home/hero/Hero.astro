@@ -40,49 +40,45 @@ const statistics = [
 		@apply relative;
 	}
 
-	.hero-slider {
+	/* .hero-slider {
 		@apply relative mx-auto;
 		@apply flex items-center justify-center;
 		@apply min-h-[300px];
-	}
+	} */
 
-	.hero-slide-text {
-		@apply absolute text-center;
+	.hero-text {
+		@apply text-center;
 		@apply text-primary;
-		font-size: 80px;
-		line-height: 80px;
-		opacity: 0;
-		letter-spacing: -2px;
-	}
+		@apply max-w-[450px];
+		@apply text-[50px];
+		@apply leading-[0.9];
+		@apply tracking-[-2px];
+		@apply mx-auto;
 
-	.slide-group-1 {
-		animation: slideFromLeft 9s infinite;
-	}
+		.slide-from-left {
+			animation: slideFromLeft 2s forwards;
+		}
 
-	.slide-group-2 {
-		animation: slideFromRight 9s infinite;
-		animation-delay: 3s;
-	}
-
-	.slide-group-3 {
-		animation: slideFromLeft 9s infinite;
-		animation-delay: 6s;
+		.slide-from-right {
+			animation: slideFromRight 2s forwards;
+		}
 	}
 
 	.hero-description {
-		@apply mx-auto my-20 max-w-[415px];
+		@apply mx-auto my-20;
 		@apply text-center leading-[1.58] normal-case;
 		@apply bg-body;
+		@apply text-[#3b3b3b];
 	}
 
 	.hero-left-image {
-		@apply absolute top-1/2 left-[-100px];
+		@apply absolute top-[35%] left-[-100px];
 		@apply h-[260px] w-[275px];
 		animation: slideInFromRight 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 	}
 
 	.hero-right-image {
-		@apply absolute top-[30%] right-[-110px];
+		@apply absolute top-[20%] right-[-100px];
 		@apply h-[260px] w-[275px];
 		animation: slideInFromLeft 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 	}
@@ -99,7 +95,6 @@ const statistics = [
 	.statistic-number-container {
 		@apply relative h-[90px] w-[90px];
 		@apply bg-primary text-body;
-		@apply text-[36px];
 		@apply rounded-tl-[30%] rounded-br-[30%];
 
 		&::before {
@@ -111,13 +106,14 @@ const statistics = [
 	}
 
 	.statistic-number {
-		@apply absolute -bottom-[14px] left-0;
-		@apply text-[36px] font-bold;
+		@apply absolute -bottom-[16px] left-0;
+		@apply text-[46px] font-bold;
+		@apply tracking-[-4px];
 	}
 
 	.statistic-text {
-		@apply mt-10 ml-2;
-		@apply text-primary text-[12px] normal-case italic;
+		@apply mt-10 ml-1;
+		@apply text-primary normal-case italic;
 	}
 
 	.contact-button {
@@ -130,29 +126,18 @@ const statistics = [
 </style>
 
 <section class="hero-section relative container py-20">
-	<div class="hero-slider">
-		<div class="hero-slide-text slide-group-1">
-			<em>reliable</em><br />
-			<strong>software</strong><br />
-			<strong>squad</strong>
-		</div>
-		<div class="hero-slide-text slide-group-2">
-			<strong>strategic</strong><br />
-			<em>nearshoring</em><br />
-			<strong>partner</strong>
-		</div>
-		<div class="hero-slide-text slide-group-3">
-			<strong>high-</strong><em>performing</em><br />
-			<strong>remote team</strong>
-		</div>
+	<div class="hero-text">
+		<div class="slide-from-left"><b>reliable nearshore developers</b></div>
+		<div class="slide-from-right"><i>for long-term partnerships </i></div>
 	</div>
 
 	<div class="hero-description">
-		Jaya is a fully remote <b>software consulting company,</b> founded in <b>2012</b> and partnering
-		with <b>U.S. companies since 2016.</b> We specialize in strategic staff augmentation and long-term,
-		high-impact projects, combining technical and cultural fit through a deep recruitment process. Behind
-		every delivery, <b>we mentor our teams,</b> nurture <b>strong culture,</b> and <b
-			>develop people who are inspired to build software that truly matters.</b
+		Jaya is a fully remote software consulting company specializing in<br />
+		<b>nearshore staff augmentation, outsourcing and AI development.</b><br />
+		Since 2012, we’ve helped companies scale with handpicked<br />
+		engineering talent and stable, high-performing teams. From fintech<br />
+		and healthtech to retail, SaaS... and beyond. <b
+			>Our squads deliver with <br />speed, cultural alignment, and a long-term mindset.</b
 		>
 	</div>
 
@@ -168,30 +153,24 @@ const statistics = [
 	/>
 
 	<div class="statistics-section">
-		{
-			statistics.map((statistic) => (
-				<div class="statistic-item">
-					<div class="statistic-number-container">
-						<div class="statistic-number">{statistic.number}</div>
-					</div>
-					<div class="statistic-text">
-						{statistic.text.bold === 'first' ? (
-							<>
-								<strong>{statistic.text.first}</strong>
-								<br />
-								{statistic.text.second}
-							</>
-						) : (
-							<>
-								{statistic.text.first}
-								<br />
-								<strong>{statistic.text.second}</strong>
-							</>
-						)}
-					</div>
-				</div>
-			))
-		}
+		<div class="statistic-item">
+			<div class="statistic-number-container">
+				<div class="statistic-number">9</div>
+			</div>
+			<div class="statistic-text">years of<br /> <b>nearshore<br /> experience</b></div>
+		</div>
+		<div class="statistic-item">
+			<div class="statistic-number-container">
+				<div class="statistic-number">80</div>
+			</div>
+			<div class="statistic-text">active<br /> <b>developers</b></div>
+		</div>
+		<div class="statistic-item">
+			<div class="statistic-number-container">
+				<div class="statistic-number">100</div>
+			</div>
+			<div class="statistic-text"><b>augmented<br /> squads</b> over<br /> the years</div>
+		</div>
 	</div>
 
 	<a href={withBase('contact')} class="btn btn-outline contact-button">

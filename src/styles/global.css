@@ -101,6 +101,28 @@
 	@apply bg-primary rounded-br-[50%] text-[2rem] text-white;
 }
 
+@keyframes slideFromLeft {
+	0% {
+		transform: translateX(-100%);
+		opacity: 0;
+	}
+	100% {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+
+@keyframes slideFromRight {
+	0% {
+		transform: translateX(100%);
+		opacity: 0;
+	}
+	100% {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+
 @keyframes slideInFromRight {
 	0% {
 		transform: translateX(-100px);
@@ -120,47 +142,5 @@
 	100% {
 		transform: translateX(0);
 		opacity: 1;
-	}
-}
-
-@keyframes slideFromLeft {
-	0% {
-		transform: translateX(-100%);
-		opacity: 0;
-	}
-	10% {
-		transform: translateX(0);
-	}
-	30% {
-		transform: translateX(0);
-		opacity: 1;
-	}
-	40% {
-		transform: translateX(-100%);
-		opacity: 0;
-	}
-	100% {
-		opacity: 0;
-	}
-}
-
-@keyframes slideFromRight {
-	0% {
-		transform: translateX(100%);
-		opacity: 0;
-	}
-	10% {
-		transform: translateX(0);
-	}
-	30% {
-		transform: translateX(0);
-		opacity: 1;
-	}
-	40% {
-		transform: translateX(100%);
-		opacity: 0;
-	}
-	100% {
-		opacity: 0;
 	}
 }
