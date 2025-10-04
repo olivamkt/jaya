@@ -1,0 +1,108 @@
+---
+import { withBase } from '@/utils/url'
+
+export interface Props {
+	type: 'mobile' | 'desktop'
+}
+
+const { type } = Astro.props
+
+// Active link detection
+const currentPath = Astro.url.pathname
+const isActive = (href: string) => {
+	const siteUrl = Astro.site?.toString() || ''
+	const path = href.replace(siteUrl, '')
+	const active = path === '' ? currentPath === '/' : currentPath.startsWith(path)
+	return active ? 'font-bold' : ''
+}
+
+// Navigation items
+const navigationItems = [
+	{
+		label: 'services',
+		type: 'dropdown',
+		children: [
+			{ label: 'fintech', href: withBase('fintech') },
+			{ label: 'healthtech', href: withBase('healthtech') },
+			{ label: 'retail', href: withBase('retail') },
+			{ label: 'saas', href: withBase('saas') }
+		]
+	},
+	{
+		label: 'blog',
+		href: 'https://medium.com/wearejaya',
+		target: '_blank'
+	},
+	{
+		label: 'culture',
+		href: 'https://www.linkedin.com/company/jaya-apps',
+		target: '_blank'
+	},
+	{
+		label: 'contact',
+		href: withBase('contact')
+	}
+]
+---
+
+{type === 'mobile' ? (
+	<!-- Mobile Navigation -->
+	<ul class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+		{navigationItems.map((item) => (
+			<li>
+				{item.type === 'dropdown' ? (
+					<>
+						<a>{item.label}</a>
+						<ul class="p-2">
+							{item.children?.map((child) => (
+								<li>
+									<a href={child.href} class={isActive(child.href)}>
+										{child.label}
+									</a>
+								</li>
+							))}
+						</ul>
+					</>
+				) : (
+					<a 
+						href={item.href} 
+						class={isActive(item.href || '')}
+						target={item.target}
+					>
+						{item.label}
+					</a>
+				)}
+			</li>
+		))}
+	</ul>
+) : (
+	<!-- Desktop Navigation -->
+	<ul class="menu menu-horizontal px-1">
+		{navigationItems.map((item) => (
+			<li>
+				{item.type === 'dropdown' ? (
+					<details>
+						<summary>{item.label}</summary>
+						<ul class="p-2">
+							{item.children?.map((child) => (
+								<li>
+									<a href={child.href} class={isActive(child.href)}>
+										{child.label}
+									</a>
+								</li>
+							))}
+						</ul>
+					</details>
+				) : (
+					<a 
+						href={item.href} 
+						class={isActive(item.href || '')}
+						target={item.target}
+					>
+						{item.label}
+					</a>
+				)}
+			</li>
+		))}
+	</ul>
+)}
