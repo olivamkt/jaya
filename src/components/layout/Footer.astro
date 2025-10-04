@@ -14,6 +14,19 @@ import mediumIcon from '@/assets/icons/medium.svg'
 		@apply py-20;
 		@apply mt-auto;
 
+		.footer-main {
+			@apply flex;
+			@apply flex-col;
+			@apply px-8;
+			@apply lg:flex-row;
+		}
+
+		.footer-main-content {
+			@apply flex;
+			@apply items-center;
+			@apply gap-5;
+		}
+
 		.lets-talk {
 			@apply text-primary;
 			@apply text-8xl;
@@ -23,14 +36,13 @@ import mediumIcon from '@/assets/icons/medium.svg'
 		.btn-contact {
 			@apply bg-primary-light;
 			@apply text-white;
-			@apply h-[137px];
+			@apply h-[100px] lg:h-[137px];
 			@apply w-[137px];
 			@apply rounded-bl-[50px];
 			@apply flex;
 			@apply items-center;
 			@apply justify-center;
 			@apply relative;
-			@apply ml-5;
 
 			&:hover .icon {
 				transform: rotate(45deg);
@@ -46,6 +58,23 @@ import mediumIcon from '@/assets/icons/medium.svg'
 			}
 		}
 
+		.address-container {
+			@apply flex gap-10 lg:flex-col lg:justify-center lg:gap-0;
+			@apply mt-8;
+			@apply lg:mt-0;
+			@apply lg:ml-auto;
+		}
+
+		.address-item {
+			@apply text-primary;
+			@apply text-left;
+			@apply lg:text-right;
+
+			&.mb-5 {
+				@apply mb-5;
+			}
+		}
+
 		.footer-links {
 			@apply flex;
 			@apply border-primary;
@@ -53,60 +82,74 @@ import mediumIcon from '@/assets/icons/medium.svg'
 			@apply border-b;
 			@apply mt-20;
 			@apply py-10;
+			@apply px-8;
 		}
 
-		.address-item {
-			@apply text-primary;
+		.footer-menu {
+			@apply menu;
+			@apply menu-vertical;
+			@apply lg:menu-horizontal;
+			@apply lg:pl-0;
+
+			a {
+				@apply pl-0;
+			}
+		}
+
+		.social {
+			@apply ml-auto;
+			@apply flex;
+			@apply items-center;
+			@apply gap-7;
 		}
 	}
 </style>
 
 <footer class="footer-section">
 	<div class="container">
-		<div class="flex px-8">
-			<div class="lets-talk">let's talk</div>
-			<a href="/contact" class="btn-contact">
-				<svg
-					class="icon"
-					width="20"
-					height="20"
-					viewBox="0 0 24 24"
-					fill="none"
-					xmlns="http://www.w3.org/2000/svg"
-				>
-					<path
-						d="M7 17L17 7M17 7H7M17 7V17"
-						stroke="currentColor"
-						stroke-width="2"
-						stroke-linecap="round"
-						stroke-linejoin="round"></path>
-				</svg>
-			</a>
-			<div class="address-container ml-auto">
-				<div class="address-item mb-5 text-right">
+		<div class="footer-main">
+			<div class="footer-main-content">
+				<div class="lets-talk">let's talk</div>
+				<a href="/contact" class="btn-contact">
+					<svg
+						class="icon"
+						width="20"
+						height="20"
+						viewBox="0 0 24 24"
+						fill="none"
+						xmlns="http://www.w3.org/2000/svg"
+					>
+						<path
+							d="M7 17L17 7M17 7H7M17 7V17"
+							stroke="currentColor"
+							stroke-width="2"
+							stroke-linecap="round"
+							stroke-linejoin="round"></path>
+					</svg>
+				</a>
+			</div>
+			<div class="address-container">
+				<div class="address-item mb-5">
 					<div>Austin, TX - USA</div>
 					<div><strong>+1 (512) 555-1212</strong></div>
 				</div>
-				<div class="address-item text-right">
+				<div class="address-item">
 					<div>São Paulo, SP - Brazil</div>
 					<div><strong>+55(11) 333-1212</strong></div>
 				</div>
 			</div>
 		</div>
-		<div class="footer-links px-8">
+		<div class="footer-links">
 			<nav>
-				<ul class="menu menu-vertical lg:menu-horizontal lg:pl-0">
+				<ul class="footer-menu">
 					<li>
-						<a href="/" class="md:pl-0">home</a>
-					</li>
-					<li>
-						<a href="/">about</a>
+						<a href="/">home</a>
 					</li>
 					<li>
 						<a href="/">services</a>
 					</li>
 					<li>
-						<a href="/">solutions</a>
+						<a href="/">blog</a>
 					</li>
 					<li>
 						<a href="/">culture</a>
@@ -116,7 +159,7 @@ import mediumIcon from '@/assets/icons/medium.svg'
 					</li>
 				</ul>
 			</nav>
-			<div class="social ml-auto flex items-center gap-7">
+			<div class="social">
 				<a href="/">
 					<Image src={linkedinIcon} alt="Linkedin" />
 				</a>

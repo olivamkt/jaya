@@ -9,10 +9,11 @@ import '@fontsource/geist-mono'
 import '@/styles/global.css'
 import { ClientRouter } from 'astro:transitions'
 import { SEO } from 'astro-seo'
-import { withBase } from '@/utils/url'
-import Footer from '@/components/layout/Footer.astro'
 import { Image } from 'astro:assets'
+import { withBase } from '@/utils/url'
 import logoIcon from '@/assets/logo.svg'
+import Header from '@/components/layout/Header.astro'
+import Footer from '@/components/layout/Footer.astro'
 
 const lang = 'en'
 
@@ -36,41 +37,37 @@ const isServiceActive = () =>
 		<meta name="viewport" content="width=device-width" />
 		<SEO
 			title={title}
-			titleTemplate="%s :: Coke Posada"
+			titleTemplate="%s :: Jaya"
 			description={description}
 			canonical={Astro.url.toString()}
 			openGraph={{
 				basic: {
-					title: 'Astro Full Starter',
+					title: 'Jaya',
 					type: 'website',
-					image: 'https://astro-full-starter.pages.dev/og-image.jpg'
+					image: 'https://jaya.tech/og-image.jpg'
 				},
 				image: {
-					alt: 'Astro Full Starter by Coke Posada'
+					alt: 'Jaya'
 				},
 				optional: {
 					description: description
 				}
 			}}
-			twitter={{
-				creator: '@cokeposada'
-			}}
 		/>
 
 		<link rel="alternate" href={`${Astro.site}en/`} hreflang="en" />
-		<link rel="alternate" href={`${Astro.site}es/`} hreflang="es" />
 		<link rel="sitemap" href={withBase('/sitemap-index.xml')} />
 		<link rel="icon" href={withBase('/favicon.svg')} type="image/svg+xml" />
 
 		<ClientRouter />
 	</head>
 	<body>
-		<div class="nav-container">
-			<div class="background"></div>
+		<!-- <div class="hidden">
+			<div class="nav-background"></div>
 			<div class="container md:pr-15">
 				<a class="logo" href={withBase('')}><Image src={logoIcon} alt="Logo" /></a>
 				<nav>
-					<ul class="menu menu-vertical lg:menu-horizontal">
+					<ul class="menu menu-horizontal">
 						<li>
 							<div class="dropdown dropdown-hover">
 								<a tabindex="0" role="button" class={isServiceActive()}>services</a>
@@ -107,13 +104,15 @@ const isServiceActive = () =>
 					</ul>
 				</nav>
 			</div>
-		</div>
+		</div> -->
+
+		<Header />
 
 		<slot />
 		<Footer />
 	</body>
 </html>
-
+<!-- 
 <style>
 	/* Fix para dropdown hover - evita que feche quando o mouse passa entre o botão e o dropdown */
 	.dropdown-hover:hover .dropdown-content {
@@ -128,4 +127,4 @@ const isServiceActive = () =>
 	.dropdown-hover .dropdown-content:hover {
 		display: block;
 	}
-</style>
+</style> -->

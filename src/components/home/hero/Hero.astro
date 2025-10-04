@@ -10,6 +10,7 @@ import { withBase } from '@/utils/url'
 
 	.hero-section {
 		@apply relative;
+		@apply px-10 lg:px-0;
 	}
 
 	.hero-text {
@@ -42,6 +43,7 @@ import { withBase } from '@/utils/url'
 	}
 
 	.hero-left-image {
+		@apply hidden lg:block;
 		@apply absolute;
 		@apply top-[35%];
 		@apply left-[-100px];
@@ -51,6 +53,7 @@ import { withBase } from '@/utils/url'
 	}
 
 	.hero-right-image {
+		@apply hidden lg:block;
 		@apply absolute;
 		@apply top-[20%];
 		@apply right-[-100px];
@@ -60,9 +63,9 @@ import { withBase } from '@/utils/url'
 	}
 
 	.statistics-section {
-		@apply flex;
-		@apply justify-center;
-		@apply gap-[100px];
+		@apply flex flex-col md:flex-row;
+		@apply items-center justify-center;
+		@apply gap-10 lg:gap-25;
 		@apply mx-auto;
 		@apply mt-10;
 		@apply mb-25;

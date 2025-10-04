@@ -33,10 +33,10 @@ import clientBrasil from '@/assets/home/clients-brasil.png'
 			@apply mt-20 mb-5;
 
 			.tab {
-				@apply border-none;
+				@apply border-transparent;
 				@apply bg-transparent;
 
-				input:checked + .flag {
+				input:not(:checked) + .flag {
 					@apply grayscale;
 				}
 			}
@@ -49,7 +49,7 @@ import clientBrasil from '@/assets/home/clients-brasil.png'
 			.tab-content {
 				@apply border-none;
 				@apply bg-transparent;
-				@apply pt-30;
+				@apply pt-15 lg:pt-30;
 			}
 		}
 
@@ -64,7 +64,7 @@ import clientBrasil from '@/assets/home/clients-brasil.png'
 	}
 </style>
 
-<section class="clients-section py-20">
+<section class="clients-section px-10 py-20">
 	<div class="container">
 		<div class="clients-subtitle">Trusted by innovators</div>
 		<h2 class="clients-title">our clients</h2>
@@ -72,15 +72,7 @@ import clientBrasil from '@/assets/home/clients-brasil.png'
 			We partner with forward-thinking companies in finance, logistics, healthcare, retail, and
 			more,<br /> delivering long-term software solutions with real business impact.
 		</p>
-		<!-- <div class="flags">
-			<Image src={usaFlag} alt="USA Flag" class="flag" />
-			<Image src={brasilFlag} alt="Brazil Flag" class="flag" />
-		</div>
-		<div class="clients-list">
-			<Image src={clientUSA} alt="Client 1" class="client" />
-			<Image src={clientBrasil} alt="Client 1" class="client" />
-		</div> -->
-		<!-- name of each tab group should be unique -->
+
 		<div class="tabs tabs-lift">
 			<label class="tab">
 				<input type="radio" name="my_tabs_4" checked="checked" />

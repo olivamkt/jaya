@@ -1,0 +1,99 @@
+---
+import { withBase } from '@/utils/url'
+import { Image } from 'astro:assets'
+import logoIcon from '@/assets/logo.svg'
+---
+
+<style>
+	@reference "../../styles/global.css";
+
+	.nav-container {
+		@apply fixed top-0 left-0 z-10 w-full;
+		@apply flex h-[110px];
+		@apply z-100;
+
+		.nav-background {
+			@apply absolute top-0 left-0 h-full w-full lg:w-[95vw];
+			@apply rounded-none bg-white lg:rounded-br-[50px];
+		}
+
+		.navbar {
+			@apply px-0;
+			.logo {
+				@apply absolute h-[135px] w-[125px];
+				@apply flex items-center justify-center text-center;
+				@apply top-0 left-0;
+				@apply bg-primary rounded-br-[50%] text-[2rem] text-white;
+			}
+
+			a,
+			summary {
+				@apply text-primary normal-case italic;
+			}
+		}
+	}
+</style>
+
+<div class="nav-container">
+	<div class="nav-background"></div>
+	<div class="relative container flex items-center lg:pr-15">
+		<div class="navbar">
+			<div class="flex flex-1">
+				<!-- <a class="btn btn-ghost text-xl">daisyUI</a> -->
+				<a class="logo" href={withBase('')}><Image src={logoIcon} alt="Logo" /></a>
+				<div class="dropdown dropdown-end ml-auto">
+					<div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							class="h-5 w-5"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke="currentColor"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M4 6h16M4 12h8m-8 6h16"></path>
+						</svg>
+					</div>
+					<ul
+						tabindex="0"
+						class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+					>
+						<li>
+							<a>services</a>
+							<ul class="p-2">
+								<li><a>fintech</a></li>
+								<li><a>healthtech</a></li>
+								<li><a>retail</a></li>
+								<li><a>saas</a></li>
+							</ul>
+						</li>
+						<li><a>blog</a></li>
+						<li><a>culture</a></li>
+						<li><a>contact</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="navbar-center hidden lg:flex">
+				<ul class="menu menu-horizontal px-1">
+					<li>
+						<details>
+							<summary>services</summary>
+							<ul class="p-2">
+								<li><a>fintech</a></li>
+								<li><a>healthtech</a></li>
+								<li><a>retail</a></li>
+								<li><a>saas</a></li>
+							</ul>
+						</details>
+					</li>
+					<li><a>blog</a></li>
+					<li><a>culture</a></li>
+					<li><a>contact</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
