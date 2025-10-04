@@ -3,34 +3,6 @@ import heroLeftImg from '@/assets/home/hero-left.png'
 import heroRightImg from '@/assets/home/hero-right.png'
 import { Image } from 'astro:assets'
 import { withBase } from '@/utils/url'
-
-// Statistics data
-const statistics = [
-	{
-		number: '200',
-		text: {
-			first: 'Projects',
-			second: 'Delivered',
-			bold: 'first'
-		}
-	},
-	{
-		number: '150',
-		text: {
-			first: 'Partnerships',
-			second: 'Established',
-			bold: 'second'
-		}
-	},
-	{
-		number: '98%',
-		text: {
-			first: 'Active',
-			second: 'Collaborators',
-			bold: 'first'
-		}
-	}
-]
 ---
 
 <style>
@@ -39,12 +11,6 @@ const statistics = [
 	.hero-section {
 		@apply relative;
 	}
-
-	/* .hero-slider {
-		@apply relative mx-auto;
-		@apply flex items-center justify-center;
-		@apply min-h-[300px];
-	} */
 
 	.hero-text {
 		@apply text-center;
@@ -65,9 +31,8 @@ const statistics = [
 	}
 
 	.hero-description {
-		@apply mx-auto my-20;
+		@apply mx-auto my-20 max-w-[800px] lg:max-w-[520px];
 		@apply text-center leading-[1.58] normal-case;
-		@apply bg-body;
 		@apply text-[#3b3b3b];
 	}
 
@@ -132,13 +97,11 @@ const statistics = [
 	</div>
 
 	<div class="hero-description">
-		Jaya is a fully remote software consulting company specializing in<br />
+		Jaya is a fully remote software consulting company specializing in
 		<b>nearshore staff augmentation, outsourcing and AI development.</b><br />
-		Since 2012, we’ve helped companies scale with handpicked<br />
-		engineering talent and stable, high-performing teams. From fintech<br />
-		and healthtech to retail, SaaS... and beyond. <b
-			>Our squads deliver with <br />speed, cultural alignment, and a long-term mindset.</b
-		>
+		Since 2012, we’ve helped companies scale with handpicked engineering talent and stable, high-performing
+		teams. From fintech and healthtech to retail, SaaS... and beyond.
+		<b>Our squads deliver with speed, cultural alignment, and a long-term mindset.</b>
 	</div>
 
 	<Image

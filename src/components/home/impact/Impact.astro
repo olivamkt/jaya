@@ -1,6 +1,11 @@
 ---
 import { Image } from 'astro:assets'
 import impactImg from '@/assets/home/impact.png'
+import fintechImg from '@/assets/home/fintech.png'
+import healthtechImg from '@/assets/home/healthtech.png'
+import retailImg from '@/assets/home/retail.png'
+import saasImg from '@/assets/home/saas.png'
+import { withBase } from '@/utils/url'
 ---
 
 <style>
@@ -22,6 +27,7 @@ import impactImg from '@/assets/home/impact.png'
 		.solutions-list {
 			@apply mt-10;
 			@apply flex flex-row gap-20;
+			@apply justify-center;
 		}
 
 		.solution-item {
@@ -30,8 +36,24 @@ import impactImg from '@/assets/home/impact.png'
 
 		.solution-container {
 			@apply bg-primary text-white;
-			@apply h-[147px] px-8 py-6;
+			@apply h-[147px];
 			@apply rounded-tl-[50px];
+			@apply flex items-center justify-center;
+			@apply transition-all duration-500;
+
+			&:hover {
+				@apply bg-primary-light;
+
+				img {
+					filter: brightness(0);
+				}
+			}
+
+			img {
+				@apply w-[65px];
+				@apply h-[65px];
+				@apply transition-all duration-500;
+			}
 		}
 
 		.solution-item-title {
@@ -65,7 +87,7 @@ import impactImg from '@/assets/home/impact.png'
 					and maintain secure, modern digital products tailored to the unique demands of each
 					business.
 				</p>
-				<p class="text-primary my-5 text-[16px] font-bold">
+				<p class="text-primary my-5 text-lg font-bold">
 					We partner with organizations to deliver custom solutions for management, automation, user
 					experience, and data-driven results.
 				</p>
@@ -80,27 +102,31 @@ import impactImg from '@/assets/home/impact.png'
 				<Image src={impactImg} alt="Impact Image" class="w-[430px]" />
 			</div>
 		</div>
-		<div class="solutions-list px-8">
-			<div class="solution-item">
-				<div class="solution-container"></div>
+		<div class="solutions-list">
+			<a href={withBase('fintech')} class="solution-item">
+				<div class="solution-container">
+					<Image src={fintechImg} alt="Fintech Image" class="w-[430px]" />
+				</div>
 				<div class="solution-item-text">fintech</div>
-			</div>
-			<div class="solution-item">
-				<div class="solution-container"></div>
+			</a>
+			<a href={withBase('healthtech')} class="solution-item">
+				<div class="solution-container">
+					<Image src={healthtechImg} alt="Healthtech Image" class="w-[430px]" />
+				</div>
 				<div class="solution-item-text">healthtech</div>
-			</div>
-			<div class="solution-item">
-				<div class="solution-container"></div>
-				<div class="solution-item-text">agrotech</div>
-			</div>
-			<div class="solution-item">
-				<div class="solution-container"></div>
+			</a>
+			<a href={withBase('retail')} class="solution-item">
+				<div class="solution-container">
+					<Image src={retailImg} alt="Retail Image" class="w-[430px]" />
+				</div>
+				<div class="solution-item-text">retail</div>
+			</a>
+			<a href={withBase('saas')} class="solution-item">
+				<div class="solution-container">
+					<Image src={saasImg} alt="SaaS Image" class="w-[430px]" />
+				</div>
 				<div class="solution-item-text">SaaS</div>
-			</div>
-			<div class="solution-item">
-				<div class="solution-container"></div>
-				<div class="solution-item-text">More</div>
-			</div>
+			</a>
 		</div>
 		<a href="/solutions" class="btn btn-outline btn-primary btn-see-more btn-wide rounded-full"
 			>See how we delivery accross industries</a
