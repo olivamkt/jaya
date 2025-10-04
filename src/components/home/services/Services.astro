@@ -17,26 +17,35 @@ import servicesImg from '@/assets/home/services.png'
 
 		.services-image {
 			@apply absolute;
-			@apply top-[-50px] left-[-20px];
+			@apply top-[-50px];
+			@apply left-[-20px];
 			@apply w-[318px];
 			/* animation: slideInFromRight 2s; */
 		}
 
 		.services-list {
+			@apply flex;
+			@apply flex-wrap;
+			@apply gap-8;
+			@apply mx-auto;
+			@apply max-w-[784px];
 			@apply mt-40;
-			@apply flex flex-wrap gap-8;
-			@apply mx-auto max-w-[784px];
 		}
 
 		.service-item {
-			@apply bg-primary-light text-[16px] leading-[0.99] text-white;
+			@apply bg-primary-light;
+			@apply text-white;
+			@apply text-base;
+			@apply leading-[0.99];
 			@apply w-[240px];
-			@apply rounded-bl-[50px] px-8 py-6;
+			@apply rounded-bl-[50px];
+			@apply px-8;
+			@apply py-6;
 		}
 
 		.service-item-title {
+			@apply text-base;
 			@apply mb-4;
-			@apply text-[16px];
 		}
 
 		.service-item-text {
@@ -44,10 +53,14 @@ import servicesImg from '@/assets/home/services.png'
 		}
 
 		.btn-read-more {
-			@apply mx-auto mt-10;
-			@apply flex text-center;
-			@apply max-w-[420px] rounded-full;
-			@apply text-primary-light border-primary-light;
+			@apply flex;
+			@apply text-center;
+			@apply text-primary-light;
+			@apply border-primary-light;
+			@apply mx-auto;
+			@apply mt-10;
+			@apply max-w-[420px];
+			@apply rounded-full;
 		}
 	}
 </style>
@@ -60,7 +73,7 @@ import servicesImg from '@/assets/home/services.png'
 			</div>
 			<div class="w-3/4 max-w-[726px] text-white">
 				<h2 class="service-title">Services</h2>
-				<h3 class="my-8 text-[28px] font-bold">
+				<h3 class="my-8 text-3xl font-bold">
 					mission-driven nearshoring for high-impact projects.
 				</h3>
 				<p>

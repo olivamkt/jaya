@@ -1,31 +1,103 @@
 ---
 import { Image } from 'astro:assets'
+import brasilFlag from '@/assets/home/brasil-flag.png'
+import usaFlag from '@/assets/home/usa-flag.png'
+import clientUSA from '@/assets/home/clients-usa.png'
+import clientBrasil from '@/assets/home/clients-brasil.png'
 ---
 
 <style>
 	@reference "../../styles/global.css";
 
 	.clients-section {
-		@apply text-primary bg-gray-light;
+		@apply text-primary;
+		@apply bg-gray-light;
+
+		.clients-subtitle {
+			@apply text-center;
+			@apply text-primary;
+			@apply uppercase;
+			@apply font-space-grotesk;
+		}
+
+		.clients-title {
+			@apply text-primary;
+			@apply text-center;
+			@apply text-3xl;
+			@apply font-bold;
+			@apply mt-2 mb-5;
+		}
+
+		.tabs {
+			@apply justify-center;
+			@apply mt-20 mb-5;
+
+			.tab {
+				@apply border-none;
+				@apply bg-transparent;
+
+				input:checked + .flag {
+					@apply grayscale;
+				}
+			}
+
+			.flag {
+				@apply w-[50px];
+				@apply h-[50px];
+			}
+
+			.tab-content {
+				@apply border-none;
+				@apply bg-transparent;
+				@apply pt-30;
+			}
+		}
 
 		.btn-see-more {
-			@apply mx-auto mt-10;
-			@apply flex text-center;
-			@apply max-w-[420px] rounded-full;
+			@apply flex;
+			@apply text-center;
+			@apply mx-auto;
+			@apply mt-10;
+			@apply max-w-[420px];
+			@apply rounded-full;
 		}
 	}
 </style>
 
 <section class="clients-section py-20">
 	<div class="container">
-		<div class="text-center">Trusted by innovators</div>
-		<h2 class="title text-center">Our clients</h2>
+		<div class="clients-subtitle">Trusted by innovators</div>
+		<h2 class="clients-title">our clients</h2>
 		<p class="text-center">
 			We partner with forward-thinking companies in finance, logistics, healthcare, retail, and
 			more,<br /> delivering long-term software solutions with real business impact.
 		</p>
-		<div class="flags"></div>
-		<div class="clients-list"></div>
+		<!-- <div class="flags">
+			<Image src={usaFlag} alt="USA Flag" class="flag" />
+			<Image src={brasilFlag} alt="Brazil Flag" class="flag" />
+		</div>
+		<div class="clients-list">
+			<Image src={clientUSA} alt="Client 1" class="client" />
+			<Image src={clientBrasil} alt="Client 1" class="client" />
+		</div> -->
+		<!-- name of each tab group should be unique -->
+		<div class="tabs tabs-lift">
+			<label class="tab">
+				<input type="radio" name="my_tabs_4" checked="checked" />
+				<Image src={usaFlag} alt="Client 1" class="flag" />
+			</label>
+			<div class="tab-content bg-base-100 border-base-300 p-6">
+				<Image src={clientUSA} alt="Client 1" />
+			</div>
+
+			<label class="tab">
+				<input type="radio" name="my_tabs_4" />
+				<Image src={brasilFlag} alt="Client 1" class="flag" />
+			</label>
+			<div class="tab-content bg-base-100 border-base-300 p-6">
+				<Image src={clientBrasil} alt="Client 1" />
+			</div>
+		</div>
 		<a href="/clients" class="btn btn-outline btn-see-more btn-wide rounded-full">See our cases</a>
 	</div>
 </section>

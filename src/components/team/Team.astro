@@ -11,7 +11,7 @@ import teamImg from '@/assets/home/team.png'
 
 		.container {
 			&:after {
-				@apply bg-white;
+				@apply bg-neutral-light;
 				@apply absolute;
 				@apply bottom-[-5rem];
 				@apply h-[200px] w-full;
@@ -19,25 +19,43 @@ import teamImg from '@/assets/home/team.png'
 				@apply z-0;
 				content: '';
 			}
+
+			.team-subtitle {
+				@apply text-center;
+				@apply uppercase;
+				@apply font-space-grotesk;
+			}
+
+			.team-title {
+				@apply text-center text-3xl;
+				@apply my-6;
+				@apply tracking-[-1px];
+			}
+
+			.team-description {
+				@apply text-center;
+				@apply max-w-[600px];
+				@apply mx-auto;
+			}
 		}
 
 		.btn-see-more {
-			@apply mx-auto mt-10;
-			@apply flex text-center;
-			@apply max-w-[420px] rounded-full;
+			@apply mx-auto mt-15 mb-10;
+			@apply flex;
+			@apply rounded-full;
 		}
 	}
 </style>
 
 <section class="team-section py-20">
 	<div class="relative container">
-		<div class="text-center">Great People Build Great Products</div>
-		<h2 class="title text-center">we develop people while they develop software</h2>
-		<p class="text-center">
+		<div class="team-subtitle">Great People Build Great Products</div>
+		<h2 class="team-title"><b>we develop people</b> <i>while they</i> <b>develop software</b></h2>
+		<p class="team-description">
 			Get to know how our people-first culture fuels performance, creating committed, resilient
 			teams with low turnover and high delivery consistency.
 		</p>
-		<a href="/about" class="btn btn-outline btn-see-more btn-wide rounded-full">Meet our culture</a>
+		<a href="/about" class="btn btn-outline btn-wide btn-see-more">Meet our culture</a>
 		<div class="team-grid relative z-1">
 			<Image src={teamImg} alt="Team Image" class="team-image" />
 		</div>

@@ -10,36 +10,49 @@ import mediumIcon from '@/assets/icons/medium.svg'
 	@reference "../../styles/global.css";
 
 	.footer-section {
-		@apply bg-neutral-light py-20;
+		@apply bg-neutral-light;
+		@apply py-20;
 		@apply mt-auto;
 
 		.lets-talk {
-			@apply text-primary text-[85px] font-bold;
+			@apply text-primary;
+			@apply text-8xl;
+			@apply font-bold;
 		}
 
 		.btn-contact {
-			@apply h-[137px] w-[137px];
+			@apply bg-primary-light;
+			@apply text-white;
+			@apply h-[137px];
+			@apply w-[137px];
 			@apply rounded-bl-[50px];
-			@apply bg-primary-light text-white;
-			@apply flex items-center justify-center;
-			@apply relative ml-5;
+			@apply flex;
+			@apply items-center;
+			@apply justify-center;
+			@apply relative;
+			@apply ml-5;
 
 			&:hover .icon {
 				transform: rotate(45deg);
 			}
 
 			.icon {
-				@apply h-[48px] w-[52px];
-				@apply absolute top-0 right-0;
+				@apply absolute;
+				@apply h-[48px];
+				@apply w-[52px];
+				@apply top-0;
+				@apply right-0;
 				transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
 			}
 		}
 
 		.footer-links {
 			@apply flex;
-			@apply mt-20 py-10;
-			@apply border-primary border-t;
-			@apply border-primary border-b;
+			@apply border-primary;
+			@apply border-t;
+			@apply border-b;
+			@apply mt-20;
+			@apply py-10;
 		}
 
 		.address-item {

@@ -15,10 +15,10 @@ import { withBase } from '@/utils/url'
 	.hero-text {
 		@apply text-center;
 		@apply text-primary;
-		@apply max-w-[450px];
-		@apply text-[50px];
+		@apply text-5xl;
 		@apply leading-[0.9];
 		@apply tracking-[-2px];
+		@apply max-w-[450px];
 		@apply mx-auto;
 
 		.slide-from-left {
@@ -31,62 +31,94 @@ import { withBase } from '@/utils/url'
 	}
 
 	.hero-description {
-		@apply mx-auto my-20 max-w-[800px] lg:max-w-[520px];
-		@apply text-center leading-[1.58] normal-case;
+		@apply text-center;
 		@apply text-[#3b3b3b];
+		@apply leading-[1.58];
+		@apply normal-case;
+		@apply mx-auto;
+		@apply my-20;
+		@apply max-w-[800px];
+		@apply lg:max-w-[520px];
 	}
 
 	.hero-left-image {
-		@apply absolute top-[35%] left-[-100px];
-		@apply h-[260px] w-[275px];
+		@apply absolute;
+		@apply top-[35%];
+		@apply left-[-100px];
+		@apply h-[260px];
+		@apply w-[275px];
 		animation: slideInFromRight 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 	}
 
 	.hero-right-image {
-		@apply absolute top-[20%] right-[-100px];
-		@apply h-[260px] w-[275px];
+		@apply absolute;
+		@apply top-[20%];
+		@apply right-[-100px];
+		@apply h-[260px];
+		@apply w-[275px];
 		animation: slideInFromLeft 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 	}
 
 	.statistics-section {
-		@apply mx-auto mt-10 mb-25;
-		@apply flex justify-center gap-[100px];
+		@apply flex;
+		@apply justify-center;
+		@apply gap-[100px];
+		@apply mx-auto;
+		@apply mt-10;
+		@apply mb-25;
 	}
 
 	.statistic-item {
-		@apply flex items-end;
+		@apply flex;
+		@apply items-end;
 	}
 
 	.statistic-number-container {
-		@apply relative h-[90px] w-[90px];
-		@apply bg-primary text-body;
-		@apply rounded-tl-[30%] rounded-br-[30%];
+		@apply relative;
+		@apply bg-primary;
+		@apply text-body;
+		@apply h-[90px];
+		@apply w-[90px];
+		@apply rounded-tl-[30%];
+		@apply rounded-br-[30%];
 
 		&::before {
-			@apply absolute -bottom-[14px] -left-[20px];
+			@apply absolute;
+			@apply text-primary;
+			@apply text-4xl;
+			@apply font-bold;
 			@apply w-[60px];
-			@apply text-primary text-[36px] font-bold;
+			@apply -bottom-[14px];
+			@apply -left-[20px];
 			content: '+';
 		}
 	}
 
 	.statistic-number {
-		@apply absolute -bottom-[16px] left-0;
-		@apply text-[46px] font-bold;
+		@apply absolute;
+		@apply text-5xl;
+		@apply font-bold;
 		@apply tracking-[-4px];
+		@apply bottom-[-6px];
+		@apply left-0;
 	}
 
 	.statistic-text {
-		@apply mt-10 ml-1;
-		@apply text-primary normal-case italic;
+		@apply text-primary;
+		@apply normal-case;
+		@apply italic;
+		@apply mt-10;
+		@apply ml-1;
 	}
 
 	.contact-button {
-		@apply mx-auto;
-		@apply flex max-w-[420px];
+		@apply flex;
 		@apply text-center;
+		@apply text-primary-light;
+		@apply border-primary-light;
+		@apply mx-auto;
+		@apply max-w-[420px];
 		@apply rounded-full;
-		@apply text-primary-light border-primary-light;
 	}
 </style>
 

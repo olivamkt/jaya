@@ -1,17 +1,21 @@
 @reference "./global.css";
 
 .contact-main {
-	@apply pb-16;
 	@apply bg-[#ececea];
+	@apply pb-16;
 
 	.title {
-		@apply mt-22 mb-16 text-center;
 		@apply text-primary;
-		@apply text-[85px];
+		@apply text-8xl;
+		@apply text-center;
+		@apply mt-22;
+		@apply mb-16;
 	}
 
 	.content-section {
-		@apply flex gap-16 px-10;
+		@apply flex;
+		@apply gap-16;
+		@apply px-10;
 
 		.text-column {
 			@apply w-1/2;
@@ -36,9 +40,9 @@
 					@apply mt-8;
 
 					.email-link {
+						@apply block;
 						@apply font-semibold;
 						@apply mb-6;
-						@apply block;
 					}
 
 					.contact-details {
@@ -50,8 +54,8 @@
 								@apply mb-1;
 
 								strong {
-									@apply font-bold;
 									@apply text-gray-900;
+									@apply font-bold;
 								}
 							}
 						}
@@ -73,22 +77,23 @@
 						@apply block;
 						@apply text-gray-700;
 						@apply font-medium;
-						@apply text-[14px];
+						@apply text-sm;
 						@apply lowercase;
 					}
 
 					input,
 					textarea {
 						@apply w-full;
-						@apply px-0 py-3;
+						@apply bg-transparent;
+						@apply text-gray-900;
+						@apply text-base;
 						@apply border-0;
 						@apply border-b-2;
 						@apply border-gray-300;
 						@apply rounded-none;
-						@apply text-gray-900;
-						@apply bg-transparent;
-						@apply text-[16px];
 						@apply ring-0;
+						@apply px-0;
+						@apply py-3;
 
 						/* &:focus {
 							@apply border-primary;
@@ -101,16 +106,19 @@
 					}
 
 					textarea {
-						resize: vertical;
 						@apply min-h-[120px];
 						@apply resize-y;
+						resize: vertical;
 					}
 				}
 
 				.btn-submit {
-					@apply flex text-center;
-					@apply max-w-[420px] rounded-full;
-					@apply text-primary-light border-primary-light;
+					@apply flex;
+					@apply text-center;
+					@apply text-primary-light;
+					@apply border-primary-light;
+					@apply max-w-[420px];
+					@apply rounded-full;
 				}
 			}
 		}

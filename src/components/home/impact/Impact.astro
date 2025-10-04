@@ -15,19 +15,24 @@ import { withBase } from '@/utils/url'
 		@apply min-h-[735px];
 
 		.impact-title {
-			@apply text-primary mt-2 mb-10 text-[28px];
+			@apply text-primary;
+			@apply text-3xl;
 			@apply tracking-[-0.5px];
+			@apply mt-2 mb-10;
 		}
 
 		.impact-subtitle {
-			@apply text-primary uppercase;
+			@apply text-primary;
+			@apply uppercase;
 			@apply font-space-grotesk;
 		}
 
 		.solutions-list {
-			@apply mt-10;
-			@apply flex flex-row gap-20;
+			@apply flex;
+			@apply flex-row;
+			@apply gap-20;
 			@apply justify-center;
+			@apply mt-10;
 		}
 
 		.solution-item {
@@ -35,11 +40,15 @@ import { withBase } from '@/utils/url'
 		}
 
 		.solution-container {
-			@apply bg-primary text-white;
+			@apply bg-primary;
+			@apply text-white;
 			@apply h-[147px];
 			@apply rounded-tl-[50px];
-			@apply flex items-center justify-center;
-			@apply transition-all duration-500;
+			@apply flex;
+			@apply items-center;
+			@apply justify-center;
+			@apply transition-all;
+			@apply duration-500;
 
 			&:hover {
 				@apply bg-primary-light;
@@ -52,25 +61,32 @@ import { withBase } from '@/utils/url'
 			img {
 				@apply w-[65px];
 				@apply h-[65px];
-				@apply transition-all duration-500;
+				@apply transition-all;
+				@apply duration-500;
 			}
 		}
 
 		.solution-item-title {
+			@apply text-base;
+			@apply font-bold;
 			@apply mb-4;
-			@apply text-[16px] font-bold;
 		}
 
 		.solution-item-text {
+			@apply text-center;
+			@apply text-sm;
+			@apply text-primary-light;
+			@apply font-bold;
 			@apply mt-5;
-			@apply text-center text-[15px];
-			@apply text-primary-light font-bold;
 		}
 
 		.btn-see-more {
-			@apply mx-auto mt-10;
-			@apply flex text-center;
-			@apply max-w-[420px] rounded-full;
+			@apply flex;
+			@apply text-center;
+			@apply mx-auto;
+			@apply mt-10;
+			@apply max-w-[420px];
+			@apply rounded-full;
 		}
 	}
 </style>
