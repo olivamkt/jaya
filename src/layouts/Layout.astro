@@ -62,69 +62,9 @@ const isServiceActive = () =>
 		<ClientRouter />
 	</head>
 	<body>
-		<!-- <div class="hidden">
-			<div class="nav-background"></div>
-			<div class="container md:pr-15">
-				<a class="logo" href={withBase('')}><Image src={logoIcon} alt="Logo" /></a>
-				<nav>
-					<ul class="menu menu-horizontal">
-						<li>
-							<div class="dropdown dropdown-hover">
-								<a tabindex="0" role="button" class={isServiceActive()}>services</a>
-								<ul
-									tabindex="0"
-									class="dropdown-content menu bg-base-100 rounded-box z-1 ml-0 w-52 p-2 shadow-sm"
-								>
-									<li>
-										<a href={withBase('fintech')} class={isActive(withBase('fintech'))}>fintech</a>
-									</li>
-									<li>
-										<a href={withBase('healthtech')} class={isActive(withBase('healthtech'))}
-											>healthtech</a
-										>
-									</li>
-									<li>
-										<a href={withBase('retail')} class={isActive(withBase('retail'))}>retail</a>
-									</li>
-									<li>
-										<a href={withBase('saas')} class={isActive(withBase('saas'))}>saas</a>
-									</li>
-								</ul>
-							</div>
-						</li>
-						<li>
-							<a href="https://medium.com/wearejaya" target="_blank">blog</a>
-						</li>
-						<li>
-							<a href="https://www.linkedin.com/company/jaya-apps" target="_blank">culture</a>
-						</li>
-						<li>
-							<a href={withBase('contact')} class={isActive(withBase('contact'))}>contact</a>
-						</li>
-					</ul>
-				</nav>
-			</div>
-		</div> -->
-
 		<Header />
 
 		<slot />
 		<Footer />
 	</body>
 </html>
-<!-- 
-<style>
-	/* Fix para dropdown hover - evita que feche quando o mouse passa entre o botão e o dropdown */
-	.dropdown-hover:hover .dropdown-content {
-		display: block;
-	}
-
-	.dropdown-hover .dropdown-content {
-		margin-top: 4px; /* Adiciona um pequeno gap visual */
-	}
-
-	/* Garante que o dropdown permaneça aberto quando o mouse está sobre ele */
-	.dropdown-hover .dropdown-content:hover {
-		display: block;
-	}
-</style> -->

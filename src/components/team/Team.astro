@@ -9,9 +9,12 @@ import teamImg from '@/assets/home/team.png'
 	.team-section {
 		@apply bg-primary-light;
 		@apply text-white;
+		@apply pt-20;
 
-		.container {
-			&:after {
+		.content {
+			@apply container;
+			@apply px-10;
+			/* &:after {
 				@apply absolute;
 				@apply bottom-[-5rem];
 				@apply h-[200px] w-full;
@@ -19,7 +22,7 @@ import teamImg from '@/assets/home/team.png'
 				@apply rounded-tl-[50px] rounded-tr-[50px];
 				@apply z-0;
 				content: '';
-			}
+			} */
 
 			.team-subtitle {
 				@apply text-center;
@@ -48,11 +51,42 @@ import teamImg from '@/assets/home/team.png'
 			@apply mt-15 mb-10;
 			@apply btn btn-outline btn-wide;
 		}
+
+		.team-grid {
+			@apply relative;
+			@apply mt-30 lg:mt-50;
+			@apply px-2;
+
+			/* @apply min-h-[100px] w-full md:h-[250px]; */
+			@apply bg-neutral-light;
+			@apply rounded-tl-[50px] rounded-tr-[50px];
+			@apply lg:max-h-[220px];
+
+			img {
+				/* @apply absolute; */
+				@apply left-0;
+				@apply -translate-y-1/2 transform;
+				/* @apply top-[-50%] lg:top-[-90%]; */
+				/* @apply top-[-50%] left-0 lg:top-[-200px]; */
+				@apply px-5;
+				/* @apply z-1; */
+			}
+			/* &:after {
+				@apply absolute;
+				@apply bottom-[-5rem];
+				@apply h-[200px] w-full;
+				@apply bg-neutral-light;
+				@apply rounded-tl-[50px] rounded-tr-[50px];
+				@apply z-0;
+				@apply left-0;
+				content: '';
+			} */
+		}
 	}
 </style>
 
-<section class="team-section py-20">
-	<div class="relative container">
+<section class="team-section">
+	<div class="content">
 		<div class="team-subtitle">Great People Build Great Products</div>
 		<h2 class="team-title"><b>we develop people</b> <i>while they</i> <b>develop software</b></h2>
 		<p class="team-description">
@@ -60,8 +94,8 @@ import teamImg from '@/assets/home/team.png'
 			teams with low turnover and high delivery consistency.
 		</p>
 		<a href="/about" class="btn-see-more">Meet our culture</a>
-		<div class="team-grid relative z-1">
-			<Image src={teamImg} alt="Team Image" class="team-image" />
-		</div>
+	</div>
+	<div class="team-grid lg:container">
+		<Image src={teamImg} alt="Team Image" class="team-image" />
 	</div>
 </section>

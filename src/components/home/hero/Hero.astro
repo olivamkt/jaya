@@ -10,9 +10,9 @@ import { withBase } from '@/utils/url'
 
 	.hero-section {
 		@apply relative;
-		@apply container;
 		@apply px-10 lg:px-0;
 		@apply py-20;
+		@apply overflow-hidden;
 
 		.hero-text {
 			@apply text-center;
@@ -113,52 +113,54 @@ import { withBase } from '@/utils/url'
 </style>
 
 <section class="hero-section">
-	<div class="hero-text">
-		<div class="slide-from-left"><b>reliable nearshore developers</b></div>
-		<div class="slide-from-right"><i>for long-term partnerships </i></div>
-	</div>
-
-	<div class="hero-description">
-		Jaya is a fully remote software consulting company specializing in
-		<b>nearshore staff augmentation, outsourcing and AI development.</b><br />
-		Since 2012, we've helped companies scale with handpicked engineering talent and stable, high-performing
-		teams. From fintech and healthtech to retail, SaaS... and beyond.
-		<b>Our squads deliver with speed, cultural alignment, and a long-term mindset.</b>
-	</div>
-
-	<Image
-		src={heroLeftImg}
-		alt="Hero left illustration showing collaborative team work"
-		class="hero-left-image"
-	/>
-	<Image
-		src={heroRightImg}
-		alt="Hero right illustration showing technology solutions"
-		class="hero-right-image"
-	/>
-
-	<div class="statistics-section">
-		<div class="statistic-item">
-			<div class="statistic-number-container">
-				<div class="statistic-number">9</div>
-			</div>
-			<div class="statistic-text">years of<br /> <b>nearshore<br /> experience</b></div>
+	<div class="relative container">
+		<div class="hero-text">
+			<div class="slide-from-left"><b>reliable nearshore developers</b></div>
+			<div class="slide-from-right"><i>for long-term partnerships </i></div>
 		</div>
-		<div class="statistic-item">
-			<div class="statistic-number-container">
-				<div class="statistic-number">80</div>
-			</div>
-			<div class="statistic-text">active<br /> <b>developers</b></div>
-		</div>
-		<div class="statistic-item">
-			<div class="statistic-number-container">
-				<div class="statistic-number">100</div>
-			</div>
-			<div class="statistic-text"><b>augmented<br /> squads</b> over<br /> the years</div>
-		</div>
-	</div>
 
-	<a href={withBase('contact')} class="contact-button">
-		Let's transform your business? Contact Us
-	</a>
+		<div class="hero-description">
+			Jaya is a fully remote software consulting company specializing in
+			<b>nearshore staff augmentation, outsourcing and AI development.</b><br />
+			Since 2012, we've helped companies scale with handpicked engineering talent and stable, high-performing
+			teams. From fintech and healthtech to retail, SaaS... and beyond.
+			<b>Our squads deliver with speed, cultural alignment, and a long-term mindset.</b>
+		</div>
+
+		<Image
+			src={heroLeftImg}
+			alt="Hero left illustration showing collaborative team work"
+			class="hero-left-image"
+		/>
+		<Image
+			src={heroRightImg}
+			alt="Hero right illustration showing technology solutions"
+			class="hero-right-image"
+		/>
+
+		<div class="statistics-section">
+			<div class="statistic-item">
+				<div class="statistic-number-container">
+					<div class="statistic-number">9</div>
+				</div>
+				<div class="statistic-text">years of<br /> <b>nearshore<br /> experience</b></div>
+			</div>
+			<div class="statistic-item">
+				<div class="statistic-number-container">
+					<div class="statistic-number">80</div>
+				</div>
+				<div class="statistic-text">active<br /> <b>developers</b></div>
+			</div>
+			<div class="statistic-item">
+				<div class="statistic-number-container">
+					<div class="statistic-number">100</div>
+				</div>
+				<div class="statistic-text"><b>augmented<br /> squads</b> over<br /> the years</div>
+			</div>
+		</div>
+
+		<a href={withBase('contact')} class="contact-button">
+			Let's transform your business? Contact Us
+		</a>
+	</div>
 </section>
