@@ -1,141 +1,128 @@
----
-interface Props {
-	title: string
-	subtitle: string
-	description: string
-	metrics: Array<{
-		value: string
-		label: string
-	}>
-	ctaText: string
-	ctaLink: string
-}
-const { title, subtitle, description, metrics, ctaText, ctaLink } = Astro.props
----
-
 <style>
 	@reference "../../../styles/global.css";
 
 	.service-hero-section {
-		@apply py-20;
+		@apply flex flex-col lg:flex-row;
 		@apply min-h-[600px];
-
-		.container {
-			@apply container;
-			@apply flex items-center gap-10;
-		}
 
 		.image-column {
 			@apply relative;
-			@apply w-1/2;
+			@apply w-full lg:w-1/2;
 
-			.placeholder-image {
-				@apply h-[400px] w-full;
-				@apply border-2 border-dashed;
-				@apply border-primary/30;
-				@apply rounded-lg;
-				@apply bg-gray-50;
-				@apply flex;
-				@apply items-center justify-center;
-				@apply text-primary/50;
-
-				.placeholder-icon {
-					@apply h-16 w-16;
-					@apply opacity-50;
-					@apply mx-auto;
-					@apply mb-4;
-				}
-			}
+			@apply hidden lg:block;
 		}
 
 		.content-column {
-			@apply w-1/2;
+			@apply relative;
+			@apply w-full lg:w-1/2;
 
-			h1 {
-				@apply text-primary;
-				@apply mb-8;
-				@apply text-4xl leading-tight font-bold;
+			.content {
+				/* @apply px-10 py-20; */
+			}
 
-				.title-bold {
-					@apply font-bold;
+			.hero-title-container {
+				@apply relative;
+				@apply z-10;
+
+				.content-image {
+					@apply absolute;
+					@apply top-0;
+					@apply left-0;
+					@apply h-full;
+					@apply w-full;
+					@apply brightness-50 filter;
+
+					img {
+						@apply w-full;
+						@apply h-full;
+						@apply object-cover;
+					}
 				}
 
-				.title-normal {
-					@apply font-normal;
+				.hero-title {
+					@apply lg:text-primary text-white;
+					@apply text-4xl leading-tight;
+					@apply relative;
+					@apply z-10;
+					@apply flex;
+					@apply items-center;
+					@apply justify-center;
+					@apply h-full;
+					@apply w-full;
+					@apply px-10 py-20;
 				}
 			}
 
-			.description {
-				@apply text-primary;
-				@apply mb-12;
-				@apply text-lg leading-relaxed;
-			}
+			.statistics-section {
+				@apply flex flex-row;
+				@apply gap-12;
+				@apply mx-auto;
+				@apply mt-30 mb-25;
 
-			.metrics-grid {
-				@apply mb-12;
-				@apply grid grid-cols-1 gap-4;
-			}
-
-			.metric-card {
-				@apply bg-primary text-white;
-				@apply p-6;
-				@apply rounded-tl-[20px] rounded-br-[20px];
-
-				.metric-value {
-					@apply text-3xl font-bold;
-					@apply mb-2;
+				.statistic-item {
+					@apply flex flex-col self-start;
 				}
 
-				.metric-label {
-					@apply text-sm;
-					@apply opacity-90;
+				.statistic-number-container {
+					@apply relative;
+					@apply bg-primary;
+					@apply h-[90px] w-[90px];
+					@apply rounded-tl-[30%] rounded-br-[30%];
+					@apply text-body;
+
+					&::before {
+						@apply absolute;
+						@apply text-primary;
+						@apply text-4xl font-bold;
+						@apply w-[60px];
+						@apply -bottom-[14px] -left-[20px];
+						content: '+';
+					}
+				}
+
+				.statistic-number {
+					@apply absolute;
+					@apply text-5xl font-bold;
+					@apply tracking-[-4px];
+					@apply bottom-[-6px] left-0;
+				}
+
+				.statistic-text {
+					@apply text-primary;
+					@apply normal-case italic;
+					@apply mt-1 leading-tight;
 				}
 			}
 
 			.cta-button {
-				@apply btn btn-outline btn-primary btn-wide;
+				@apply btn btn-outline btn-wide;
+				@apply border-primary-light;
+				@apply text-primary-light;
+				@apply mx-auto;
 			}
 		}
 	}
 </style>
 
 <section class="service-hero-section">
-	<div class="container">
-		<div class="image-column">
-			<div class="placeholder-image">
-				<div class="text-center">
-					<svg class="placeholder-icon" fill="currentColor" viewBox="0 0 20 20">
-						<path
-							fill-rule="evenodd"
-							d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"
-							clip-rule="evenodd"></path>
-					</svg>
-					<p>Service Image Placeholder</p>
+	<div class="image-column">
+		<slot name="hero-image" />
+	</div>
+
+	<div class="content-column">
+		<div class="content">
+			<div class="hero-title-container">
+				<div class="content-image">
+					<slot name="hero-image" />
 				</div>
-			</div>
-		</div>
-
-		<div class="content-column">
-			<h1>
-				<span class="title-bold">{title}</span>
-				<br />
-				<span class="title-normal">{subtitle}</span>
-			</h1>
-
-			<p class="description">{description}</p>
-
-			<div class="metrics-grid">
-				{
-					metrics.map((metric) => (
-						<div class="metric-card">
-							<div class="metric-value">{metric.value}</div>
-							<div class="metric-label">{metric.label}</div>
-						</div>
-					))
-				}
+				<h1 class="hero-title">
+					<slot name="hero-title" />
+				</h1>
 			</div>
 
-			<a href={ctaLink} class="cta-button">{ctaText}</a>
+			<slot name="hero-statistics" />
 		</div>
+
+		<!-- <a href={ctaLink} class="cta-button">{ctaText}</a> -->
 	</div>
 </section>

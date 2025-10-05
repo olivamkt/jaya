@@ -1,29 +1,8 @@
 ---
 import Layout from '@/layouts/Layout.astro'
 import ServiceHero from '@/components/services/hero/ServiceHero.astro'
-
-const title = 'building the future of finance, safely.'
-const subtitle = ''
-const description =
-	'We partner with fintech companies to build secure, scalable, and innovative financial solutions that transform how people manage money and conduct transactions.'
-
-const metrics = [
-	{
-		value: '+100M',
-		label: 'users impacted'
-	},
-	{
-		value: '+30',
-		label: 'fintech squads'
-	},
-	{
-		value: '+10',
-		label: 'years experience'
-	}
-]
-
-const ctaText = 'Get in touch'
-const ctaLink = '/contact'
+import { Image } from 'astro:assets'
+import fintechImg from '@/assets/fintech/fintech.png'
 ---
 
 <Layout
@@ -31,13 +10,38 @@ const ctaLink = '/contact'
 	description="Building the future of finance with secure, scalable fintech solutions"
 >
 	<main class="nav-padding">
-		<ServiceHero
-			title={title}
-			subtitle={subtitle}
-			description={description}
-			metrics={metrics}
-			ctaText={ctaText}
-			ctaLink={ctaLink}
-		/>
+		<ServiceHero>
+			<Image src={fintechImg} alt="Fintech" slot="hero-image" />
+			<div slot="hero-title">
+				<b>building</b>
+				<i>
+					the future
+					<br /> of finance,
+				</i>
+				<b>safely.</b>
+			</div>
+			<div slot="hero-statistics">
+				<div class="statistics-section">
+					<div class="statistic-item">
+						<div class="statistic-number-container">
+							<div class="statistic-number">9</div>
+						</div>
+						<div class="statistic-text">years of<br /> <b>nearshore<br /> experience</b></div>
+					</div>
+					<div class="statistic-item">
+						<div class="statistic-number-container">
+							<div class="statistic-number">80</div>
+						</div>
+						<div class="statistic-text">active<br /> <b>developers</b></div>
+					</div>
+					<div class="statistic-item">
+						<div class="statistic-number-container">
+							<div class="statistic-number">100</div>
+						</div>
+						<div class="statistic-text"><b>augmented<br /> squads</b> over<br /> the years</div>
+					</div>
+				</div>
+			</div>
+		</ServiceHero>
 	</main>
 </Layout>
