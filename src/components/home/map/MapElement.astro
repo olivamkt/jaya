@@ -1,77 +1,85 @@
-<script>
-	var detailsBox = document.getElementById('details-box')
-
-	// Add click functionality to show state details
-	document.addEventListener('click', function (e) {
-		if (e.target.tagName === 'path') {
-			var title = e.target.dataset.title
-			var subtitle = e.target.dataset.subtitle
-			var since = e.target.dataset.since
-			var description = e.target.dataset.description
-			var link = e.target.dataset.link
-
-			if (title || subtitle || since || description) {
-				// Update the details box content
-				var titleElement = detailsBox.querySelector('.title')
-				var subtitleElement = detailsBox.querySelector('.subtitle')
-				var sinceElement = detailsBox.querySelector('.since')
-				var descriptionElement = detailsBox.querySelector('p')
-
-				titleElement.textContent = title || ''
-				subtitleElement.textContent = subtitle || ''
-				sinceElement.textContent = since || ''
-				descriptionElement.textContent = description || ''
-
-				// Set the link for the details box
-				if (link) {
-					detailsBox.href = link
-				}
-
-				// Position the details box relative to the click position
-				var x = e.clientX
-				var y = e.clientY
-
-				// Get details box dimensions and screen boundaries
-				var boxWidth = 300 // max-width from CSS
-				var boxHeight = 200 // estimated height
-				var screenWidth = window.innerWidth
-				var screenHeight = window.innerHeight
-
-				// Adjust horizontal position if it would go off screen
-				var leftPosition = x
-				if (leftPosition + boxWidth > screenWidth) {
-					leftPosition = screenWidth - boxWidth - 20 // 20px margin from edge
-				}
-				if (leftPosition < 20) {
-					leftPosition = 20 // 20px margin from edge
-				}
-
-				// Adjust vertical position if it would go off screen
-				var topPosition = y + 20
-				if (topPosition + boxHeight > screenHeight) {
-					topPosition = y - boxHeight - 20 // Position above click point
-				}
-
-				detailsBox.style.top = topPosition + 'px'
-				detailsBox.style.left = leftPosition + 'px'
-
-				// Show the details box
-				detailsBox.style.visibility = 'visible'
-				detailsBox.style.opacity = '1'
-			}
-		} else {
-			// Hide details box when clicking outside
-			detailsBox.style.opacity = '0'
-			detailsBox.style.visibility = 'hidden'
+<script type="module">
+	document.addEventListener('DOMContentLoaded', () => {
+		const BOX = { WIDTH: 300, HEIGHT: 200, MARGIN: 20, OFFSET: 20 }
+		const VISIBILITY = {
+			show: { opacity: '1', visibility: 'visible' },
+			hide: { opacity: '0', visibility: 'hidden' }
 		}
-	})
 
-	// Hide details box when user scrolls
-	window.addEventListener('scroll', function () {
-		detailsBox.style.opacity = '0'
-		detailsBox.style.visibility = 'hidden'
+		const detailsBox = document.getElementById('details-box')
+		if (!detailsBox) return console.warn('Details box element not found')
+
+		const elements = {
+			title: detailsBox.querySelector('.title'),
+			subtitle: detailsBox.querySelector('.subtitle'),
+			since: detailsBox.querySelector('.since'),
+			description: detailsBox.querySelector('p')
+		}
+
+		function extractData(el) {
+			return {
+				title: el.dataset.title,
+				subtitle: el.dataset.subtitle,
+				since: el.dataset.since,
+				description: el.dataset.description,
+				link: el.dataset.link
+			}
+		}
+
+		function hasData(data) {
+			return Object.values(data).some(Boolean)
+		}
+
+		function updateBoxContent(data) {
+			for (const key in elements) {
+				if (elements[key] && data[key]) {
+					elements[key].textContent = data[key]
+				}
+			}
+			if (data.link) detailsBox.setAttribute('href', data.link)
+		}
+
+		function calculatePosition(x, y) {
+			const { innerWidth, innerHeight } = window
+
+			let left = Math.min(Math.max(x, BOX.MARGIN), innerWidth - BOX.WIDTH - BOX.MARGIN)
+
+			let top =
+				y + BOX.OFFSET + BOX.HEIGHT > innerHeight ? y - BOX.HEIGHT - BOX.OFFSET : y + BOX.OFFSET
+
+			return { x: left, y: top }
+		}
+
+		function setBoxPosition({ x, y }) {
+			Object.assign(detailsBox.style, { left: `${x}px`, top: `${y}px` })
+		}
+
+		function toggleBox(show) {
+			Object.assign(detailsBox.style, show ? VISIBILITY.show : VISIBILITY.hide)
+		}
+
+		function handlePathClick(el, evt) {
+			const data = extractData(el)
+			if (!hasData(data)) return
+
+			updateBoxContent(data)
+			setBoxPosition(calculatePosition(evt.clientX, evt.clientY))
+			toggleBox(true)
+		}
+
+		document.addEventListener('click', (evt) => {
+			const target = evt.target
+			if (target?.tagName?.toLowerCase() === 'path') {
+				handlePathClick(target, evt)
+			} else {
+				toggleBox(false)
+			}
+		})
+
+		window.addEventListener('scroll', () => toggleBox(false), { passive: true })
 	})
 </script>
+
 <style>
 	@reference '../../../styles/global.css';
 	path {
@@ -96,39 +104,17 @@
 		transform: scale(1.005, 1.005);
 	}
 
-	.map-container {
+	.svg-container {
 		position: relative;
 		width: 100%;
 		height: auto;
-		/* height: 400px; */ /* Mobile height */
 		margin: 0 auto;
-		/* min-height: 400px; */
-	}
-
-	/* Tablet height */
-	@media (min-width: 768px) {
-		.map-container {
-			/* height: 450px; */
-			/* min-height: 450px; */
-		}
-	}
-
-	/* Desktop height */
-	@media (min-width: 1024px) {
-		.map-container {
-			/* height: 500px; */
-			/* min-height: 500px; */
-		}
 	}
 
 	#us-map {
 		display: block;
-		/* position: absolute; */
 		top: 0;
 		left: 0;
-		/* width: 100%; */
-		/* height: 100%; */
-		/* object-fit: cover; */
 	}
 
 	#details-box {
@@ -177,19 +163,8 @@
 	<div class="btn btn-link btn-read-more">Read More</div>
 </a>
 
-<!-- <a href="/" class="state-info">
-	<div class="title">EnergyTech Texas</div>
-	<div class="subtitle">Smart Grid Management</div>
-	<div class="since">Client since: 2020</div>
-	<p>
-		Intelligent energy management system optimizing power distribution and integrating renewable
-		energy sources for maximum efficiency.
-	</p>
-
-	<div class="btn btn-link btn-read-more">Read More</div>
-</a> -->
-
-<div class="map-container">
+<div class="svg-container">
+	<!-- @ts-ignore -->
 	<svg
 		xmlns:dc="http://purl.org/dc/elements/1.1/"
 		xmlns:cc="http://creativecommons.org/ns#"
@@ -237,8 +212,10 @@
 		</defs>
 		<metadata id="metadata8">
 			<views id="views10">
+				<!-- @ts-ignore -->
 				<view h="589.235294118" padding="0" w="1000" id="view12">
 					<proj id="laea-usa" lat0="45" lon0="-100"></proj>
+					<!-- @ts-ignore -->
 					<bbox h="321.97" w="589.33" x="690.09" y="918.69" id="bbox15"></bbox>
 				</view>
 			</views>
