@@ -25,7 +25,13 @@ import MapElement from './MapElement.astro'
 
 		.btn-get-in-touch {
 			@apply btn btn-outline btn-wide rounded-full;
-			@apply mx-auto my-20;
+			@apply mx-auto my-10;
+			@apply hidden lg:flex;
+			@apply text-white;
+
+			&.btn-mobile {
+				@apply flex lg:hidden;
+			}
 		}
 
 		.content {
@@ -35,6 +41,7 @@ import MapElement from './MapElement.astro'
 		}
 
 		.map-container {
+			@apply mt-10;
 			@apply relative;
 			@apply w-full lg:w-2/3;
 		}
@@ -73,6 +80,7 @@ import MapElement from './MapElement.astro'
 				<!-- Map component would go here -->
 				<MapElement />
 			</div>
+			<a class="btn-get-in-touch btn-mobile">Get in touch</a>
 		</div>
 	</div>
 </section>
