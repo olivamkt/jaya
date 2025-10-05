@@ -16,18 +16,6 @@ import Header from '@/components/layout/Header.astro'
 import Footer from '@/components/layout/Footer.astro'
 
 const lang = 'en'
-
-// Active link detection
-const currentPath = Astro.url.pathname
-const isActive = (href: string) => {
-	const siteUrl = Astro.site?.toString() || ''
-	const path = href.replace(siteUrl, '')
-	const active = path === '' ? currentPath === '/' : currentPath.startsWith(path)
-	return active ? 'font-bold' : ''
-}
-
-const isServiceActive = () =>
-	currentPath.match(/\/fintech|\/healthtech|\/retail|\/saas/) ? 'font-bold' : ''
 ---
 
 <!doctype html>

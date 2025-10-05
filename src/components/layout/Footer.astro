@@ -1,16 +1,17 @@
 ---
-import { withBase } from '@/utils/url'
 import { Image } from 'astro:assets'
 import linkedinIcon from '@/assets/icons/linkedin.svg'
 import githubIcon from '@/assets/icons/github.svg'
 import mediumIcon from '@/assets/icons/medium.svg'
+
+const currentPath = Astro.url.pathname
+const isContactPage = currentPath.includes('/contact')
 ---
 
 <style>
 	@reference "../../styles/global.css";
 
 	.footer-section {
-		@apply bg-neutral-light;
 		@apply lg:py-20;
 		@apply mt-auto;
 
@@ -74,10 +75,8 @@ import mediumIcon from '@/assets/icons/medium.svg'
 
 		.footer-links {
 			@apply flex;
-			@apply border-primary;
 			@apply border-t;
 			@apply border-b;
-			@apply mt-20;
 			@apply py-10;
 			@apply px-8;
 		}
@@ -100,41 +99,52 @@ import mediumIcon from '@/assets/icons/medium.svg'
 	}
 </style>
 
-<footer class="footer-section">
+<footer
+	class={`footer-section ${isContactPage ? 'bg-primary text-white' : 'bg-neutral-light pb-10'}`}
+>
 	<div class="container">
-		<div class="footer-main">
-			<div class="footer-main-content">
-				<div class="lets-talk">let's talk</div>
-				<a href="/contact" class="btn-contact">
-					<svg
-						class="icon"
-						width="20"
-						height="20"
-						viewBox="0 0 24 24"
-						fill="none"
-						xmlns="http://www.w3.org/2000/svg"
-					>
-						<path
-							d="M7 17L17 7M17 7H7M17 7V17"
-							stroke="currentColor"
-							stroke-width="2"
-							stroke-linecap="round"
-							stroke-linejoin="round"></path>
-					</svg>
-				</a>
-			</div>
-			<div class="address-container">
-				<div class="address-item mb-5">
-					<div>Austin, TX - USA</div>
-					<div><strong>+1 (512) 555-1212</strong></div>
+		{
+			!isContactPage && (
+				<div class="footer-main">
+					<div class="footer-main-content">
+						<div class="lets-talk">let's talk</div>
+						<a href="/contact" class="btn-contact">
+							<svg
+								class="icon"
+								width="20"
+								height="20"
+								viewBox="0 0 24 24"
+								fill="none"
+								xmlns="http://www.w3.org/2000/svg"
+							>
+								<path
+									d="M7 17L17 7M17 7H7M17 7V17"
+									stroke="currentColor"
+									stroke-width="2"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								/>
+							</svg>
+						</a>
+					</div>
+					<div class="address-container">
+						<div class="address-item mb-5">
+							<div>Austin, TX - USA</div>
+							<div>
+								<strong>+1 (512) 555-1212</strong>
+							</div>
+						</div>
+						<div class="address-item">
+							<div>São Paulo, SP - Brazil</div>
+							<div>
+								<strong>+55(11) 333-1212</strong>
+							</div>
+						</div>
+					</div>
 				</div>
-				<div class="address-item">
-					<div>São Paulo, SP - Brazil</div>
-					<div><strong>+55(11) 333-1212</strong></div>
-				</div>
-			</div>
-		</div>
-		<div class="footer-links">
+			)
+		}
+		<div class={`footer-links ${isContactPage ? 'border-white mt-0' : 'border-primary mt-20'}`}>
 			<nav>
 				<ul class="footer-menu">
 					<li>

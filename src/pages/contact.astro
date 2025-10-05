@@ -1,7 +1,135 @@
 ---
 import Layout from '@/layouts/Layout.astro'
-import '@/styles/contact.css'
 ---
+
+<style>
+	@reference "../styles/global.css";
+
+	.contact-main {
+		@apply bg-[#ececea];
+		@apply pb-16;
+
+		.title {
+			@apply text-primary;
+			@apply text-8xl;
+			@apply text-center;
+			@apply mt-22 mb-16;
+		}
+
+		.content-section {
+			@apply flex flex-col lg:flex-row;
+			@apply gap-16;
+			@apply px-10;
+
+			.text-column {
+				@apply w-full lg:w-1/2;
+
+				.contact-text {
+					@apply max-w-[450px];
+					@apply space-y-6;
+
+					h2 {
+						@apply text-gray-900;
+						@apply font-bold;
+						@apply leading-tight;
+						@apply mb-6;
+					}
+
+					p {
+						@apply text-gray-700;
+						@apply leading-relaxed;
+					}
+
+					.contact-info {
+						@apply mt-8;
+
+						.email-link {
+							@apply block;
+							@apply font-semibold;
+							@apply mb-6;
+						}
+
+						.contact-details {
+							@apply space-y-4;
+
+							.location {
+								p {
+									@apply text-gray-800;
+									@apply mb-1;
+
+									strong {
+										@apply text-gray-900;
+										@apply font-bold;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+
+			.form-column {
+				@apply w-full lg:w-1/2;
+
+				.contact-form {
+					@apply space-y-6;
+
+					.form-group {
+						@apply space-y-2;
+
+						label {
+							@apply block;
+							@apply text-gray-700;
+							@apply font-medium;
+							@apply text-sm;
+							@apply lowercase;
+						}
+
+						input,
+						textarea {
+							@apply w-full;
+							@apply bg-transparent;
+							@apply text-gray-900;
+							@apply text-base;
+							@apply border-0;
+							@apply border-b-2;
+							@apply border-gray-300;
+							@apply rounded-none;
+							@apply ring-0;
+							@apply px-0;
+							@apply py-3;
+
+							/* &:focus {
+							@apply border-primary;
+							@apply outline-none;
+						}
+
+						&:hover {
+							@apply border-gray-400;
+						} */
+						}
+
+						textarea {
+							@apply min-h-[120px];
+							@apply resize-y;
+							resize: vertical;
+						}
+					}
+
+					.btn-submit {
+						@apply flex;
+						@apply text-center;
+						@apply text-primary-light;
+						@apply border-primary-light;
+						@apply max-w-[420px];
+						@apply rounded-full;
+						@apply btn btn-outline btn-primary rounded-full;
+					}
+				}
+			}
+		}
+	}
+</style>
 
 <Layout
 	title={'Contact'}
