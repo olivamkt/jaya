@@ -11,16 +11,55 @@ const pageContent = {
 }
 ---
 
+<style>
+	@reference "../styles/global.css";
+
+	.error-section {
+		@apply flex;
+		@apply lg:min-h-[92svh];
+	}
+
+	.error-container {
+		@apply container;
+		@apply flex flex-col;
+		@apply items-center justify-center;
+		@apply gap-6;
+		@apply py-20 md:py-40;
+	}
+
+	.error-code {
+		@apply font-heading;
+		@apply text-6xl;
+		@apply font-bold;
+	}
+
+	.error-title {
+		@apply font-heading;
+		@apply text-4xl;
+		@apply font-medium;
+	}
+
+	.error-message {
+		@apply mt-4;
+		@apply text-center;
+	}
+
+	.back-link {
+		@apply text-primary;
+		@apply hover:underline;
+	}
+</style>
+
 <Layout title={pageContent.title} description={pageContent.description}>
 	<main>
-		<section class="flex lg:min-h-[92svh]">
-			<div class="container flex flex-col items-center justify-center gap-6 py-20 md:py-40">
-				<p class="font-heading text-6xl font-bold">404</p>
-				<h1 class="font-heading text-4xl font-medium">
+		<section class="error-section">
+			<div class="error-container">
+				<p class="error-code">404</p>
+				<h1 class="error-title">
 					{pageContent.heading}
 				</h1>
-				<p class="mt-4 text-center">{pageContent.message}</p>
-				<a href="/">{pageContent.backLink}</a>
+				<p class="error-message">{pageContent.message}</p>
+				<a href="/" class="back-link">{pageContent.backLink}</a>
 			</div>
 		</section>
 	</main>

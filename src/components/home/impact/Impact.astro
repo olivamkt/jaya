@@ -78,13 +78,21 @@ import { withBase } from '@/utils/url'
 			@apply mt-5;
 		}
 
+		.impact-description-bold {
+			@apply text-primary;
+			@apply text-lg;
+			@apply font-bold;
+			@apply my-5;
+		}
+
 		.btn-see-more {
+			@apply btn btn-outline btn-primary btn-wide;
 			@apply flex;
 			@apply text-center;
-			@apply mx-auto;
-			@apply mt-10;
 			@apply max-w-[420px];
 			@apply rounded-full;
+			@apply mx-auto;
+			@apply mt-10;
 		}
 	}
 </style>
@@ -101,7 +109,7 @@ import { withBase } from '@/utils/url'
 					and maintain secure, modern digital products tailored to the unique demands of each
 					business.
 				</p>
-				<p class="text-primary my-5 text-lg font-bold">
+				<p class="impact-description-bold">
 					We partner with organizations to deliver custom solutions for management, automation, user
 					experience, and data-driven results.
 				</p>
@@ -142,8 +150,6 @@ import { withBase } from '@/utils/url'
 				<div class="solution-item-text">SaaS</div>
 			</a>
 		</div>
-		<a href="/solutions" class="btn btn-outline btn-primary btn-see-more btn-wide rounded-full"
-			>See how we delivery accross industries</a
-		>
+		<a href="/solutions" class="btn-see-more">See how we delivery accross industries</a>
 	</div>
 </section>

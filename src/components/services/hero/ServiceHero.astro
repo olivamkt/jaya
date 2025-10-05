@@ -38,6 +38,13 @@ const { title, subtitle, description, metrics, ctaText, ctaLink } = Astro.props
 				@apply flex;
 				@apply items-center justify-center;
 				@apply text-primary/50;
+
+				.placeholder-icon {
+					@apply h-16 w-16;
+					@apply opacity-50;
+					@apply mx-auto;
+					@apply mb-4;
+				}
 			}
 		}
 
@@ -97,7 +104,7 @@ const { title, subtitle, description, metrics, ctaText, ctaLink } = Astro.props
 		<div class="image-column">
 			<div class="placeholder-image">
 				<div class="text-center">
-					<svg class="mx-auto mb-4 h-16 w-16 opacity-50" fill="currentColor" viewBox="0 0 20 20">
+					<svg class="placeholder-icon" fill="currentColor" viewBox="0 0 20 20">
 						<path
 							fill-rule="evenodd"
 							d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"
