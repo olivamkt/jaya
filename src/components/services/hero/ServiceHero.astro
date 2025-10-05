@@ -2,22 +2,28 @@
 	@reference "../../../styles/global.css";
 
 	.service-hero-section {
-		@apply flex flex-col lg:flex-row;
-		@apply min-h-[600px];
+		@apply flex flex-col md:flex-row;
+		/* @apply min-h-[600px]; */
 
 		.image-column {
 			@apply relative;
-			@apply w-full lg:w-1/2;
+			@apply w-full md:w-1/2;
 
-			@apply hidden lg:block;
+			@apply hidden md:block;
+
+			img {
+				@apply h-[600px];
+				@apply w-full;
+				@apply object-cover;
+			}
 		}
 
 		.content-column {
 			@apply relative;
-			@apply w-full lg:w-1/2;
+			@apply w-full md:w-1/2;
 
 			.content {
-				/* @apply px-10 py-20; */
+				@apply md:px-10 lg:px-15 xl:px-20;
 			}
 
 			.hero-title-container {
@@ -31,6 +37,7 @@
 					@apply h-full;
 					@apply w-full;
 					@apply brightness-50 filter;
+					@apply md:hidden;
 
 					img {
 						@apply w-full;
@@ -40,24 +47,25 @@
 				}
 
 				.hero-title {
-					@apply lg:text-primary text-white;
+					@apply md:text-primary text-white;
 					@apply text-4xl leading-tight;
 					@apply relative;
 					@apply z-10;
 					@apply flex;
 					@apply items-center;
-					@apply justify-center;
+					@apply justify-center md:justify-start;
 					@apply h-full;
 					@apply w-full;
-					@apply px-10 py-20;
+					@apply py-20;
 				}
 			}
 
 			.statistics-section {
-				@apply flex flex-row;
-				@apply gap-12;
+				@apply flex flex-row justify-center md:justify-between lg:justify-start;
+				@apply flex-wrap;
+				@apply gap-12 md:gap-0 lg:gap-12;
 				@apply mx-auto;
-				@apply mt-30 mb-25;
+				@apply my-15 md:mt-0;
 
 				.statistic-item {
 					@apply flex flex-col self-start;
@@ -98,7 +106,7 @@
 				@apply btn btn-outline btn-wide;
 				@apply border-primary-light;
 				@apply text-primary-light;
-				@apply mx-auto;
+				@apply mx-auto md:ml-0;
 			}
 		}
 	}
@@ -121,8 +129,7 @@
 			</div>
 
 			<slot name="hero-statistics" />
+			<a href="" class="cta-button">Get in touch</a>
 		</div>
-
-		<!-- <a href={ctaLink} class="cta-button">{ctaText}</a> -->
 	</div>
 </section>
