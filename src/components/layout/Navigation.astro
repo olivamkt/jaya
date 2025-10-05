@@ -45,64 +45,58 @@ const navigationItems = [
 ]
 ---
 
-{type === 'mobile' ? (
-	<!-- Mobile Navigation -->
-	<ul class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-		{navigationItems.map((item) => (
-			<li>
-				{item.type === 'dropdown' ? (
-					<>
-						<a>{item.label}</a>
-						<ul class="p-2">
-							{item.children?.map((child) => (
-								<li>
-									<a href={child.href} class={isActive(child.href)}>
-										{child.label}
-									</a>
-								</li>
-							))}
-						</ul>
-					</>
-				) : (
-					<a 
-						href={item.href} 
-						class={isActive(item.href || '')}
-						target={item.target}
-					>
-						{item.label}
-					</a>
-				)}
-			</li>
-		))}
-	</ul>
-) : (
-	<!-- Desktop Navigation -->
-	<ul class="menu menu-horizontal px-1">
-		{navigationItems.map((item) => (
-			<li>
-				{item.type === 'dropdown' ? (
-					<details>
-						<summary>{item.label}</summary>
-						<ul class="p-2">
-							{item.children?.map((child) => (
-								<li>
-									<a href={child.href} class={isActive(child.href)}>
-										{child.label}
-									</a>
-								</li>
-							))}
-						</ul>
-					</details>
-				) : (
-					<a 
-						href={item.href} 
-						class={isActive(item.href || '')}
-						target={item.target}
-					>
-						{item.label}
-					</a>
-				)}
-			</li>
-		))}
-	</ul>
-)}
+{
+	type === 'mobile' ? (
+		// <!-- Mobile Navigation -->
+		<ul class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+			{navigationItems.map((item) => (
+				<li>
+					{item.type === 'dropdown' ? (
+						<>
+							<a>{item.label}</a>
+							<ul class="p-2">
+								{item.children?.map((child) => (
+									<li>
+										<a href={child.href} class={isActive(child.href)}>
+											{child.label}
+										</a>
+									</li>
+								))}
+							</ul>
+						</>
+					) : (
+						<a href={item.href} class={isActive(item.href || '')} target={item.target}>
+							{item.label}
+						</a>
+					)}
+				</li>
+			))}
+		</ul>
+	) : (
+		// <!-- Desktop Navigation -->
+		<ul class="menu menu-horizontal px-1">
+			{navigationItems.map((item) => (
+				<li>
+					{item.type === 'dropdown' ? (
+						<details>
+							<summary>{item.label}</summary>
+							<ul class="p-2">
+								{item.children?.map((child) => (
+									<li>
+										<a href={child.href} class={isActive(child.href)}>
+											{child.label}
+										</a>
+									</li>
+								))}
+							</ul>
+						</details>
+					) : (
+						<a href={item.href} class={isActive(item.href || '')} target={item.target}>
+							{item.label}
+						</a>
+					)}
+				</li>
+			))}
+		</ul>
+	)
+}
