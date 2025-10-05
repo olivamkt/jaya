@@ -11,7 +11,9 @@ import teamImg from '@/assets/home/team.png'
 
 		.content-container {
 			@apply container;
-			@apply flex items-center gap-10;
+			@apply flex;
+			@apply items-center;
+			@apply gap-10;
 		}
 
 		.image-content {
@@ -27,7 +29,9 @@ import teamImg from '@/assets/home/team.png'
 				@apply absolute;
 				@apply -top-10 -left-10;
 				@apply h-32 w-32;
-				@apply rounded-full bg-purple-500/30 blur-xl;
+				@apply rounded-full;
+				@apply bg-purple-500/30;
+				@apply blur-xl;
 			}
 		}
 
@@ -36,34 +40,39 @@ import teamImg from '@/assets/home/team.png'
 
 			h2 {
 				@apply text-primary;
+				@apply text-4xl;
+				@apply font-bold;
 				@apply mb-8;
-				@apply text-4xl font-bold;
 			}
 
 			.intro-text {
 				@apply text-primary;
+				@apply text-lg;
+				@apply leading-relaxed;
 				@apply mb-12;
-				@apply text-lg leading-relaxed;
 			}
 
 			.advantages-grid {
-				@apply flex gap-6;
+				@apply flex;
+				@apply gap-6;
 			}
 
 			.advantage-box {
-				@apply bg-primary-light text-white;
 				@apply p-6;
+				@apply bg-primary-light;
+				@apply text-white;
 				@apply rounded-tr-[50px] rounded-bl-[50px];
 			}
 
 			.advantage-number {
+				@apply text-lg;
+				@apply font-bold;
 				@apply mb-2;
-				@apply text-lg font-bold;
 			}
 
 			.advantage-title {
-				@apply mb-2;
 				@apply font-bold;
+				@apply mb-2;
 			}
 
 			.advantage-text {
@@ -73,7 +82,7 @@ import teamImg from '@/assets/home/team.png'
 
 		.cta-button {
 			@apply btn btn-outline;
-			@apply mt-10 max-w-[420px] rounded-full;
+			@apply mt-10 max-w-[420px];
 			@apply text-primary-light border-primary-light;
 			@apply ml-auto flex;
 		}

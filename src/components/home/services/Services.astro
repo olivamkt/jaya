@@ -25,28 +25,32 @@ import servicesImg from '@/assets/home/services.png'
 		}
 
 		.services-list {
-			@apply flex flex-col items-center md:flex-row md:items-start;
+			@apply flex flex-col md:flex-row;
+			@apply items-center md:items-start;
 			@apply flex-wrap;
 			@apply gap-8;
-			@apply mx-auto;
 			@apply lg:max-w-[784px];
+			@apply mx-auto;
 			@apply mt-20 lg:mt-40;
 		}
 
 		.service-item {
+			@apply w-[240px];
 			@apply bg-primary-light;
 			@apply text-white;
 			@apply text-base;
 			@apply leading-[0.99];
-			@apply w-[240px];
 			@apply rounded-bl-[50px];
-			@apply px-8;
-			@apply py-6;
+			@apply px-8 py-6;
 		}
 
 		.service-item-title {
 			@apply text-base;
 			@apply mb-4;
+		}
+
+		.btn-read-more {
+			@apply btn btn-outline btn-wide rounded-full;
 		}
 
 		.service-item-text {
@@ -125,6 +129,6 @@ import servicesImg from '@/assets/home/services.png'
 				</p>
 			</div>
 		</div>
-		<a href="/services" class="btn btn-outline btn-read-more btn-wide rounded-full">Let's talk</a>
+		<a href="/services" class="btn-read-more">Let's talk</a>
 	</div>
 </section>

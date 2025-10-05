@@ -11,7 +11,9 @@ import teamImg from '@/assets/home/team.png'
 
 		.content-container {
 			@apply container;
-			@apply flex items-center gap-10;
+			@apply flex;
+			@apply items-center;
+			@apply gap-10;
 		}
 
 		.text-content {
@@ -19,24 +21,28 @@ import teamImg from '@/assets/home/team.png'
 
 			h2 {
 				@apply text-primary;
+				@apply text-4xl;
+				@apply font-bold;
 				@apply mb-8;
-				@apply text-4xl font-bold;
 			}
 
 			.intro-text {
 				@apply text-primary;
+				@apply text-lg;
+				@apply leading-relaxed;
 				@apply mb-12;
-				@apply text-lg leading-relaxed;
 			}
 
 			.principles-grid {
+				@apply flex;
+				@apply gap-6;
 				@apply mb-12;
-				@apply flex gap-6;
 			}
 
 			.principle-box {
-				@apply bg-primary-light text-white;
 				@apply p-6;
+				@apply bg-primary-light;
+				@apply text-white;
 				@apply rounded-br-[50px];
 			}
 
@@ -64,7 +70,6 @@ import teamImg from '@/assets/home/team.png'
 		.cta-button {
 			@apply btn btn-outline btn-primary btn-wide;
 			@apply mx-auto block;
-			@apply rounded-full;
 		}
 	}
 </style>

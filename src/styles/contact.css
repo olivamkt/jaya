@@ -8,8 +8,7 @@
 		@apply text-primary;
 		@apply text-8xl;
 		@apply text-center;
-		@apply mt-22;
-		@apply mb-16;
+		@apply mt-22 mb-16;
 	}
 
 	.content-section {

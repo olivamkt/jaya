@@ -56,10 +56,11 @@ import clientBrasil from '@/assets/home/clients-brasil.png'
 		.btn-see-more {
 			@apply flex;
 			@apply text-center;
-			@apply mx-auto;
-			@apply mt-10;
 			@apply max-w-[420px];
 			@apply rounded-full;
+			@apply mx-auto;
+			@apply mt-10;
+			@apply btn btn-outline btn-wide;
 		}
 	}
 </style>
@@ -90,6 +91,6 @@ import clientBrasil from '@/assets/home/clients-brasil.png'
 				<Image src={clientBrasil} alt="Client 1" />
 			</div>
 		</div>
-		<a href="/clients" class="btn btn-outline btn-see-more btn-wide rounded-full">See our cases</a>
+		<a href="/clients" class="btn-see-more">See our cases</a>
 	</div>
 </section>

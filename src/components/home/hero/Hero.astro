@@ -10,122 +10,110 @@ import { withBase } from '@/utils/url'
 
 	.hero-section {
 		@apply relative;
+		@apply container;
 		@apply px-10 lg:px-0;
-	}
+		@apply py-20;
 
-	.hero-text {
-		@apply text-center;
-		@apply text-primary;
-		@apply text-5xl;
-		@apply leading-[0.9];
-		@apply tracking-[-2px];
-		@apply max-w-[450px];
-		@apply mx-auto;
-
-		.slide-from-left {
-			animation: slideFromLeft 2s forwards;
-		}
-
-		.slide-from-right {
-			animation: slideFromRight 2s forwards;
-		}
-	}
-
-	.hero-description {
-		@apply text-center;
-		@apply text-[#3b3b3b];
-		@apply leading-[1.58];
-		@apply normal-case;
-		@apply mx-auto;
-		@apply my-20;
-		@apply max-w-[800px];
-		@apply lg:max-w-[520px];
-	}
-
-	.hero-left-image {
-		@apply hidden lg:block;
-		@apply absolute;
-		@apply top-[35%];
-		@apply left-[-100px];
-		@apply h-[260px];
-		@apply w-[275px];
-		animation: slideInFromRight 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-	}
-
-	.hero-right-image {
-		@apply hidden lg:block;
-		@apply absolute;
-		@apply top-[20%];
-		@apply right-[-100px];
-		@apply h-[260px];
-		@apply w-[275px];
-		animation: slideInFromLeft 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-	}
-
-	.statistics-section {
-		@apply flex flex-col md:flex-row;
-		@apply items-center justify-center;
-		@apply gap-10 lg:gap-25;
-		@apply mx-auto;
-		@apply mt-10;
-		@apply mb-25;
-	}
-
-	.statistic-item {
-		@apply flex;
-		@apply items-end;
-	}
-
-	.statistic-number-container {
-		@apply relative;
-		@apply bg-primary;
-		@apply text-body;
-		@apply h-[90px];
-		@apply w-[90px];
-		@apply rounded-tl-[30%];
-		@apply rounded-br-[30%];
-
-		&::before {
-			@apply absolute;
+		.hero-text {
+			@apply text-center;
 			@apply text-primary;
-			@apply text-4xl;
-			@apply font-bold;
-			@apply w-[60px];
-			@apply -bottom-[14px];
-			@apply -left-[20px];
-			content: '+';
+			@apply text-5xl;
+			@apply leading-[0.9];
+			@apply tracking-[-2px];
+			@apply max-w-[450px];
+			@apply mx-auto;
+
+			.slide-from-left {
+				animation: slideFromLeft 2s forwards;
+			}
+
+			.slide-from-right {
+				animation: slideFromRight 2s forwards;
+			}
 		}
-	}
 
-	.statistic-number {
-		@apply absolute;
-		@apply text-5xl;
-		@apply font-bold;
-		@apply tracking-[-4px];
-		@apply bottom-[-6px];
-		@apply left-0;
-	}
+		.hero-description {
+			@apply text-center;
+			@apply text-[#3b3b3b];
+			@apply leading-[1.58];
+			@apply normal-case;
+			@apply max-w-[800px] lg:max-w-[520px];
+			@apply mx-auto;
+			@apply my-20;
+		}
 
-	.statistic-text {
-		@apply text-primary;
-		@apply normal-case;
-		@apply italic;
-		@apply mt-10;
-		@apply ml-1;
-	}
+		.hero-left-image {
+			@apply hidden lg:block;
+			@apply absolute;
+			@apply top-[35%] left-[-100px];
+			@apply h-[260px] w-[275px];
+			animation: slideInFromRight 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+		}
 
-	.contact-button {
-		@apply flex;
-		@apply text-center;
-		@apply text-primary-light;
-		@apply border-primary-light;
-		@apply mx-auto;
-		@apply max-w-[420px];
-		@apply rounded-full;
+		.hero-right-image {
+			@apply hidden lg:block;
+			@apply absolute;
+			@apply top-[20%] right-[-100px];
+			@apply h-[260px] w-[275px];
+			animation: slideInFromLeft 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+		}
+
+		.statistics-section {
+			@apply flex flex-col md:flex-row;
+			@apply items-center justify-center;
+			@apply gap-10 lg:gap-25;
+			@apply mx-auto;
+			@apply mt-10 mb-25;
+		}
+
+		.statistic-item {
+			@apply flex;
+			@apply items-end;
+		}
+
+		.statistic-number-container {
+			@apply relative;
+			@apply bg-primary;
+			@apply h-[90px] w-[90px];
+			@apply rounded-tl-[30%] rounded-br-[30%];
+			@apply text-body;
+
+			&::before {
+				@apply absolute;
+				@apply text-primary;
+				@apply text-4xl font-bold;
+				@apply w-[60px];
+				@apply -bottom-[14px] -left-[20px];
+				content: '+';
+			}
+		}
+
+		.statistic-number {
+			@apply absolute;
+			@apply text-5xl font-bold;
+			@apply tracking-[-4px];
+			@apply bottom-[-6px] left-0;
+		}
+
+		.statistic-text {
+			@apply text-primary;
+			@apply normal-case italic;
+			@apply mt-10 ml-1;
+		}
+
+		.contact-button {
+			@apply text-center;
+			@apply max-w-[420px];
+			@apply mx-auto;
+			@apply btn btn-outline;
+			@apply rounded-full;
+			@apply border-primary-light;
+			@apply text-primary-light;
+		}
 	}
 </style>
 
-<section class="hero-section relative container py-20">
+<section class="hero-section">
 	<div class="hero-text">
 		<div class="slide-from-left"><b>reliable nearshore developers</b></div>
 		<div class="slide-from-right"><i>for long-term partnerships </i></div>
@@ -134,7 +122,7 @@ import { withBase } from '@/utils/url'
 	<div class="hero-description">
 		Jaya is a fully remote software consulting company specializing in
 		<b>nearshore staff augmentation, outsourcing and AI development.</b><br />
-		Since 2012, we’ve helped companies scale with handpicked engineering talent and stable, high-performing
+		Since 2012, we've helped companies scale with handpicked engineering talent and stable, high-performing
 		teams. From fintech and healthtech to retail, SaaS... and beyond.
 		<b>Our squads deliver with speed, cultural alignment, and a long-term mindset.</b>
 	</div>
@@ -171,7 +159,7 @@ import { withBase } from '@/utils/url'
 		</div>
 	</div>
 
-	<a href={withBase('contact')} class="btn btn-outline contact-button">
+	<a href={withBase('contact')} class="contact-button">
 		Let's transform your business? Contact Us
 	</a>
 </section>

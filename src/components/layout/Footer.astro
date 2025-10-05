@@ -15,10 +15,8 @@ import mediumIcon from '@/assets/icons/medium.svg'
 		@apply mt-auto;
 
 		.footer-main {
-			@apply flex;
-			@apply flex-col;
+			@apply flex flex-col lg:flex-row;
 			@apply px-8;
-			@apply lg:flex-row;
 		}
 
 		.footer-main-content {
@@ -34,14 +32,13 @@ import mediumIcon from '@/assets/icons/medium.svg'
 		}
 
 		.btn-contact {
-			@apply bg-primary-light;
-			@apply text-white;
 			@apply h-[100px] lg:h-[137px];
 			@apply w-[137px];
+			@apply bg-primary-light;
+			@apply text-white;
 			@apply rounded-bl-[50px];
 			@apply flex;
-			@apply items-center;
-			@apply justify-center;
+			@apply items-center justify-center;
 			@apply relative;
 
 			&:hover .icon {
@@ -59,16 +56,16 @@ import mediumIcon from '@/assets/icons/medium.svg'
 		}
 
 		.address-container {
-			@apply flex gap-10 lg:flex-col lg:justify-center lg:gap-0;
-			@apply mt-8;
-			@apply lg:mt-0;
+			@apply flex lg:flex-col;
+			@apply gap-10 lg:gap-0;
+			@apply lg:justify-center;
+			@apply mt-8 lg:mt-0;
 			@apply lg:ml-auto;
 		}
 
 		.address-item {
 			@apply text-primary;
-			@apply text-left;
-			@apply lg:text-right;
+			@apply text-left lg:text-right;
 
 			&.mb-5 {
 				@apply mb-5;
@@ -86,9 +83,7 @@ import mediumIcon from '@/assets/icons/medium.svg'
 		}
 
 		.footer-menu {
-			@apply menu;
-			@apply menu-vertical;
-			@apply lg:menu-horizontal;
+			@apply menu menu-vertical lg:menu-horizontal;
 			@apply lg:pl-0;
 
 			a {

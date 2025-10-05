@@ -28,10 +28,9 @@ import { withBase } from '@/utils/url'
 		}
 
 		.solutions-list {
-			@apply flex;
-			@apply flex-row flex-wrap;
-			@apply gap-10 lg:gap-20;
+			@apply flex flex-row flex-wrap;
 			@apply items-center justify-center;
+			@apply gap-10 lg:gap-20;
 			@apply mt-10;
 		}
 
@@ -40,13 +39,12 @@ import { withBase } from '@/utils/url'
 		}
 
 		.solution-container {
+			@apply h-[147px];
 			@apply bg-primary;
 			@apply text-white;
-			@apply h-[147px];
 			@apply rounded-tl-[50px];
 			@apply flex;
-			@apply items-center;
-			@apply justify-center;
+			@apply items-center justify-center;
 			@apply transition-all;
 			@apply duration-500;
 

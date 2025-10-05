@@ -53,6 +53,11 @@
 	@apply mx-auto;
 }
 
+@utility btn {
+	@apply flex;
+	@apply rounded-full;
+}
+
 @layer base {
 	* {
 		@apply focus:outline-none focus-visible:ring;

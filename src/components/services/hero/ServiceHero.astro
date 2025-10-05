@@ -35,7 +35,8 @@ const { title, subtitle, description, metrics, ctaText, ctaLink } = Astro.props
 				@apply border-primary/30;
 				@apply rounded-lg;
 				@apply bg-gray-50;
-				@apply flex items-center justify-center;
+				@apply flex;
+				@apply items-center justify-center;
 				@apply text-primary/50;
 			}
 		}
@@ -86,7 +87,6 @@ const { title, subtitle, description, metrics, ctaText, ctaLink } = Astro.props
 
 			.cta-button {
 				@apply btn btn-outline btn-primary btn-wide;
-				@apply rounded-full;
 			}
 		}
 	}
