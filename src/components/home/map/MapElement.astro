@@ -30,8 +30,30 @@
 				// Position the details box relative to the click position
 				var x = e.clientX
 				var y = e.clientY
-				detailsBox.style.top = y + 20 + 'px'
-				detailsBox.style.left = x + 'px'
+
+				// Get details box dimensions and screen boundaries
+				var boxWidth = 300 // max-width from CSS
+				var boxHeight = 200 // estimated height
+				var screenWidth = window.innerWidth
+				var screenHeight = window.innerHeight
+
+				// Adjust horizontal position if it would go off screen
+				var leftPosition = x
+				if (leftPosition + boxWidth > screenWidth) {
+					leftPosition = screenWidth - boxWidth - 20 // 20px margin from edge
+				}
+				if (leftPosition < 20) {
+					leftPosition = 20 // 20px margin from edge
+				}
+
+				// Adjust vertical position if it would go off screen
+				var topPosition = y + 20
+				if (topPosition + boxHeight > screenHeight) {
+					topPosition = y - boxHeight - 20 // Position above click point
+				}
+
+				detailsBox.style.top = topPosition + 'px'
+				detailsBox.style.left = leftPosition + 'px'
 
 				// Show the details box
 				detailsBox.style.visibility = 'visible'
