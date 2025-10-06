@@ -57,6 +57,7 @@
 @utility btn {
 	@apply flex;
 	@apply rounded-full;
+	@apply w-fit;
 }
 
 @layer base {

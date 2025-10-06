@@ -1,8 +1,12 @@
 ---
 import Layout from '@/layouts/Layout.astro'
-import ServiceHero from '@/components/services/hero/ServiceHero.astro'
+import ServiceHero from '@/components/services/ServiceHero.astro'
 import { Image } from 'astro:assets'
 import fintechImg from '@/assets/fintech/fintech.png'
+import fintechClientsImg from '@/assets/fintech/fintech-clients.png'
+import ServiceClients from '@/components/services/ServiceClients.astro'
+import ServiceExperience from '@/components/services/ServiceExperience.astro'
+import fintechExperienceImg from '@/assets/fintech/fintech-experience.png'
 ---
 
 <Layout
@@ -41,5 +45,55 @@ import fintechImg from '@/assets/fintech/fintech.png'
 				</div>
 			</div>
 		</ServiceHero>
+		<ServiceClients>
+			<Image src={fintechClientsImg} alt="Fintech Clients" slot="clients-image" />
+		</ServiceClients>
+		<ServiceExperience>
+			<Image
+				src={fintechExperienceImg}
+				alt="Fintech Experience"
+				slot="experience-image"
+				class="experience-image"
+			/>
+
+			<h2 class="experience-title" slot="experience-title">
+				<b>proven experience</b>
+				<i>across the</i>
+				<b>fintech ecosystem</b>
+			</h2>
+			<p class="experience-text" slot="experience-text">
+				Over the past decade, we’ve partnered with leading digital banks, payment processors, and
+				financial infrastructure providers in Brazil and Latin America. Our teams have worked on
+				core banking, credit, payments, e-commerce integrations, investment platforms, and
+				large-scale transaction systems, impacting more than 100 million end users.
+				<br />
+				<br />
+				From building digital account features and PIX capabilities to designing high-volume acquiring
+				and settlement systems, our squads bring both technical depth and regulatory awareness. We know
+				what it takes to deliver secure, compliant, and scalable fintech solutions, and we do it alongside
+				your teams with speed and reliability.
+			</p>
+			<div class="experience-why" slot="experience-why">
+				<h2 class="experience-why-title">why fintechs choose Jaya</h2>
+				<div class="experience-why-list">
+					<div class="experience-why-item">
+						Aligned, reliable teams nearshore squads in your time zone, fully integrated into your
+						workflows.
+					</div>
+					<div class="experience-why-item">
+						Deep fintech expertise Hands-on experience across payments, credit, open finance,
+						acquiring, and compliance.
+					</div>
+					<div class="experience-why-item">
+						Quality through precision Carefully assembled teams, rigorous engineering standards, and
+						solutions built to last.
+					</div>
+					<div class="experience-why-item">
+						Consistency that lasts Low turnover and stable teams, ensuring long-term knowledge
+						retention and delivery.
+					</div>
+				</div>
+			</div>
+		</ServiceExperience>
 	</main>
 </Layout>

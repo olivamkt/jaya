@@ -1,0 +1,92 @@
+<style>
+	@reference "../../styles/global.css";
+
+	.experience-section {
+		@apply bg-primary text-white;
+		@apply relative;
+		@apply pb-20;
+
+		.experience-content-container {
+			@apply container;
+			@apply relative z-10;
+			@apply px-10 py-20 lg:px-0 lg:pb-0;
+		}
+
+		.experience-content {
+			@apply relative z-10;
+			@apply lg:pl-100;
+		}
+
+		.experience-image {
+			@apply absolute;
+			@apply top-0 lg:top-20;
+			@apply left-0;
+			@apply brightness-30 lg:brightness-100;
+			@apply w-full lg:w-[260px];
+			@apply h-full lg:h-[700px];
+			@apply object-cover;
+			@apply lg:rounded-tl-[50px];
+			@apply lg:rounded-br-[50px];
+		}
+
+		.experience-title {
+			@apply text-3xl;
+			@apply text-center lg:text-left;
+			@apply mb-10;
+		}
+
+		.experience-text {
+			@apply flex;
+		}
+
+		.experience-why {
+			@apply px-10 pt-20 pb-10 lg:container lg:pl-100;
+			@apply text-lg;
+
+			.experience-why-title {
+				@apply text-4xl font-bold;
+				@apply mb-10;
+				@apply text-center;
+				@apply lg:max-w-[700px];
+				@apply flex;
+			}
+
+			.experience-why-list {
+				@apply flex flex-col lg:flex-row;
+				@apply lg:gap-10;
+			}
+
+			.experience-why-item {
+				@apply bg-primary-light;
+				@apply text-white;
+				@apply rounded-br-[50px];
+				@apply mb-5;
+				@apply p-5;
+				@apply lg:text-sm;
+			}
+		}
+
+		.btn-contact {
+			@apply btn btn-outline;
+			@apply text-primary-light;
+			@apply border-primary-light;
+			@apply flex;
+			@apply justify-center;
+			@apply mx-auto;
+		}
+	}
+</style>
+
+<section class="experience-section">
+	<div class="experience-content-container">
+		<slot name="experience-image" />
+		<div class="experience-content">
+			<slot name="experience-title" />
+			<slot name="experience-text" />
+		</div>
+	</div>
+	<slot name="experience-why" />
+	<div class="px-10">
+		<a href="/contact" class="btn-contact">Let's transform your business? Contact Us</a>
+	</div>
+</section>
