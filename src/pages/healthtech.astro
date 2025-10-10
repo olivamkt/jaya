@@ -2,20 +2,22 @@
 import Layout from '@/layouts/Layout.astro'
 import ServiceHero from '@/components/services/ServiceHero.astro'
 import { Image } from 'astro:assets'
-import fintechImg from '@/assets/fintech/fintech.png'
-import fintechClientsImg from '@/assets/fintech/fintech-clients.png'
+import healthtechImg from '@/assets/healthtech/healthtech.png'
+import healthtechClientsImg from '@/assets/healthtech/healthtech-clients.png'
 import ServiceClients from '@/components/services/ServiceClients.astro'
 import ServiceExperience from '@/components/services/ServiceExperience.astro'
-import fintechExperienceImg from '@/assets/fintech/fintech-experience.png'
+import healthtechExperienceImg from '@/assets/healthtech/healthtech-experience.png'
+import Impact from '@/components/impact/Impact.astro'
+import Team from '@/components/team/Team.astro'
 ---
 
 <Layout
-	title="Fintech Solutions - Jaya Tech"
-	description="Building the future of finance with secure, scalable fintech solutions"
+	title="Healthtech Solutions - Jaya Tech"
+	description="Building the future of healthtech with secure, scalable healthtech solutions"
 >
 	<main class="nav-padding">
 		<ServiceHero>
-			<Image src={fintechImg} alt="Fintech" slot="hero-image" />
+			<Image src={healthtechImg} alt="Healthtech" slot="hero-image" />
 			<div slot="hero-title">
 				<i>engineering</i>
 				<b> health<br /> tech </b>
@@ -46,12 +48,12 @@ import fintechExperienceImg from '@/assets/fintech/fintech-experience.png'
 			</div>
 		</ServiceHero>
 		<ServiceClients>
-			<Image src={fintechClientsImg} alt="Fintech Clients" slot="clients-image" />
+			<Image src={healthtechClientsImg} alt="Fintech Clients" slot="clients-image" />
 		</ServiceClients>
 		<ServiceExperience>
 			<Image
-				src={fintechExperienceImg}
-				alt="Fintech Experience"
+				src={healthtechExperienceImg}
+				alt="Healthtech Experience"
 				slot="experience-image"
 				class="experience-image"
 			/>
@@ -76,26 +78,28 @@ import fintechExperienceImg from '@/assets/fintech/fintech-experience.png'
 				reliability.
 			</p>
 			<div class="experience-why" slot="experience-why">
-				<h2 class="experience-why-title">why healt techs choose Jaya</h2>
+				<h2 class="experience-why-title">why health techs choose Jaya</h2>
 				<div class="experience-why-list">
 					<div class="experience-why-item">
-						Aligned, reliable teams nearshore squads in your time zone, fully integrated into your
-						workflows.
+						<b>End-to-end healthcare expertise</b>
+						From lab integrations to telemedicine, e-prescriptions, and wellness platforms.
 					</div>
 					<div class="experience-why-item">
-						Deep fintech expertise Hands-on experience across payments, credit, open finance,
-						acquiring, and compliance.
+						<b>Proven regulatory awareness</b>
+						Experience with HIPAA, insurance workflows, and secure data exchange.
 					</div>
 					<div class="experience-why-item">
-						Quality through precision Carefully assembled teams, rigorous engineering standards, and
-						solutions built to last.
+						<b>Engineering at scale</b>
+						Systems built to handle millions of patients and critical health data.
 					</div>
 					<div class="experience-why-item">
-						Consistency that lasts Low turnover and stable teams, ensuring long-term knowledge
-						retention and delivery.
+						<b>Trusted, stable teams</b>
+						Low turnover and long-term partnerships, ensuring continuity in sensitive healthcare projects.
 					</div>
 				</div>
 			</div>
 		</ServiceExperience>
+		<Impact />
+		<Team />
 	</main>
 </Layout>
