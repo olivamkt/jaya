@@ -3,6 +3,7 @@ import { Image } from 'astro:assets'
 import linkedinIcon from '@/assets/icons/linkedin.svg'
 import githubIcon from '@/assets/icons/github.svg'
 import mediumIcon from '@/assets/icons/medium.svg'
+import { withBase } from '@/utils/url'
 
 const currentPath = Astro.url.pathname
 const isContactPage = currentPath.includes('/contact')
@@ -147,13 +148,13 @@ const isContactPage = currentPath.includes('/contact')
 						<a href="/">services</a>
 					</li>
 					<li>
-						<a href="/">blog</a>
+						<a href="https://medium.com/wearejaya" target="_blank">blog</a>
 					</li>
 					<li>
-						<a href="/">culture</a>
+						<a href="https://www.linkedin.com/company/jaya-apps" target="_blank">culture</a>
 					</li>
 					<li>
-						<a href="/">contact</a>
+						<a href={withBase('contact')}>contact</a>
 					</li>
 				</ul>
 			</nav>
