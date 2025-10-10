@@ -79,35 +79,6 @@
 	}
 }
 
-/* .nav-container {
-	@apply fixed top-0 left-0 z-10 w-full;
-	@apply flex h-[110px];
-	@apply z-100;
-
-	.nav-background {
-		@apply absolute top-0 left-0 h-full lg:w-[95vw];
-		@apply rounded-none bg-white lg:rounded-br-[50px];
-	}
-
-	nav {
-		@apply ml-auto self-center;
-
-		a {
-			@apply text-primary normal-case italic;
-		}
-	}
-
-	.container {
-		@apply relative flex h-full flex-row;
-	}
-}
-
-.logo {
-	@apply absolute h-[135px] w-[125px];
-	@apply flex items-center justify-center text-center;
-	@apply bg-primary rounded-br-[50%] text-[2rem] text-white;
-} */
-
 @keyframes slideFromLeft {
 	0% {
 		transform: translateX(-100%);
