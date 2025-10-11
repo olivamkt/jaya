@@ -1,5 +1,6 @@
 ---
 import { withBase } from '@/utils/url'
+import { socialLinks } from '@/data/social-links'
 
 export interface Props {
 	type: 'mobile' | 'desktop'
@@ -30,12 +31,12 @@ const navigationItems = [
 	},
 	{
 		label: 'blog',
-		href: 'https://medium.com/wearejaya',
+		href: socialLinks.medium,
 		target: '_blank'
 	},
 	{
 		label: 'culture',
-		href: 'https://www.linkedin.com/company/jaya-apps',
+		href: socialLinks.linkedin,
 		target: '_blank'
 	},
 	{

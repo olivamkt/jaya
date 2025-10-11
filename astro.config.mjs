@@ -8,11 +8,11 @@ import robotsTxt from 'astro-robots-txt'
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://ricardopdj.github.io',
+	site: 'https://olivamkt.github.io/jaya/',
 	base: '/jaya/',
 	i18n: {
 		defaultLocale: 'en',
-		locales: ['en', 'es'],
+		locales: ['en'],
 		routing: {
 			prefixDefaultLocale: false
 		}
@@ -23,8 +23,7 @@ export default defineConfig({
 			i18n: {
 				defaultLocale: 'en',
 				locales: {
-					en: 'en-US',
-					es: 'es-ES'
+					en: 'en-US'
 				}
 			}
 		}),
@@ -39,7 +38,7 @@ export default defineConfig({
 		},
 		css: {
 			modules: {
-				localsConvention: 'camelCaseOnly' // ou 'camelCase' para ter camelCase + kebab-case
+				localsConvention: 'camelCaseOnly'
 			}
 		}
 	}

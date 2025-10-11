@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets'
 import teamImg from '@/assets/home/team.png'
+import { socialLinks } from '@/data/social-links'
 ---
 
 <style>
@@ -68,7 +69,7 @@ import teamImg from '@/assets/home/team.png'
 			Get to know how our people-first culture fuels performance, creating committed, resilient
 			teams with low turnover and high delivery consistency.
 		</p>
-		<a href="https://www.linkedin.com/company/jaya-apps" class="btn-see-more">Meet our culture</a>
+		<a href={socialLinks.linkedin} class="btn-see-more">Meet our culture</a>
 	</div>
 	<div class="team-grid lg:container">
 		<Image src={teamImg} alt="Team Image" class="team-image" />
