@@ -52,5 +52,66 @@ const lang = 'en'
 
 		<slot />
 		<Footer />
+
+		<script is:inline>
+			// Calculate offset for fixed header
+			const HEADER_OFFSET = 130 // nav-container height (110px) + 20px margin
+
+			// Scroll to element with offset
+			const scrollToElement = (element) => {
+				if (!element) return
+
+				const elementPosition = element.getBoundingClientRect().top
+				const offsetPosition = elementPosition + window.pageYOffset - HEADER_OFFSET
+
+				window.scrollTo({
+					top: offsetPosition,
+					behavior: 'smooth'
+				})
+			}
+
+			// Handle hash navigation on page load and after transitions
+			const scrollToHash = () => {
+				const hash = window.location.hash
+				if (hash) {
+					const element = document.querySelector(hash)
+					scrollToElement(element)
+				}
+			}
+
+			// Handle clicks on anchor links
+			const handleAnchorClick = (e) => {
+				const link = e.target.closest('a')
+				if (!link) return
+
+				const href = link.getAttribute('href')
+				if (!href?.includes('#')) return
+
+				// Extract hash from href
+				const hashIndex = href.indexOf('#')
+				const hash = href.substring(hashIndex)
+				const path = href.substring(0, hashIndex)
+
+				// Check if it's a same-page anchor or going to home page with anchor
+				const currentPath = window.location.pathname
+				const isCurrentPage =
+					!path || path === currentPath || path === window.location.origin + currentPath
+
+				if (isCurrentPage && hash) {
+					e.preventDefault()
+					const element = document.querySelector(hash)
+					if (element) {
+						history.pushState(null, '', href)
+						scrollToElement(element)
+					}
+				}
+			}
+
+			// Setup on page load
+			document.addEventListener('astro:page-load', () => {
+				scrollToHash()
+				document.addEventListener('click', handleAnchorClick)
+			})
+		</script>
 	</body>
 </html>
