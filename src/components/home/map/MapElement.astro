@@ -16,21 +16,17 @@
 			description: detailsBox.querySelector('p')
 		}
 
-		function extractData(el) {
-			return {
-				title: el.dataset.title,
-				subtitle: el.dataset.subtitle,
-				since: el.dataset.since,
-				description: el.dataset.description,
-				link: el.dataset.link
-			}
-		}
+		const extractData = (el) => ({
+			title: el.dataset.title,
+			subtitle: el.dataset.subtitle,
+			since: el.dataset.since,
+			description: el.dataset.description,
+			link: el.dataset.link
+		})
 
-		function hasData(data) {
-			return Object.values(data).some(Boolean)
-		}
+		const hasData = (data) => Object.values(data).some(Boolean)
 
-		function updateBoxContent(data) {
+		const updateBoxContent = (data) => {
 			for (const key in elements) {
 				if (elements[key] && data[key]) {
 					elements[key].textContent = data[key]
@@ -39,7 +35,7 @@
 			if (data.link) detailsBox.setAttribute('href', data.link)
 		}
 
-		function calculatePosition(x, y) {
+		const calculatePosition = (x, y) => {
 			const { innerWidth, innerHeight } = window
 
 			let left = Math.min(Math.max(x, BOX.MARGIN), innerWidth - BOX.WIDTH - BOX.MARGIN)
@@ -50,15 +46,15 @@
 			return { x: left, y: top }
 		}
 
-		function setBoxPosition({ x, y }) {
+		const setBoxPosition = ({ x, y }) => {
 			Object.assign(detailsBox.style, { left: `${x}px`, top: `${y}px` })
 		}
 
-		function toggleBox(show) {
+		const toggleBox = (show) => {
 			Object.assign(detailsBox.style, show ? VISIBILITY.show : VISIBILITY.hide)
 		}
 
-		function handlePathClick(el, evt) {
+		const handlePathClick = (el, evt) => {
 			const data = extractData(el)
 			if (!hasData(data)) return
 
