@@ -18,6 +18,16 @@ import servicesImg from '@/assets/home/services.png'
 			@apply absolute hidden lg:block;
 			@apply top-[-50px] left-[-20px];
 			@apply w-[318px];
+			opacity: 0;
+			transform: translateX(-100px);
+			transition:
+				opacity 0.8s ease-out,
+				transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+			&.visible {
+				opacity: 1;
+				transform: translateX(0);
+			}
 		}
 
 		.services-list {
@@ -59,7 +69,7 @@ import servicesImg from '@/assets/home/services.png'
 	<div class="container">
 		<div class="flex lg:gap-10">
 			<div class="relative text-white lg:w-1/4">
-				<Image src={servicesImg} alt="Hero Image" class="services-image" />
+				<Image src={servicesImg} alt="Services" class="services-image" id="services-image" />
 			</div>
 			<div class="text-white lg:w-3/4 lg:max-w-[726px]">
 				<h2 class="service-title">Services</h2>
@@ -117,3 +127,11 @@ import servicesImg from '@/assets/home/services.png'
 		<a href="/services" class="btn-read-more">Let's talk</a>
 	</div>
 </section>
+
+<script>
+	import { animateOnSectionVisible } from '@/utils/animations'
+
+	document.addEventListener('astro:page-load', () => {
+		animateOnSectionVisible('#services', 'services-image')
+	})
+</script>
