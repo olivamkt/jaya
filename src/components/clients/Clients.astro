@@ -10,31 +10,25 @@ import clientBrasil from '@/assets/home/clients-brasil.png'
 	@reference '@/styles/global.css';
 
 	.clients-section {
-		@apply text-primary;
 		@apply bg-gray-light;
+		@apply text-primary;
 
 		.clients-subtitle {
-			@apply text-center;
-			@apply text-primary;
-			@apply uppercase;
-			@apply font-space-grotesk;
+			@apply font-space-grotesk text-primary text-center uppercase;
 		}
 
 		.clients-title {
-			@apply text-primary;
-			@apply text-center;
-			@apply text-3xl;
-			@apply font-bold;
 			@apply mt-2 mb-5;
+			@apply text-primary text-center text-3xl font-bold;
 		}
 
 		.tabs {
-			@apply justify-center;
 			@apply mt-20 mb-5;
+			@apply justify-center;
 
 			.tab {
-				@apply border-transparent;
 				@apply bg-transparent;
+				@apply border-transparent;
 
 				input:not(:checked) + .flag {
 					@apply grayscale;
@@ -42,25 +36,23 @@ import clientBrasil from '@/assets/home/clients-brasil.png'
 			}
 
 			.flag {
-				@apply w-[50px];
-				@apply h-[50px];
+				@apply h-[50px] w-[50px];
 			}
 
 			.tab-content {
-				@apply border-none;
-				@apply bg-transparent;
 				@apply pt-15 lg:pt-30;
+				@apply bg-transparent;
+				@apply border-none;
 			}
 		}
 
 		.btn-see-more {
-			@apply flex;
-			@apply text-center;
-			@apply max-w-[420px];
-			@apply rounded-full;
-			@apply mx-auto;
-			@apply mt-10;
 			@apply btn btn-outline;
+			@apply flex;
+			@apply max-w-[420px];
+			@apply mx-auto mt-10;
+			@apply text-center;
+			@apply rounded-full;
 		}
 	}
 </style>

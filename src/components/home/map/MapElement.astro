@@ -119,13 +119,13 @@
 	}
 
 	#details-box {
+		@apply fixed flex flex-col items-start;
+		@apply z-10;
+		@apply w-auto max-w-[300px];
+		@apply p-6;
 		@apply bg-primary-light;
 		@apply text-white;
 		@apply rounded-br-[50px];
-		@apply fixed flex flex-col items-start;
-		@apply w-auto max-w-[300px];
-		@apply p-6;
-		@apply z-10;
 		opacity: 0;
 		visibility: hidden;
 		transition:
@@ -133,24 +133,20 @@
 			visibility 0.3s ease;
 
 		.title {
-			@apply text-lg;
-			@apply font-bold;
+			@apply text-lg font-bold;
 		}
 
 		.subtitle {
 		}
 
 		.since {
-			@apply text-xs;
-			@apply font-space-grotesk;
-			@apply uppercase;
 			@apply mb-5;
+			@apply font-space-grotesk text-xs uppercase;
 		}
 
 		.btn-read-more {
+			@apply mt-2 px-0;
 			@apply text-white;
-			@apply mt-2;
-			@apply px-0;
 			@apply no-underline;
 		}
 	}

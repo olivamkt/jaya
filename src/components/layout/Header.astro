@@ -9,41 +9,38 @@ import Navigation from './Navigation.astro'
 	@reference '@/styles/global.css';
 
 	.nav-container {
-		@apply fixed top-0 left-0;
-		@apply z-10 z-100;
-		@apply w-full;
-		@apply flex h-[110px];
+		@apply fixed flex;
+		@apply top-0 left-0 z-10 z-100;
+		@apply h-[110px] w-full;
 
 		.nav-background {
-			@apply absolute top-0 left-0;
+			@apply absolute;
+			@apply top-0 left-0;
 			@apply h-full w-full lg:w-[95vw];
-			@apply rounded-none lg:rounded-br-[50px];
 			@apply bg-white;
+			@apply rounded-none lg:rounded-br-[50px];
 		}
 
 		.navbar {
 			@apply px-0;
+
 			.logo {
-				@apply absolute;
-				@apply h-[135px] w-[125px];
-				@apply flex items-center justify-center;
+				@apply absolute flex items-center justify-center;
 				@apply top-0 left-0;
+				@apply h-[135px] w-[125px];
 				@apply bg-primary;
+				@apply text-center text-[2rem] text-white;
 				@apply rounded-br-[50%];
-				@apply text-center;
-				@apply text-[2rem] text-white;
 			}
 
 			a,
 			summary {
-				@apply text-primary;
-				@apply normal-case italic;
+				@apply text-primary normal-case italic;
 			}
 		}
 
 		.container-wrapper {
-			@apply relative;
-			@apply container flex items-center;
+			@apply relative container flex items-center;
 			@apply lg:pr-15;
 		}
 

@@ -7,49 +7,37 @@ import servicesImg from '@/assets/home/services.png'
 	@reference '@/styles/global.css';
 
 	.services-section {
-		@apply bg-teal;
 		@apply min-h-[735px];
+		@apply bg-teal;
 
 		.service-title {
-			@apply uppercase;
-			@apply font-space-grotesk;
+			@apply font-space-grotesk uppercase;
 		}
 
 		.services-image {
-			@apply hidden lg:block;
-			@apply absolute;
-			@apply top-[-50px];
-			@apply left-[-20px];
+			@apply absolute hidden lg:block;
+			@apply top-[-50px] left-[-20px];
 			@apply w-[318px];
 		}
 
 		.services-list {
-			@apply flex flex-col md:flex-row;
-			@apply items-center md:items-start;
-			@apply flex-wrap;
-			@apply gap-8;
+			@apply flex flex-col flex-wrap items-center md:flex-row md:items-start;
 			@apply lg:max-w-[784px];
-			@apply mx-auto;
-			@apply mt-20 lg:mt-40;
+			@apply mx-auto mt-20 lg:mt-40;
+			@apply gap-8;
 		}
 
 		.service-item {
 			@apply w-[240px];
-			@apply bg-primary-light;
-			@apply text-white;
-			@apply text-base;
-			@apply leading-[0.99];
-			@apply rounded-bl-[50px];
 			@apply px-8 py-6;
+			@apply bg-primary-light;
+			@apply text-base leading-[0.99] text-white;
+			@apply rounded-bl-[50px];
 		}
 
 		.service-item-title {
-			@apply text-base;
 			@apply mb-4;
-		}
-
-		.btn-read-more {
-			@apply btn btn-outline rounded-full;
+			@apply text-base;
 		}
 
 		.service-item-text {
@@ -59,13 +47,10 @@ import servicesImg from '@/assets/home/services.png'
 		.btn-read-more {
 			@apply btn btn-outline btn-wide;
 			@apply flex;
-			@apply text-center;
-			@apply text-primary-light;
-			@apply border-primary-light;
-			@apply mx-auto;
-			@apply mt-10;
 			@apply max-w-[420px];
-			@apply rounded-full;
+			@apply mx-auto mt-10;
+			@apply text-primary-light text-center;
+			@apply border-primary-light rounded-full;
 		}
 	}
 </style>

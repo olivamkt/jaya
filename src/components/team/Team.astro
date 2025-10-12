@@ -8,54 +8,48 @@ import { socialLinks } from '@/data/social-links'
 	@reference '@/styles/global.css';
 
 	.team-section {
+		@apply pt-20;
 		@apply bg-primary-light;
 		@apply text-white;
-		@apply pt-20;
 
 		.content {
 			@apply container;
 			@apply px-10;
 
 			.team-subtitle {
-				@apply text-center;
-				@apply uppercase;
-				@apply font-space-grotesk;
+				@apply font-space-grotesk text-center uppercase;
 			}
 
 			.team-title {
-				@apply text-center;
-				@apply text-3xl;
-				@apply tracking-[-1px];
 				@apply my-6;
+				@apply text-center text-3xl tracking-[-1px];
 			}
 
 			.team-description {
-				@apply text-center;
 				@apply max-w-[600px];
 				@apply mx-auto;
+				@apply text-center;
 			}
 		}
 
 		.btn-see-more {
-			@apply flex;
-			@apply rounded-full;
-			@apply mx-auto;
-			@apply mt-15 mb-10;
 			@apply btn btn-outline;
+			@apply flex;
+			@apply mx-auto mt-15 mb-10;
+			@apply rounded-full;
 		}
 
 		.team-grid {
 			@apply relative;
-			@apply mt-30 lg:mt-50;
-			@apply px-2;
+			@apply lg:max-h-[220px];
+			@apply mt-30 px-2 lg:mt-50;
 			@apply bg-neutral-light;
 			@apply rounded-tl-[50px] rounded-tr-[50px];
-			@apply lg:max-h-[220px];
 
 			img {
 				@apply left-0;
-				@apply -translate-y-1/2 transform;
 				@apply px-5;
+				@apply -translate-y-1/2 transform;
 			}
 		}
 	}

@@ -5,14 +5,11 @@
 		@apply flex flex-col md:flex-row;
 
 		.image-column {
-			@apply relative;
+			@apply relative hidden md:block;
 			@apply w-full md:w-1/2;
 
-			@apply hidden md:block;
-
 			img {
-				@apply h-[700px];
-				@apply w-full;
+				@apply h-[700px] w-full;
 				@apply object-cover;
 			}
 		}
@@ -26,36 +23,26 @@
 			}
 
 			.hero-title-container {
-				@apply relative;
-				@apply z-10;
+				@apply relative z-10;
 
 				.content-image {
-					@apply absolute;
-					@apply top-0;
-					@apply left-0;
-					@apply h-full;
-					@apply w-full;
+					@apply absolute md:hidden;
+					@apply top-0 left-0 z-10;
+					@apply h-full w-full;
 					@apply brightness-50;
-					@apply md:hidden;
 
 					img {
-						@apply w-full;
-						@apply h-full;
+						@apply h-full w-full;
 						@apply object-cover;
 					}
 				}
 
 				.hero-title {
-					@apply md:text-primary text-white;
-					@apply text-4xl leading-tight;
-					@apply relative;
-					@apply z-10;
-					@apply flex;
-					@apply items-center;
+					@apply relative z-10 flex items-center;
 					@apply justify-center md:justify-start;
-					@apply h-full;
-					@apply w-full;
+					@apply h-full w-full;
 					@apply px-10 py-20 lg:px-0 lg:pt-30;
+					@apply md:text-primary text-4xl leading-tight text-white;
 				}
 			}
 

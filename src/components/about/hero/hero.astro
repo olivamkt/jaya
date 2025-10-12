@@ -12,57 +12,47 @@
 			@apply relative;
 
 			&::before {
-				@apply bg-blue-light;
 				@apply absolute;
-				@apply top-0;
-				@apply right-0;
-				@apply h-full;
-				@apply w-[50dvw];
+				@apply top-0 right-0;
+				@apply h-full w-[50dvw];
+				@apply bg-blue-light;
 				content: '';
 			}
 
 			.text-box-container {
-				@apply relative;
-				@apply z-10;
+				@apply relative z-10;
 				@apply px-10;
 
 				h1 {
-					@apply text-white;
-					@apply text-3xl;
 					@apply mb-16;
+					@apply text-3xl text-white;
 				}
 
 				h2 {
-					@apply text-primary;
-					@apply text-xl;
+					@apply text-primary text-xl;
 				}
 
 				.btn-get-in-touch {
 					@apply btn btn-outline;
-					@apply text-white;
 					@apply mt-18;
+					@apply text-white;
 				}
 			}
 		}
 
 		.video-box-container {
-			@apply h-full;
-			@apply w-[50dvw];
+			@apply h-full w-[50dvw];
 
 			& div {
 				@apply absolute;
-				@apply top-0;
-				@apply left-0;
-				@apply h-full;
-				@apply w-[50dvw];
+				@apply top-0 left-0;
+				@apply h-full w-[50dvw];
 				overflow: hidden;
 			}
 
 			video {
-				@apply h-full;
-				@apply w-full;
-				@apply object-cover;
-				@apply object-center;
+				@apply h-full w-full;
+				@apply object-cover object-center;
 			}
 		}
 	}

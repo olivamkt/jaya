@@ -9,9 +9,7 @@
 		@apply py-20;
 
 		.content-container {
-			@apply container;
-			@apply flex;
-			@apply items-center;
+			@apply container flex items-center;
 			@apply gap-10;
 		}
 
@@ -28,8 +26,8 @@
 				@apply absolute;
 				@apply -top-10 -left-10;
 				@apply h-32 w-32;
-				@apply rounded-full;
 				@apply bg-purple-500/30;
+				@apply rounded-full;
 				@apply blur-xl;
 			}
 		}
@@ -38,17 +36,13 @@
 			@apply w-1/2;
 
 			h2 {
-				@apply text-primary;
-				@apply text-4xl;
-				@apply font-bold;
 				@apply mb-8;
+				@apply text-primary text-4xl font-bold;
 			}
 
 			.intro-text {
-				@apply text-primary;
-				@apply text-lg;
-				@apply leading-relaxed;
 				@apply mb-12;
+				@apply text-primary text-lg leading-relaxed;
 			}
 
 			.advantages-grid {
@@ -64,14 +58,13 @@
 			}
 
 			.advantage-number {
-				@apply text-lg;
-				@apply font-bold;
 				@apply mb-2;
+				@apply text-lg font-bold;
 			}
 
 			.advantage-title {
-				@apply font-bold;
 				@apply mb-2;
+				@apply font-bold;
 			}
 
 			.advantage-text {
@@ -81,9 +74,11 @@
 
 		.cta-button {
 			@apply btn btn-outline;
-			@apply mt-10 max-w-[420px];
-			@apply text-primary-light border-primary-light;
-			@apply ml-auto flex;
+			@apply flex;
+			@apply max-w-[420px];
+			@apply mt-10 ml-auto;
+			@apply text-primary-light;
+			@apply border-primary-light;
 		}
 	}
 </style>

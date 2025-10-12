@@ -5,18 +5,16 @@ import MapElement from './MapElement.astro'
 <style>
 	@reference '@/styles/global.css';
 	.map-section {
-		@apply bg-blue;
 		@apply pt-20 pb-10;
+		@apply bg-blue;
 
 		.driving-subtitle {
-			@apply uppercase;
-			@apply font-space-grotesk;
+			@apply font-space-grotesk uppercase;
 		}
 
 		.driving-title {
-			@apply text-3xl;
-			@apply leading-[0.99];
 			@apply my-10;
+			@apply text-3xl leading-[0.99];
 		}
 
 		.driving-text {
@@ -24,10 +22,11 @@ import MapElement from './MapElement.astro'
 		}
 
 		.btn-get-in-touch {
-			@apply btn btn-outline rounded-full;
-			@apply mx-auto my-10;
+			@apply btn btn-outline;
 			@apply hidden lg:flex;
+			@apply mx-auto my-10;
 			@apply text-white;
+			@apply rounded-full;
 
 			&.btn-mobile {
 				@apply flex lg:hidden;
@@ -41,9 +40,9 @@ import MapElement from './MapElement.astro'
 		}
 
 		.map-container {
-			@apply mt-10;
 			@apply relative;
 			@apply w-full lg:w-2/3;
+			@apply mt-10;
 		}
 
 		.layout {

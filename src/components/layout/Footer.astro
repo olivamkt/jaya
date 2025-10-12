@@ -14,8 +14,7 @@ const isContactPage = currentPath.includes('/contact')
 	@reference '@/styles/global.css';
 
 	.footer-section {
-		@apply lg:py-20;
-		@apply mt-auto;
+		@apply mt-auto lg:py-20;
 
 		.footer-main {
 			@apply flex flex-col lg:flex-row;
@@ -23,26 +22,20 @@ const isContactPage = currentPath.includes('/contact')
 		}
 
 		.footer-main-content {
-			@apply flex;
-			@apply items-center;
+			@apply flex items-center;
 			@apply gap-5;
 		}
 
 		.lets-talk {
-			@apply text-primary;
-			@apply text-8xl;
-			@apply font-bold;
+			@apply text-primary text-8xl font-bold;
 		}
 
 		.btn-contact {
-			@apply h-[100px] lg:h-[137px];
-			@apply w-[137px];
+			@apply relative flex items-center justify-center;
+			@apply h-[100px] w-[137px] lg:h-[137px];
 			@apply bg-primary-light;
 			@apply text-white;
 			@apply rounded-bl-[50px];
-			@apply flex;
-			@apply items-center justify-center;
-			@apply relative;
 
 			&:hover .icon {
 				transform: rotate(45deg);
@@ -50,25 +43,20 @@ const isContactPage = currentPath.includes('/contact')
 
 			.icon {
 				@apply absolute;
-				@apply h-[48px];
-				@apply w-[52px];
-				@apply top-0;
-				@apply right-0;
+				@apply top-0 right-0;
+				@apply h-[48px] w-[52px];
 				transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
 			}
 		}
 
 		.address-container {
-			@apply flex lg:flex-col;
-			@apply gap-10 lg:gap-0;
-			@apply lg:justify-center;
+			@apply flex lg:ml-auto lg:flex-col lg:justify-center;
 			@apply mt-8 lg:mt-0;
-			@apply lg:ml-auto;
+			@apply gap-10 lg:gap-0;
 		}
 
 		.address-item {
-			@apply text-primary;
-			@apply text-left lg:text-right;
+			@apply text-primary text-left lg:text-right;
 
 			&.mb-5 {
 				@apply mb-5;
@@ -77,10 +65,8 @@ const isContactPage = currentPath.includes('/contact')
 
 		.footer-links {
 			@apply flex;
-			@apply border-t;
-			@apply border-b;
-			@apply py-10;
-			@apply px-8;
+			@apply px-8 py-10;
+			@apply border-t border-b;
 		}
 
 		.footer-menu {
@@ -89,9 +75,8 @@ const isContactPage = currentPath.includes('/contact')
 		}
 
 		.social {
+			@apply flex items-center;
 			@apply ml-auto;
-			@apply flex;
-			@apply items-center;
 			@apply gap-7;
 		}
 	}

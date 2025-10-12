@@ -1,0 +1,128 @@
+---
+title: Jaya Project Style Guide
+description: Code organization and style rules specific to the Jaya project
+tags: [jaya, astro, tailwind, javascript, css-organization]
+alwaysApply: true
+---
+
+# Jaya Project - Specific Style Rules
+
+This rule contains project-specific conventions for the Jaya codebase.
+
+## CSS/Tailwind @apply Organization
+
+Always group related properties on the same line following this order:
+
+1. **Base components** - `btn`, `card`, `badge`, `dropdown`, `menu`
+2. **Layout/Display** - `flex`, `grid`, `hidden`, `block`, `absolute`, `relative`, `fixed`
+3. **Positioning** - `top-*`, `left-*`, `right-*`, `bottom-*`, `z-*`, `inset-*`
+4. **Dimensions** - `w-*`, `h-*`, `max-w-*`, `min-h-*`, `max-h-*`, `min-w-*`
+5. **Spacing** - `p-*`, `m-*`, `gap-*` (group related: `px-8 py-6`, `mx-auto mt-10`)
+6. **Background** - `bg-*` (ALWAYS on separate line from text properties)
+7. **Text** - `text-*`, `font-*`, `leading-*`, `tracking-*`
+   - Order within text: color, alignment, size, weight, leading, tracking
+   - Example: `text-primary text-center text-3xl font-bold leading-tight`
+8. **Borders** - `border-*`, `rounded-*`
+9. **Effects** - `shadow-*`, `opacity-*`, `transition-*`, `transform-*`
+
+### Examples
+
+#### ✅ CORRECT
+
+```css
+.service-item {
+	@apply w-[240px]; /* Dimensions */
+	@apply px-8 py-6; /* Spacing */
+	@apply bg-primary-light; /* Background */
+	@apply text-base leading-[0.99] text-white; /* Text (size, leading, color) */
+	@apply rounded-bl-[50px]; /* Borders */
+}
+
+.btn-contact {
+	@apply relative flex items-center justify-center; /* Layout first, then flex properties */
+	@apply h-[100px] w-[137px]; /* Dimensions */
+	@apply bg-primary-light; /* Background */
+	@apply text-white; /* Text */
+	@apply rounded-bl-[50px]; /* Borders */
+}
+```
+
+#### ❌ INCORRECT
+
+```css
+.service-item {
+	@apply bg-primary-light text-white; /* DON'T mix background with text */
+	@apply px-8;
+	@apply py-6; /* DON'T separate related spacing */
+	@apply w-[240px];
+}
+```
+
+## Import Paths
+
+ALWAYS use `@` alias instead of relative paths:
+
+### ✅ CORRECT
+
+```typescript
+import Component from '@/components/Component.astro'
+import { socialLinks } from '@/data/social-links.ts'
+@reference '@/styles/global.css'
+```
+
+### ❌ INCORRECT
+
+```typescript
+import Component from '../../../components/Component.astro'
+@reference '../../../styles/global.css'
+```
+
+## Colors
+
+ALWAYS use CSS variables from `global.css`. NEVER hardcode hex colors.
+
+### Available Variables
+
+- `--color-primary: #00616c`
+- `--color-primary-light: #03b3cb`
+- `--color-neutral-light: #ececea`
+- `--color-gray-light: #fbfbfb`
+- `--color-body: #f7f5f2`
+- `--color-teal: #36808f`
+- `--color-blue: #3b86a2`
+- `--color-blue-light: #5abfd7`
+- `--color-text-dark: #3b3b3b`
+
+### ✅ CORRECT
+
+```css
+@apply text-text-dark;
+@apply bg-primary-light;
+```
+
+### ❌ INCORRECT
+
+```css
+@apply text-[#3b3b3b];
+@apply bg-[#03b3cb];
+```
+
+## Social Links
+
+ALWAYS use centralized configuration from `@/data/social-links.ts`:
+
+```typescript
+import { socialLinks } from '@/data/social-links'
+
+<a href={socialLinks.linkedin}>LinkedIn</a>
+<a href={socialLinks.github}>GitHub</a>
+<a href={socialLinks.medium}>Medium</a>
+```
+
+## Code Quality
+
+- Use descriptive variable names
+- Keep functions small and focused
+- Group related code together
+- Comment complex logic
+- Prefer composition over repetition

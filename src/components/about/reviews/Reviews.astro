@@ -6,8 +6,8 @@
 	@reference '@/styles/global.css';
 
 	.reviews-section {
-		@apply bg-primary;
 		@apply py-20;
+		@apply bg-primary;
 
 		.container {
 			@apply relative;
@@ -18,17 +18,12 @@
 			@apply text-center;
 
 			.section-label {
-				@apply text-sm;
-				@apply text-white;
-				@apply tracking-wider;
-				@apply uppercase;
 				@apply mb-4;
+				@apply text-sm tracking-wider text-white uppercase;
 			}
 
 			.section-title {
-				@apply text-4xl;
-				@apply text-white;
-				@apply font-bold;
+				@apply text-4xl font-bold text-white;
 
 				.title-part-1 {
 					@apply font-bold;
@@ -46,11 +41,8 @@
 
 			.testimonial-text {
 				@apply max-w-4xl;
-				@apply text-lg;
-				@apply text-white;
-				@apply leading-relaxed;
-				@apply mx-auto;
-				@apply mb-8;
+				@apply mx-auto mb-8;
+				@apply text-lg leading-relaxed text-white;
 			}
 
 			.testimonial-attribution {
@@ -68,17 +60,17 @@
 		}
 
 		.navigation-arrows {
-			@apply absolute top-1/2;
-			@apply flex w-full;
-			@apply -translate-y-1/2 transform justify-between;
-			@apply pointer-events-none;
+			@apply pointer-events-none absolute flex;
+			@apply top-1/2 -translate-y-1/2 transform;
+			@apply w-full;
+			@apply justify-between;
 
 			.arrow {
+				@apply pointer-events-auto flex cursor-pointer items-center justify-center;
+				@apply h-12 w-12;
 				@apply bg-primary-light hover:bg-primary-light/80;
-				@apply flex h-12 w-12;
-				@apply cursor-pointer items-center justify-center;
-				@apply rounded-full transition-colors;
-				@apply pointer-events-auto;
+				@apply rounded-full;
+				@apply transition-colors;
 
 				svg {
 					@apply h-6 w-6;

@@ -9,9 +9,7 @@
 		@apply py-20;
 
 		.content-container {
-			@apply container;
-			@apply flex;
-			@apply items-center;
+			@apply container flex items-center;
 			@apply gap-10;
 		}
 
@@ -19,23 +17,19 @@
 			@apply w-1/2;
 
 			h2 {
-				@apply text-primary;
-				@apply text-4xl;
-				@apply font-bold;
 				@apply mb-8;
+				@apply text-primary text-4xl font-bold;
 			}
 
 			.intro-text {
-				@apply text-primary;
-				@apply text-lg;
-				@apply leading-relaxed;
 				@apply mb-12;
+				@apply text-primary text-lg leading-relaxed;
 			}
 
 			.principles-grid {
 				@apply flex;
-				@apply gap-6;
 				@apply mb-12;
+				@apply gap-6;
 			}
 
 			.principle-box {
@@ -66,8 +60,8 @@
 
 			.gradient-overlay {
 				@apply absolute inset-0;
-				@apply rounded-lg;
 				@apply bg-gradient-to-r from-purple-500/20 to-pink-500/20;
+				@apply rounded-lg;
 			}
 		}
 

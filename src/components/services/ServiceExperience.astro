@@ -2,13 +2,12 @@
 	@reference '@/styles/global.css';
 
 	.experience-section {
-		@apply bg-primary text-white;
 		@apply relative;
 		@apply pb-20;
+		@apply bg-primary text-white;
 
 		.experience-content-container {
-			@apply container;
-			@apply relative z-10;
+			@apply relative z-10 container;
 			@apply px-10 py-20 lg:px-0 lg:pb-0;
 		}
 
@@ -19,20 +18,16 @@
 
 		.experience-image {
 			@apply absolute;
-			@apply top-0 lg:top-20;
-			@apply left-0;
+			@apply top-0 left-0 lg:top-20;
+			@apply h-full w-full lg:h-[700px] lg:w-[260px];
 			@apply brightness-30 lg:brightness-100;
-			@apply w-full lg:w-[260px];
-			@apply h-full lg:h-[700px];
 			@apply object-cover;
-			@apply lg:rounded-tl-[50px];
-			@apply lg:rounded-br-[50px];
+			@apply lg:rounded-tl-[50px] lg:rounded-br-[50px];
 		}
 
 		.experience-title {
-			@apply text-3xl;
-			@apply text-center lg:text-left;
 			@apply mb-10;
+			@apply text-center text-3xl lg:text-left;
 		}
 
 		.experience-text {
@@ -44,11 +39,10 @@
 			@apply text-lg;
 
 			.experience-why-title {
-				@apply text-4xl font-bold;
-				@apply mb-10;
-				@apply text-center;
-				@apply lg:max-w-[700px];
 				@apply flex;
+				@apply lg:max-w-[700px];
+				@apply mb-10;
+				@apply text-center text-4xl font-bold;
 			}
 
 			.experience-why-list {
@@ -57,22 +51,19 @@
 			}
 
 			.experience-why-item {
+				@apply mb-5 p-5;
 				@apply bg-primary-light;
-				@apply text-white;
+				@apply text-white lg:text-sm;
 				@apply rounded-br-[50px];
-				@apply mb-5;
-				@apply p-5;
-				@apply lg:text-sm;
 			}
 		}
 
 		.btn-contact {
 			@apply btn btn-outline;
+			@apply flex justify-center;
+			@apply mx-auto;
 			@apply text-primary-light;
 			@apply border-primary-light;
-			@apply flex;
-			@apply justify-center;
-			@apply mx-auto;
 		}
 	}
 </style>
