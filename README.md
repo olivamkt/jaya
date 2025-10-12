@@ -231,6 +231,83 @@ See `.cursor/rules/jaya-style-guide.mdc` for detailed coding standards including
 - Color usage guidelines
 - JavaScript/TypeScript patterns
 
+---
+
+## 🚀 Deployment
+
+### Live Site
+
+- **Production URL**: https://olivamkt.github.io/jaya/
+- **Repository**: https://github.com/olivamkt/jaya
+
+### GitHub Actions (Automated)
+
+The project uses automated deployment via GitHub Actions:
+
+1. **Workflow File**: `.github/workflows/deploy.yml`
+2. **Triggers**:
+   - Automatic deployment on push to `main` branch
+   - Manual deployment via GitHub Actions tab
+3. **Settings**: Go to **Settings → Pages** → Source: **GitHub Actions**
+
+### Manual Deployment
+
+If needed:
+
+1. **Build the project:**
+
+   ```bash
+   pnpm build
+   ```
+
+2. **Preview locally (optional):**
+
+   ```bash
+   pnpm preview
+   ```
+
+3. **Push to repository:**
+
+   ```bash
+   git add .
+   git commit -m "Your message"
+   git push origin main
+   ```
+
+4. GitHub Actions will automatically deploy
+
+### Testing Before Deployment
+
+1. Build for production: `pnpm build`
+2. Preview: `pnpm preview`
+3. Test at `http://localhost:4321/jaya/`
+4. Verify all links, navigation, and base path
+
+### Troubleshooting
+
+**404 Errors:**
+
+- Verify `base: '/jaya/'` in `astro.config.mjs` matches repository name
+- Check GitHub Pages is enabled in repository settings
+
+**Assets Not Loading:**
+
+- Use `withBase()` utility for all internal links
+- Check font paths include `/jaya/` prefix in `global.css`
+
+**Deployment Failed:**
+
+- Check Actions tab for error details
+- Verify `pnpm-lock.yaml` is committed
+
+### Deployment Notes
+
+- Site uses **static generation** (all pages pre-rendered)
+- Deployment takes 1-3 minutes after push
+- No server-side rendering or API routes
+
+---
+
 ## 📄 License
 
 MIT - See the [LICENSE](LICENSE) file for details.
