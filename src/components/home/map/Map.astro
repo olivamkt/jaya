@@ -39,7 +39,7 @@ import { withBase } from '@/utils/url'
 		}
 
 		.btn-get-in-touch {
-			@apply btn btn-outline;
+			@apply btn btn-outline btn-wide;
 			@apply hidden lg:flex;
 			@apply mx-auto my-10;
 			@apply text-white;
@@ -90,12 +90,12 @@ import { withBase } from '@/utils/url'
 					long-term value wherever your team is based.
 				</p>
 
-				<a class="btn-get-in-touch" href={withBase('/contact')}>Get in touch</a>
+				<a class="btn-get-in-touch" href={withBase('contact')}>Get in touch</a>
 			</div>
 			<div class="map-container">
 				<MapElement />
 			</div>
-			<a class="btn-get-in-touch btn-mobile" href={withBase('/contact')}>Get in touch</a>
+			<a class="btn-get-in-touch btn-mobile" href={withBase('contact')}>Get in touch</a>
 		</div>
 	</div>
 

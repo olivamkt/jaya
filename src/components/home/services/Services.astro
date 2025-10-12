@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets'
 import servicesImg from '@/assets/home/services.png'
+import { withBase } from '@/utils/url'
 ---
 
 <style>
@@ -124,7 +125,7 @@ import servicesImg from '@/assets/home/services.png'
 				</p>
 			</div>
 		</div>
-		<a href="/services" class="btn-read-more">Let's talk</a>
+		<a href={withBase('contact')} class="btn-read-more">Let's talk</a>
 	</div>
 </section>
 

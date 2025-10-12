@@ -1,3 +1,7 @@
+---
+import { withBase } from '@/utils/url'
+---
+
 <style>
 	@reference '@/styles/global.css';
 
@@ -89,7 +93,7 @@
 			}
 
 			.cta-button {
-				@apply btn btn-outline;
+				@apply btn btn-outline btn-wide;
 				@apply border-primary-light;
 				@apply text-primary-light;
 				@apply mx-auto md:ml-0;
@@ -115,7 +119,7 @@
 			</div>
 
 			<slot name="hero-statistics" />
-			<a href="" class="cta-button">Get in touch</a>
+			<a href={withBase('contact')} class="cta-button">Get in touch</a>
 		</div>
 	</div>
 </section>
