@@ -44,7 +44,12 @@
 	/* Blue/Teal colors */
 	--color-teal: #36808f;
 	--color-blue: #3b86a2;
+	--color-blue-light: #5abfd7;
 
+	/* Text colors */
+	--color-text-dark: #3b3b3b;
+
+	/* Fonts */
 	--font-space-grotesk: 'Space Grotesk', sans-serif;
 	--font-open-sauce-one: 'Open Sauce One', sans-serif;
 }
