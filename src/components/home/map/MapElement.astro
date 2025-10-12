@@ -5,9 +5,18 @@
 			show: { opacity: '1', visibility: 'visible' },
 			hide: { opacity: '0', visibility: 'hidden' }
 		}
+		const ACTIVE_STATES = ['CA', 'TX', 'IL', 'NY']
 
 		const detailsBox = document.getElementById('details-box')
 		if (!detailsBox) return console.warn('Details box element not found')
+
+		// Add 'active-state' class to specific states
+		ACTIVE_STATES.forEach((stateId) => {
+			const stateElement = document.getElementById(stateId)
+			if (stateElement) {
+				stateElement.classList.add('active-state')
+			}
+		})
 
 		const elements = {
 			title: detailsBox.querySelector('.title'),
@@ -86,17 +95,11 @@
 		transform-origin: center center;
 	}
 
-	path[id='CA'],
-	path[id='TX'],
-	path[id='IL'],
-	path[id='NY'] {
+	path.active-state {
 		fill: white;
 	}
 
-	path[id='CA']:hover,
-	path[id='TX']:hover,
-	path[id='IL']:hover,
-	path[id='NY']:hover {
+	path.active-state:hover {
 		@apply fill-[#03b3cb];
 		cursor: pointer;
 		transform: scale(1.005, 1.005);
