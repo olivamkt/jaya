@@ -33,6 +33,7 @@
 }
 
 @theme {
+	--nav-height: 110px;
 	/* Primary colors */
 	--color-primary-light: #03b3cb;
 
@@ -80,7 +81,7 @@
 	}
 
 	.nav-padding {
-		@apply pt-[110px];
+		@apply pt-[var(--nav-height)];
 	}
 }
 

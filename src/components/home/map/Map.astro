@@ -1,12 +1,28 @@
 ---
 import MapElement from './MapElement.astro'
+import { withBase } from '@/utils/url'
 ---
 
 <style>
 	@reference '@/styles/global.css';
+
+	@keyframes bg-pan-top {
+		0% {
+			background-position: 50% 100%;
+		}
+		100% {
+			background-position: 50% 0%;
+		}
+	}
+
+	.bg-pan-top {
+		-webkit-animation: bg-pan-top 8s both;
+		animation: bg-pan-top 8s both;
+	}
 	.map-section {
 		@apply pt-20 pb-10;
-		@apply bg-blue;
+		background-image: linear-gradient(0deg, #007590, #3b7881, #27bad1);
+		background-size: 100% 600%;
 
 		.driving-subtitle {
 			@apply font-space-grotesk uppercase;
@@ -52,7 +68,7 @@ import MapElement from './MapElement.astro'
 	}
 </style>
 
-<section class="map-section">
+<section class="map-section bg-pan-top">
 	<div class="container">
 		<div class="layout">
 			<div class="content">
@@ -73,12 +89,12 @@ import MapElement from './MapElement.astro'
 					long-term value wherever your team is based.
 				</p>
 
-				<a class="btn-get-in-touch">Get in touch</a>
+				<a class="btn-get-in-touch" href={withBase('/contact')}>Get in touch</a>
 			</div>
 			<div class="map-container">
 				<MapElement />
 			</div>
-			<a class="btn-get-in-touch btn-mobile">Get in touch</a>
+			<a class="btn-get-in-touch btn-mobile" href={withBase('/contact')}>Get in touch</a>
 		</div>
 	</div>
 </section>
