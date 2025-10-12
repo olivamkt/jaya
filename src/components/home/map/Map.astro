@@ -8,10 +8,10 @@ import { withBase } from '@/utils/url'
 
 	@keyframes bg-pan-top {
 		0% {
-			background-position: 50% 100%;
+			background-position: 50% 0%;
 		}
 		100% {
-			background-position: 50% 0%;
+			background-position: 50% 100%;
 		}
 	}
 
@@ -21,8 +21,9 @@ import { withBase } from '@/utils/url'
 	}
 	.map-section {
 		@apply pt-20 pb-10;
-		background-image: linear-gradient(0deg, #007590, #3b7881, #27bad1);
-		background-size: 100% 600%;
+		@apply bg-[linear-gradient(0deg, #007590, #3b7881, #27bad1)];
+		@apply bg-[size:100%_600%];
+		background-position: 50% 0%; /* Initial state matches animation start */
 
 		.driving-subtitle {
 			@apply font-space-grotesk uppercase;
@@ -68,7 +69,7 @@ import { withBase } from '@/utils/url'
 	}
 </style>
 
-<section class="map-section bg-pan-top">
+<section class="map-section" id="map-section">
 	<div class="container">
 		<div class="layout">
 			<div class="content">
@@ -97,4 +98,12 @@ import { withBase } from '@/utils/url'
 			<a class="btn-get-in-touch btn-mobile" href={withBase('/contact')}>Get in touch</a>
 		</div>
 	</div>
+
+	<script>
+		import { animateOnSectionVisible } from '@/utils/animations'
+
+		document.addEventListener('astro:page-load', () => {
+			animateOnSectionVisible('#map-section', 'map-section', { threshold: 0.3 }, 'bg-pan-top')
+		})
+	</script>
 </section>

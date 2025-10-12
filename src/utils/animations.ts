@@ -34,11 +34,13 @@ export const animateOnScroll = (
  * @param sectionSelector - CSS selector for the section to observe
  * @param elementId - ID of the element to animate
  * @param options - Intersection Observer options
+ * @param className - CSS class to add when visible (default: 'visible')
  */
 export const animateOnSectionVisible = (
 	sectionSelector: string,
 	elementId: string,
-	options: IntersectionObserverInit = {}
+	options: IntersectionObserverInit = {},
+	className: string = 'visible'
 ): void => {
 	const section = document.querySelector(sectionSelector)
 	const element = document.getElementById(elementId)
@@ -54,7 +56,7 @@ export const animateOnSectionVisible = (
 	const handleIntersection = (entries: IntersectionObserverEntry[]) => {
 		entries.forEach((entry) => {
 			if (entry.isIntersecting) {
-				element.classList.add('visible')
+				element.classList.add(className)
 				observer.unobserve(entry.target)
 			}
 		})
