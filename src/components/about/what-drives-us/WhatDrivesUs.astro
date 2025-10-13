@@ -1,5 +1,5 @@
 ---
-
+import { withBase } from '@/utils/url'
 ---
 
 <style>
@@ -109,7 +109,7 @@
 				</div>
 			</div>
 
-			<a href="/contact" class="btn-get-in-touch">Get in touch</a>
+			<a href={withBase('contact')} class="btn-get-in-touch">Get in touch</a>
 		</div>
 
 		<div class="image-content">

@@ -1,5 +1,5 @@
 ---
-
+import { withBase } from '@/utils/url'
 ---
 
 <style>
@@ -123,7 +123,7 @@
 				</div>
 			</div>
 
-			<a href="/contact" class="cta-button">Let's transform your business? Contact Us</a>
+			<a href={withBase('contact')} class="cta-button">Let's transform your business? Contact Us</a>
 		</div>
 	</div>
 </section>
