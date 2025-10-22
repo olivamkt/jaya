@@ -6,7 +6,7 @@
 export const socialLinks = {
 	linkedin: 'https://www.linkedin.com/company/jaya-apps',
 	github: 'https://github.com/jaya',
-	medium: 'https://jayaj.medium.com'
+	medium: 'https://medium.com/wearejaya'
 } as const
 
 export type SocialLink = keyof typeof socialLinks
