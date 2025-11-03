@@ -8,10 +8,12 @@
 		"dev": "astro dev",
 		"build": "astro build",
 		"preview": "astro preview",
-		"astro": "astro"
+		"astro": "astro",
+        "start": "serve -s dist -l ${PORT:-3000}"
 	},
 	"packageManager": "pnpm@10.13.1",
 	"dependencies": {
+        "serve": "^14.2.3",
 		"@astrojs/react": "^4.3.0",
 		"@astrojs/sitemap": "^3.4.2",
 		"@fontsource/geist-mono": "^5.2.6",
