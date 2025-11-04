@@ -1,0 +1,25 @@
+# Node
+node_modules
+.pnpm-store
+.pnpm-debug.log
+npm-debug.log*
+
+# Build output
+dist
+
+# Local env and IDE
+.env
+.env.*
+.vscode
+.idea
+.DS_Store
+
+# Git
+.git
+
+# Docker
+.dockerignore
+Dockerfile
+
+# Logs
+*.log
