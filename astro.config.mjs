@@ -1,45 +1,47 @@
-// @ts-check
 import { defineConfig } from 'astro/config'
-
 import react from '@astrojs/react'
 import tailwindcss from '@tailwindcss/vite'
 import sitemap from '@astrojs/sitemap'
 import robotsTxt from 'astro-robots-txt'
 
-// https://astro.build/config
+function normalizeBase(v) {
+	if (!v) return undefined
+	let s = v.trim()
+	if (!s.startsWith('/')) s = '/' + s
+	if (!s.endsWith('/')) s = s + '/'
+	if (s === '//') return '/'
+	return s
+}
+
+const RAW_SITE =
+	process.env.SITE_URL ??
+	process.env.PUBLIC_SITE_URL ??
+	'https://example.com'
+
+let SITE_URL = 'https://example.com'
+try {
+	SITE_URL = new URL(RAW_SITE).toString().replace(/\/$/, '') // remove barra final
+} catch {
+}
+
+const BASE = normalizeBase(process.env.ASTRO_BASE ?? process.env.BASE_PATH)
+
 export default defineConfig({
-	site: 'https://olivamkt.github.io/jaya/',
-	base: '/jaya/',
+	site: SITE_URL,
+	...(BASE ? { base: BASE } : {}),
 	i18n: {
 		defaultLocale: 'en',
 		locales: ['en'],
-		routing: {
-			prefixDefaultLocale: false
-		}
+		routing: { prefixDefaultLocale: false },
 	},
 	integrations: [
 		react(),
-		sitemap({
-			i18n: {
-				defaultLocale: 'en',
-				locales: {
-					en: 'en-US'
-				}
-			}
-		}),
-		robotsTxt()
+		sitemap({ i18n: { defaultLocale: 'en', locales: { en: 'en-US' } } }),
+		robotsTxt(),
 	],
 	vite: {
 		plugins: [tailwindcss()],
-		server: {
-			watch: {
-				usePolling: true
-			}
-		},
-		css: {
-			modules: {
-				localsConvention: 'camelCaseOnly'
-			}
-		}
-	}
+		server: { watch: { usePolling: true } },
+		css: { modules: { localsConvention: 'camelCaseOnly' } },
+	},
 })
