@@ -51,4 +51,4 @@ EXPOSE 8080
 USER nodeuser
 
 # Serve estático (pnpm no runtime não é necessário)
-CMD ["sh", "-lc", "./node_modules/.bin/serve -s dist -l tcp://0.0.0.0:${PORT}"]
+CMD ["sh", "-lc", "./node_modules/.bin/serve dist -l tcp://0.0.0.0:${PORT}"]
