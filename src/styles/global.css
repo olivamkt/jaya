@@ -11,7 +11,7 @@
 
 @font-face {
 	font-family: 'Space Grotesk';
-	src: url('/jaya/fonts/SpaceGrotesk-Medium.ttf') format('truetype');
+	src: url('/fonts/SpaceGrotesk-Medium.ttf') format('truetype');
 	font-weight: 500;
 	font-style: normal;
 	font-display: swap;
@@ -20,14 +20,14 @@
 
 @font-face {
 	font-family: 'Open Sauce One';
-	src: url('/jaya/fonts/open-sauce-one-400-normal.woff2') format('woff2');
+	src: url('/fonts/open-sauce-one-400-normal.woff2') format('woff2');
 	font-weight: 400;
 	font-display: swap;
 }
 
 @font-face {
 	font-family: 'Open Sauce One';
-	src: url('/jaya/fonts/open-sauce-one-800-normal.woff2') format('woff2');
+	src: url('/fonts/open-sauce-one-800-normal.woff2') format('woff2');
 	font-weight: 800;
 	font-display: swap;
 }
