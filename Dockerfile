@@ -52,4 +52,4 @@ EXPOSE 8080
 USER nodeuser
 
 # Serve estático (pnpm no runtime não é necessário)
-CMD ["node", "--trace-warnings", "./dist/server/entry.mjs"]
+CMD ["node", "./dist/server/entry.mjs"]
