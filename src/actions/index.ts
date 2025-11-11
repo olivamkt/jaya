@@ -1,4 +1,5 @@
 import { ActionError, defineAction } from 'astro:actions'
+import { z } from 'astro:schema'
 import { Resend } from 'resend'
 
 const resend = new Resend(import.meta.env.RESEND_API_KEY)
@@ -6,33 +7,18 @@ const resend = new Resend(import.meta.env.RESEND_API_KEY)
 export const server = {
 	send: defineAction({
 		accept: 'form',
+		input: z.object({
+			name: z.string().min(1, 'Name is required'),
+			email: z.string().email('Invalid email format'),
+			message: z.string().min(1, 'Message is required')
+		}),
 		handler: async (input) => {
-			const { name, email, message } = input as unknown as {
-				name: string
-				email: string
-				message: string
-			}
-
-			// Validate required fields
-			if (!name || !email || !message) {
-				throw new ActionError({
-					code: 'BAD_REQUEST',
-					message: 'All fields are required'
-				})
-			}
-
-			// Validate email format
-			const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-			if (!emailRegex.test(email)) {
-				throw new ActionError({
-					code: 'BAD_REQUEST',
-					message: 'Invalid email format'
-				})
-			}
+			const { name, email, message } = input
 
 			// Get email configuration from environment variables
-			const EMAIL_FROM = import.meta.env.EMAIL_FROM || 'noreply@jaya.tech'
-			const EMAIL_TO = import.meta.env.EMAIL_TO || 'pareja.r@gmail.com'
+			// resend test from: onboarding@resend.dev
+			const EMAIL_FROM = import.meta.env.EMAIL_FROM || 'automation@jaya.tech'
+			const EMAIL_TO = import.meta.env.EMAIL_TO || 'contact@jaya.tech'
 
 			// Send email using Resend
 			const { data, error } = await resend.emails.send({

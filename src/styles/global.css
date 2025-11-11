@@ -33,7 +33,7 @@
 }
 
 @theme {
-	--nav-height: 110px;
+	--nav-height: 135px; /* Mobile default */
 	/* Primary colors */
 	--color-primary-light: #03b3cb;
 
@@ -82,6 +82,12 @@
 
 	.nav-padding {
 		@apply pt-[var(--nav-height)];
+	}
+
+	@media (min-width: 1024px) {
+		:root {
+			--nav-height: 110px; /* Desktop */
+		}
 	}
 }
 
