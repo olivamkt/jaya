@@ -18,27 +18,49 @@
 			}
 		})
 
+		const stateHeader = detailsBox.querySelector('.state-header')
 		const clientsList = detailsBox.querySelector('.clients-list')
-		if (!clientsList) return console.warn('Clients list element not found')
+		const navPrev = detailsBox.querySelector('.nav-prev')
+		const navNext = detailsBox.querySelector('.nav-next')
+		if (!clientsList || !stateHeader || !navPrev || !navNext) {
+			return console.warn('Required elements not found')
+		}
+
+		let currentClients = []
+		let currentIndex = 0
 
 		const extractData = (el) => {
 			const clientsData = el.dataset.clients
+			const stateName = el.dataset.name
 			if (!clientsData) return null
 			try {
-				return JSON.parse(clientsData)
+				return {
+					clients: JSON.parse(clientsData),
+					stateName: stateName || ''
+				}
 			} catch (e) {
 				console.warn('Invalid clients data:', e)
 				return null
 			}
 		}
 
-		const hasData = (data) => Array.isArray(data) && data.length > 0
+		const hasData = (data) => data && Array.isArray(data.clients) && data.clients.length > 0
 
-		const updateBoxContent = (clients) => {
+		const updateBoxContent = (data) => {
+			currentClients = data.clients
+			currentIndex = 0
+
+			// Update state header
+			stateHeader.textContent = data.stateName
+
+			// Clear and rebuild client items
 			clientsList.innerHTML = ''
-			clients.forEach((client) => {
+			currentClients.forEach((client, index) => {
 				const clientItem = document.createElement('div')
 				clientItem.className = 'client-item'
+				if (index !== 0) {
+					clientItem.style.display = 'none'
+				}
 
 				const clientName = document.createElement('div')
 				clientName.className = 'client-name'
@@ -52,17 +74,105 @@
 				clientItem.appendChild(clientDescription)
 				clientsList.appendChild(clientItem)
 			})
+
+			updateNavigation()
 		}
+
+		const updateNavigation = () => {
+			if (currentClients.length <= 1) {
+				navPrev.style.display = 'none'
+				navNext.style.display = 'none'
+				return
+			}
+
+			// Hide prev if it's the first item
+			navPrev.style.display = currentIndex === 0 ? 'none' : 'flex'
+
+			// Hide next if it's the last item
+			navNext.style.display = currentIndex === currentClients.length - 1 ? 'none' : 'flex'
+		}
+
+		const showClient = (index) => {
+			const items = clientsList.querySelectorAll('.client-item')
+			items.forEach((item, i) => {
+				item.style.display = i === index ? 'flex' : 'none'
+			})
+			currentIndex = index
+			updateNavigation()
+		}
+
+		const nextClient = () => {
+			if (currentClients.length === 0) return
+			if (currentIndex >= currentClients.length - 1) return
+			const nextIndex = currentIndex + 1
+			showClient(nextIndex)
+		}
+
+		const prevClient = () => {
+			if (currentClients.length === 0) return
+			if (currentIndex <= 0) return
+			const prevIndex = currentIndex - 1
+			showClient(prevIndex)
+		}
+
+		navNext.addEventListener('click', (e) => {
+			e.stopPropagation()
+			nextClient()
+		})
+
+		navPrev.addEventListener('click', (e) => {
+			e.stopPropagation()
+			prevClient()
+		})
 
 		const calculatePosition = (x, y) => {
 			const { innerWidth, innerHeight } = window
 
-			let left = Math.min(Math.max(x, BOX.MARGIN), innerWidth - BOX.WIDTH - BOX.MARGIN)
+			// Backup and apply temporary measurement styles
+			const { style } = detailsBox
+			const { visibility, opacity, display } = style
 
-			let top =
-				y + BOX.OFFSET + BOX.HEIGHT > innerHeight ? y - BOX.HEIGHT - BOX.OFFSET : y + BOX.OFFSET
+			Object.assign(style, {
+				visibility: 'hidden',
+				opacity: '0',
+				display: 'block'
+			})
 
-			return { x: left, y: top }
+			// Force reflow only once to get real dimensions
+			const { offsetWidth, offsetHeight } = detailsBox
+
+			const boxWidth = offsetWidth || Math.min(BOX.WIDTH, innerWidth - BOX.MARGIN * 2)
+			const boxHeight = offsetHeight || BOX.HEIGHT
+
+			// Restore original styles
+			Object.assign(style, { visibility, opacity, display })
+
+			// Horizontal positioning: center near the click point
+			const left = Math.min(
+				Math.max(x - boxWidth / 2, BOX.MARGIN),
+				innerWidth - boxWidth - BOX.MARGIN
+			)
+
+			// Vertical positioning: try to keep close to the click point
+			const spaceBelow = innerHeight - y - BOX.OFFSET
+			const spaceAbove = y - BOX.OFFSET
+			const maxTop = innerHeight - boxHeight - BOX.MARGIN
+			const minTop = BOX.MARGIN
+
+			// Priority: below > above > adjust to fit viewport
+			let top
+			if (spaceBelow >= boxHeight) {
+				top = y + BOX.OFFSET
+			} else if (spaceAbove >= boxHeight) {
+				top = y - boxHeight - BOX.OFFSET
+			} else {
+				top = Math.max(
+					minTop,
+					Math.min(maxTop, spaceBelow > spaceAbove ? y - BOX.OFFSET : y + BOX.OFFSET - boxHeight)
+				)
+			}
+
+			return { x: left, y: Math.max(minTop, Math.min(top, maxTop)) }
 		}
 
 		const setBoxPosition = ({ x, y }) => {
@@ -74,10 +184,10 @@
 		}
 
 		const handlePathClick = (el, evt) => {
-			const clients = extractData(el)
-			if (!hasData(clients)) return
+			const data = extractData(el)
+			if (!hasData(data)) return
 
-			updateBoxContent(clients)
+			updateBoxContent(data)
 			setBoxPosition(calculatePosition(evt.clientX, evt.clientY))
 			toggleBox(true)
 		}
@@ -86,7 +196,7 @@
 			const target = evt.target
 			if (target?.tagName?.toLowerCase() === 'path') {
 				handlePathClick(target, evt)
-			} else {
+			} else if (!detailsBox.contains(target)) {
 				toggleBox(false)
 			}
 		})
@@ -131,8 +241,8 @@
 	#details-box {
 		@apply fixed flex flex-col items-start;
 		@apply z-10;
-		@apply w-auto max-w-[400px];
-		@apply p-6;
+		@apply w-auto max-w-[300px];
+		@apply py-6;
 		@apply bg-primary-light;
 		@apply text-white;
 		@apply rounded-br-[50px];
@@ -141,16 +251,33 @@
 		transition:
 			opacity 0.3s ease,
 			visibility 0.3s ease;
+		overflow: visible;
+		box-sizing: border-box;
+		position: fixed;
+
+		.state-header {
+			@apply font-space-grotesk text-xl font-bold;
+			@apply px-10;
+			@apply w-full;
+		}
+
+		.clients-list-wrapper {
+			@apply relative;
+			@apply w-full;
+			@apply flex-1;
+			position: relative;
+			@apply px-10;
+		}
 
 		.clients-list {
 			@apply flex flex-col;
 			@apply w-full;
-			@apply gap-4;
 		}
 
 		.client-item {
 			@apply flex flex-col;
-			@apply gap-1;
+			@apply gap-2;
+			@apply w-full;
 		}
 
 		.client-name {
@@ -158,13 +285,68 @@
 		}
 
 		.client-description {
-			@apply text-sm leading-relaxed;
+			@apply text-sm leading-tight;
+		}
+
+		.nav-prev,
+		.nav-next {
+			@apply absolute;
+			@apply top-1/2;
+			@apply -translate-y-1/2;
+			@apply flex items-center justify-center;
+			@apply h-10 w-10;
+			/* @apply bg-primary-light; */
+			@apply cursor-pointer;
+			@apply transition-all;
+			/* @apply hover:bg-white/20; */
+			@apply z-30;
+			@apply border-0;
+			@apply outline-none;
+			pointer-events: auto;
+			position: absolute;
+
+			&:hover {
+				path {
+					@apply stroke-text-dark;
+				}
+			}
+		}
+
+		.nav-next {
+			right: 0;
+		}
+
+		.nav-prev {
+			left: 0;
+			@apply rotate-180;
+		}
+
+		.nav-arrow {
+			@apply h-6 w-6;
+			/* @apply text-primary; */
+			path {
+				@apply stroke-primary;
+				/* fill: currentColor; */
+			}
 		}
 	}
 </style>
 
 <div id="details-box" class="state-info">
-	<div class="clients-list"></div>
+	<div class="state-header"></div>
+	<div class="clients-list-wrapper">
+		<div class="clients-list"></div>
+		<button class="nav-prev" aria-label="Previous client">
+			<svg class="nav-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+				<path d="M9 18l6-6-6-6"></path>
+			</svg>
+		</button>
+		<button class="nav-next" aria-label="Next client">
+			<svg class="nav-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+				<path d="M9 18l6-6-6-6"></path>
+			</svg>
+		</button>
+	</div>
 </div>
 
 <div class="svg-container">

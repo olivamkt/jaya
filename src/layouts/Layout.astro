@@ -46,6 +46,17 @@ const lang = 'en'
 		<link rel="icon" href={withBase('/favicon.ico')} type="image/x-icon" />
 
 		<ClientRouter />
+
+		<!-- Google tag (gtag.js) -->
+		<script type="text/partytown" async src="https://www.googletagmanager.com/gtag/js?id=G-W81GR8V6JX"></script>
+		<script type="text/partytown">
+			window.dataLayer = window.dataLayer || []
+			function gtag() {
+				dataLayer.push(arguments)
+			}
+			gtag('js', new Date())
+			gtag('config', 'G-W81GR8V6JX')
+		</script>
 	</head>
 	<body>
 		<Header />
