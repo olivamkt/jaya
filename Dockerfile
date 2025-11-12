@@ -47,8 +47,9 @@ COPY package.json ./
 
 # Porta padrão; DO sobrescreve $PORT
 ENV PORT=8080
+ENV HOST=0.0.0.0
 EXPOSE 8080
 USER nodeuser
 
 # Serve estático (pnpm no runtime não é necessário)
-CMD ["sh", "-lc", "./node_modules/.bin/serve dist/client -l tcp://0.0.0.0:${PORT}"]
+CMD ["node", "./dist/server/entry.mjs"]
