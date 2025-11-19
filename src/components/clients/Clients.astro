@@ -2,8 +2,80 @@
 import { Image } from 'astro:assets'
 import brasilFlag from '@/assets/home/brasil-flag.png'
 import usaFlag from '@/assets/home/usa-flag.png'
-import clientUSA from '@/assets/home/clients-usa.png'
-import clientBrasil from '@/assets/home/clients-brasil.png'
+
+// USA clients
+import acadia from '@/assets/home/clients/usa/acadia.png'
+import careAcademy from '@/assets/home/clients/usa/care-academy.png'
+import datassential from '@/assets/home/clients/usa/datassential.png'
+import everlyHealth from '@/assets/home/clients/usa/everly-health.png'
+import exos from '@/assets/home/clients/usa/exos.png'
+import familyWell from '@/assets/home/clients/usa/family-well.png'
+import legionHealth from '@/assets/home/clients/usa/legion-health.png'
+import littleOtter from '@/assets/home/clients/usa/little-otter.png'
+import lwnHealth from '@/assets/home/clients/usa/lwn-health.png'
+import pipefy from '@/assets/home/clients/usa/pipefy.png'
+import syngenta from '@/assets/home/clients/usa/syngenta.png'
+import theZebra from '@/assets/home/clients/usa/the-zebra.png'
+
+// Brasil clients
+import amaro from '@/assets/home/clients/br/amaro.png'
+import bidu from '@/assets/home/clients/br/bidu.png'
+import c6Bank from '@/assets/home/clients/br/c6-bank.png'
+import cerco from '@/assets/home/clients/br/cerco.png'
+import cuponomia from '@/assets/home/clients/br/cuponomia.png'
+import envvio from '@/assets/home/clients/br/envvio.png'
+import guiabolso from '@/assets/home/clients/br/guiabolso.png'
+import magalu from '@/assets/home/clients/br/magalu.png'
+import marvin from '@/assets/home/clients/br/marvin.png'
+import mercadoLivre from '@/assets/home/clients/br/mercado-livre.png'
+import mercadoPago from '@/assets/home/clients/br/mercado-pago.png'
+import mindlab from '@/assets/home/clients/br/mindlab.png'
+import netMovies from '@/assets/home/clients/br/net-movies.png'
+import pipefyBr from '@/assets/home/clients/br/pipefy.png'
+import rede from '@/assets/home/clients/br/rede.png'
+import smartfit from '@/assets/home/clients/br/smartfit.png'
+import swap from '@/assets/home/clients/br/swap.png'
+import syngentaBr from '@/assets/home/clients/br/syngenta.png'
+import tmov from '@/assets/home/clients/br/tmov.png'
+import vagas from '@/assets/home/clients/br/vagas.png'
+
+const usaClients = [
+	{ image: acadia, alt: 'Acadia' },
+	{ image: careAcademy, alt: 'Care Academy' },
+	{ image: datassential, alt: 'Datassential' },
+	{ image: everlyHealth, alt: 'Everly Health' },
+	{ image: exos, alt: 'Exos' },
+	{ image: familyWell, alt: 'Family Well' },
+	{ image: legionHealth, alt: 'Legion Health' },
+	{ image: littleOtter, alt: 'Little Otter' },
+	{ image: lwnHealth, alt: 'LWN Health' },
+	{ image: pipefy, alt: 'Pipefy' },
+	{ image: syngenta, alt: 'Syngenta' },
+	{ image: theZebra, alt: 'The Zebra' }
+]
+
+const brasilClients = [
+	{ image: amaro, alt: 'Amaro' },
+	{ image: bidu, alt: 'Bidu' },
+	{ image: c6Bank, alt: 'C6 Bank' },
+	{ image: cerco, alt: 'Cerco' },
+	{ image: cuponomia, alt: 'Cuponomia' },
+	{ image: envvio, alt: 'Envvio' },
+	{ image: guiabolso, alt: 'GuiaBolso' },
+	{ image: magalu, alt: 'Magalu' },
+	{ image: marvin, alt: 'Marvin' },
+	{ image: mercadoLivre, alt: 'Mercado Livre' },
+	{ image: mercadoPago, alt: 'Mercado Pago' },
+	{ image: mindlab, alt: 'Mindlab' },
+	{ image: netMovies, alt: 'Net Movies' },
+	{ image: pipefyBr, alt: 'Pipefy' },
+	{ image: rede, alt: 'Rede' },
+	{ image: smartfit, alt: 'Smartfit' },
+	{ image: swap, alt: 'Swap' },
+	{ image: syngentaBr, alt: 'Syngenta' },
+	{ image: tmov, alt: 'TMov' },
+	{ image: vagas, alt: 'Vagas' }
+]
 ---
 
 <style>
@@ -46,6 +118,24 @@ import clientBrasil from '@/assets/home/clients-brasil.png'
 			}
 		}
 
+		.clients-grid {
+			@apply grid;
+			@apply grid-cols-2 md:grid-cols-3 lg:grid-cols-4;
+			@apply gap-6 lg:gap-8;
+			@apply items-center;
+			@apply justify-items-center;
+		}
+
+		.client-logo {
+			@apply w-full;
+			@apply max-w-[180px];
+			@apply h-auto;
+			@apply object-contain;
+			@apply opacity-70;
+			@apply transition-opacity;
+			@apply hover:opacity-100;
+		}
+
 		.btn-see-more {
 			@apply btn btn-outline;
 			@apply flex;
@@ -72,7 +162,13 @@ import clientBrasil from '@/assets/home/clients-brasil.png'
 				<Image src={usaFlag} alt="Client 1" class="flag" />
 			</label>
 			<div class="tab-content bg-base-100 border-base-300 p-6">
-				<Image src={clientUSA} alt="Client 1" />
+				<div class="clients-grid">
+					{
+						usaClients.map((client) => (
+							<Image src={client.image} alt={client.alt} class="client-logo" />
+						))
+					}
+				</div>
 			</div>
 
 			<label class="tab">
@@ -80,7 +176,13 @@ import clientBrasil from '@/assets/home/clients-brasil.png'
 				<Image src={brasilFlag} alt="Client 1" class="flag" />
 			</label>
 			<div class="tab-content bg-base-100 border-base-300 p-6">
-				<Image src={clientBrasil} alt="Client 1" />
+				<div class="clients-grid">
+					{
+						brasilClients.map((client) => (
+							<Image src={client.image} alt={client.alt} class="client-logo" />
+						))
+					}
+				</div>
 			</div>
 		</div>
 	</div>
