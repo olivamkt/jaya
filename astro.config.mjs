@@ -6,15 +6,13 @@ import tailwindcss from '@tailwindcss/vite'
 import sitemap from '@astrojs/sitemap'
 import robotsTxt from 'astro-robots-txt'
 
-import node from '@astrojs/node'
-
 import partytown from '@astrojs/partytown'
 
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://olivamkt.github.io/jaya/',
 	base: '/jaya/',
-	output: 'static', // Static by default, only contact page will be SSR
+	output: 'static',
 
 	i18n: {
 		defaultLocale: 'en',
@@ -51,9 +49,5 @@ export default defineConfig({
 				localsConvention: 'camelCaseOnly'
 			}
 		}
-	},
-
-	adapter: node({
-		mode: 'standalone'
-	})
+	}
 })

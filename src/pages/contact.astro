@@ -1,11 +1,5 @@
 ---
 import Layout from '@/layouts/Layout.astro'
-import { actions } from 'astro:actions'
-
-export const prerender = false // This page will be SSR (required for Actions)
-
-// Get the result of the action if it was called
-const result = Astro.getActionResult(actions.send)
 
 import { getTranslations, t } from '@/i18n/translations'
 import { getLocale } from '@/i18n/utils'
@@ -192,21 +186,12 @@ const translations = await getTranslations(locale)
 					</div>
 
 					<div class="form-column">
-						<form class="contact-form" action={actions.send} method="POST">
-							{
-								result && result.error && (
-									<div class="form-message error">
-										{result.error.message || t(translations, 'contact.form.error')}
-									</div>
-								)
-							}
-							{
-								result && result.data && (
-									<div class="form-message success">
-										{t(translations, 'contact.form.success')}
-									</div>
-								)
-							}
+						<form
+							class="contact-form"
+							action="mailto:contact@jaya.tech"
+							method="POST"
+							enctype="text/plain"
+						>
 
 							<div class="form-group">
 								<label for="name">{t(translations, 'contact.form.name')}</label>
