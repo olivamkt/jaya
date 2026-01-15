@@ -19,8 +19,6 @@ const currentPath = Astro.url.pathname
 const pathWithoutLocale = getPathnameWithoutLocale(currentPath)
 const enPath = getLocalizedPath(pathWithoutLocale, 'en')
 const ptPath = getLocalizedPath(pathWithoutLocale, 'pt')
-const basePath = import.meta.env.BASE_URL || '/'
-const ptRoot = withBase(getLocalizedPath('/', 'pt'))
 ---
 
 <!doctype html>
@@ -56,7 +54,10 @@ const ptRoot = withBase(getLocalizedPath('/', 'pt'))
 		<ClientRouter />
 
 		<!-- Google tag (gtag.js) -->
-		<script type="text/partytown" async src="https://www.googletagmanager.com/gtag/js?id=G-W81GR8V6JX"></script>
+		<script
+			type="text/partytown"
+			async
+			src="https://www.googletagmanager.com/gtag/js?id=G-W81GR8V6JX"></script>
 		<script type="text/partytown">
 			window.dataLayer = window.dataLayer || []
 			function gtag() {
@@ -67,36 +68,6 @@ const ptRoot = withBase(getLocalizedPath('/', 'pt'))
 		</script>
 	</head>
 	<body>
-		<script is:inline>
-			const LOCALE_COOKIE = 'locale'
-			const basePath = `${basePath}`
-			const ptRoot = `${ptRoot}`
-
-			const normalizeBase = (base) => {
-				if (!base) return '/'
-				if (base === '/') return '/'
-				return base.endsWith('/') ? base.slice(0, -1) : base
-			}
-
-			const getCookieValue = (name) => {
-				const match = document.cookie.match(new RegExp(`(^| )${name}=([^;]+)`))
-				return match ? decodeURIComponent(match[2]) : undefined
-			}
-
-			const base = normalizeBase(basePath)
-			const currentPath = window.location.pathname
-			const isRoot = currentPath === base || currentPath === `${base}/`
-
-			const preferredLang =
-				navigator.language ||
-				(Array.isArray(navigator.languages) && navigator.languages[0]) ||
-				''
-
-			if (isRoot && !getCookieValue(LOCALE_COOKIE) && preferredLang.startsWith('pt')) {
-				document.cookie = `${LOCALE_COOKIE}=pt; Path=/; Max-Age=${60 * 60 * 24 * 365}; SameSite=Lax`
-				window.location.replace(ptRoot)
-			}
-		</script>
 		<Header />
 
 		<slot />

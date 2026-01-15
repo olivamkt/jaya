@@ -8,9 +8,24 @@ import Clients from '@/components/clients/Clients.astro'
 import Team from '@/components/team/Team.astro'
 
 import { getTranslations, t } from '@/i18n/translations'
+import { getLocalizedPath, type Locale } from '@/i18n/utils'
+import { withBase } from '@/utils/url'
+
+export const prerender = false
 
 const locale = 'en'
 const translations = await getTranslations(locale)
+const supportedLocales: Locale[] = ['en', 'pt']
+const preferredLocale = supportedLocales.includes(Astro.preferredLocale as Locale)
+	? (Astro.preferredLocale as Locale)
+	: 'en'
+console.log('[i18n] preferredLocale:', Astro.preferredLocale, 'currentLocale:', Astro.currentLocale)
+const targetPath = withBase(getLocalizedPath('/', preferredLocale))
+const currentPath = Astro.url.pathname
+
+if (currentPath !== targetPath) {
+	return Astro.redirect(targetPath)
+}
 
 // Home page content
 const pageContent = {

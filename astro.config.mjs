@@ -1,4 +1,3 @@
-// @ts-check
 import { defineConfig } from 'astro/config'
 
 import react from '@astrojs/react'
@@ -16,10 +15,9 @@ export default defineConfig({
 
 	i18n: {
 		defaultLocale: 'en',
-		locales: ['en'],
-		routing: {
-			prefixDefaultLocale: false
-		}
+		locales: ['en', 'pt'],
+
+		routing: { prefixDefaultLocale: false, redirectToDefaultLocale: false }
 	},
 
 	integrations: [
