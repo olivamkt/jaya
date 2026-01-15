@@ -7,11 +7,15 @@ import Impact from '@/components/impact/Impact.astro'
 import Clients from '@/components/clients/Clients.astro'
 import Team from '@/components/team/Team.astro'
 
+import { getTranslations, t } from '@/i18n/translations'
+
+const locale = 'en'
+const translations = await getTranslations(locale)
+
 // Home page content
 const pageContent = {
-	title: 'Reliable software squad',
-	description:
-		'Jaya is a fully remote software consulting company, founded in 2012 and partnering with U.S. companies since 2016. We specialize in strategic staff augmentation and long-term, high-impact projects, combining technical and cultural fit through a deep recruitment process. Behind every delivery, we mentor our teams, nurture strong culture, and develop people who are inspired to build software that truly matters.'
+	title: t(translations, 'home.hero.title1').replace(/<[^>]*>?/gm, ''),
+	description: t(translations, 'home.hero.description').replace(/<[^>]*>?/gm, '')
 }
 ---
 

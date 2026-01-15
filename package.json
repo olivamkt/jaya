@@ -8,10 +8,12 @@
 		"dev": "astro dev",
 		"build": "astro build",
 		"preview": "astro preview",
-		"astro": "astro"
+		"astro": "astro",
+		"start": "serve dist -l tcp://0.0.0.0:${PORT:-3000}"
 	},
 	"packageManager": "pnpm@10.13.1",
 	"dependencies": {
+		"serve": "^14.2.3",
 		"@astrojs/node": "^9.5.0",
 		"@astrojs/partytown": "^2.1.4",
 		"@astrojs/react": "^4.3.0",
@@ -27,13 +29,13 @@
 		"react": "^19.1.0",
 		"react-dom": "^19.1.0",
 		"resend": "^6.4.1",
+		"sharp": "^0.34.1",
 		"tailwindcss": "^4.1.5"
 	},
 	"devDependencies": {
 		"daisyui": "^5.1.10",
 		"prettier": "^3.5.3",
 		"prettier-plugin-astro": "^0.14.1",
-		"prettier-plugin-tailwindcss": "^0.6.11",
-		"sharp": "^0.34.1"
+		"prettier-plugin-tailwindcss": "^0.6.11"
 	}
 }

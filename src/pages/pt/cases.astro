@@ -1,0 +1,14 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import { getTranslations, t } from '@/i18n/translations'
+
+const locale = 'pt'
+const translations = await getTranslations(locale)
+---
+
+<Layout
+	title={t(translations, 'cases.title')}
+	description={t(translations, 'cases.description')}
+>
+	<main>case</main>
+</Layout>

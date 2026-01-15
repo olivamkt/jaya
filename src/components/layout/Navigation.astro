@@ -1,6 +1,8 @@
 ---
 import { withBase } from '@/utils/url'
 import { socialLinks } from '@/data/social-links'
+import { getTranslations, t } from '@/i18n/translations'
+import { getLocale, getLocalizedPath } from '@/i18n/utils'
 
 export interface Props {
 	type: 'mobile' | 'desktop'
@@ -18,30 +20,33 @@ const isActive = (href: string) => {
 }
 
 // Navigation items
+const locale = getLocale(Astro)
+const translations = await getTranslations(locale)
+
 const navigationItems = [
 	{
-		label: 'services',
+		label: t(translations, 'nav.services'),
 		type: 'dropdown',
 		children: [
-			{ label: 'fintech', href: withBase('fintech') },
-			{ label: 'healthtech', href: withBase('healthtech') },
-			{ label: 'retail', href: withBase('retail') },
-			{ label: 'saas', href: withBase('saas') }
+			{ label: t(translations, 'nav.fintech'), href: withBase(getLocalizedPath('fintech', locale)) },
+			{ label: t(translations, 'nav.healthtech'), href: withBase(getLocalizedPath('healthtech', locale)) },
+			{ label: t(translations, 'nav.retail'), href: withBase(getLocalizedPath('retail', locale)) },
+			{ label: t(translations, 'nav.saas'), href: withBase(getLocalizedPath('saas', locale)) }
 		]
 	},
 	{
-		label: 'blog',
+		label: t(translations, 'nav.blog'),
 		href: socialLinks.medium,
 		target: '_blank'
 	},
 	{
-		label: 'culture',
+		label: t(translations, 'nav.culture'),
 		href: socialLinks.linkedin,
 		target: '_blank'
 	},
 	{
-		label: 'contact',
-		href: withBase('contact')
+		label: t(translations, 'nav.contact'),
+		href: withBase(getLocalizedPath('contact', locale))
 	}
 ]
 ---

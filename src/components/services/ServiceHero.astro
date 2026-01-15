@@ -1,5 +1,10 @@
 ---
 import { withBase } from '@/utils/url'
+import { getTranslations, t } from '@/i18n/translations'
+import { getLocale, getLocalizedPath } from '@/i18n/utils'
+
+const locale = getLocale(Astro)
+const translations = await getTranslations(locale)
 ---
 
 <style>
@@ -73,7 +78,7 @@ import { withBase } from '@/utils/url'
 						@apply text-primary;
 						@apply text-4xl font-bold;
 						@apply w-[60px];
-						@apply -bottom-[14px] -left-[20px];
+						@apply -bottom-[8px] -left-[20px];
 						content: '+';
 					}
 				}
@@ -119,7 +124,9 @@ import { withBase } from '@/utils/url'
 			</div>
 
 			<slot name="hero-statistics" />
-			<a href={withBase('contact')} class="cta-button">Get in touch</a>
+			<a href={withBase(getLocalizedPath('contact', locale))} class="cta-button">
+				{t(translations, 'common.getInTouch')}
+			</a>
 		</div>
 	</div>
 </section>

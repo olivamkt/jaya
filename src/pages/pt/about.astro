@@ -1,0 +1,27 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import Hero from '@/components/about/hero/hero.astro'
+import WhatDrivesUs from '@/components/about/what-drives-us/WhatDrivesUs.astro'
+import WhyChooseJaya from '@/components/about/why-choose-jaya/WhyChooseJaya.astro'
+import Clients from '@/components/clients/Clients.astro'
+import Reviews from '@/components/about/reviews/Reviews.astro'
+import Team from '@/components/team/Team.astro'
+import { getTranslations, t } from '@/i18n/translations'
+
+const locale = 'pt'
+const translations = await getTranslations(locale)
+---
+
+<Layout
+	title={t(translations, 'about.title')}
+	description={t(translations, 'about.description')}
+>
+	<main>
+		<Hero />
+		<WhatDrivesUs />
+		<WhyChooseJaya />
+		<Clients />
+		<Reviews />
+		<Team />
+	</main>
+</Layout>

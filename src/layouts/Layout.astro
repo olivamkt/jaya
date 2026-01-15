@@ -10,10 +10,17 @@ import '@/styles/global.css'
 import { ClientRouter } from 'astro:transitions'
 import { SEO } from 'astro-seo'
 import { withBase } from '@/utils/url'
+import { getLocale, getLocalizedPath, getPathnameWithoutLocale } from '@/i18n/utils'
 import Header from '@/components/layout/Header.astro'
 import Footer from '@/components/layout/Footer.astro'
 
-const lang = 'en'
+const lang = getLocale(Astro)
+const currentPath = Astro.url.pathname
+const pathWithoutLocale = getPathnameWithoutLocale(currentPath)
+const enPath = getLocalizedPath(pathWithoutLocale, 'en')
+const ptPath = getLocalizedPath(pathWithoutLocale, 'pt')
+const basePath = import.meta.env.BASE_URL || '/'
+const ptRoot = withBase(getLocalizedPath('/', 'pt'))
 ---
 
 <!doctype html>
@@ -41,7 +48,8 @@ const lang = 'en'
 			}}
 		/>
 
-		<link rel="alternate" href={`${Astro.site}en/`} hreflang="en" />
+		<link rel="alternate" href={new URL(enPath, Astro.site)} hreflang="en" />
+		<link rel="alternate" href={new URL(ptPath, Astro.site)} hreflang="pt" />
 		<link rel="sitemap" href={withBase('/sitemap-index.xml')} />
 		<link rel="icon" href={withBase('/favicon.ico')} type="image/x-icon" />
 
@@ -59,6 +67,36 @@ const lang = 'en'
 		</script>
 	</head>
 	<body>
+		<script is:inline>
+			const LOCALE_COOKIE = 'locale'
+			const basePath = `${basePath}`
+			const ptRoot = `${ptRoot}`
+
+			const normalizeBase = (base) => {
+				if (!base) return '/'
+				if (base === '/') return '/'
+				return base.endsWith('/') ? base.slice(0, -1) : base
+			}
+
+			const getCookieValue = (name) => {
+				const match = document.cookie.match(new RegExp(`(^| )${name}=([^;]+)`))
+				return match ? decodeURIComponent(match[2]) : undefined
+			}
+
+			const base = normalizeBase(basePath)
+			const currentPath = window.location.pathname
+			const isRoot = currentPath === base || currentPath === `${base}/`
+
+			const preferredLang =
+				navigator.language ||
+				(Array.isArray(navigator.languages) && navigator.languages[0]) ||
+				''
+
+			if (isRoot && !getCookieValue(LOCALE_COOKIE) && preferredLang.startsWith('pt')) {
+				document.cookie = `${LOCALE_COOKIE}=pt; Path=/; Max-Age=${60 * 60 * 24 * 365}; SameSite=Lax`
+				window.location.replace(ptRoot)
+			}
+		</script>
 		<Header />
 
 		<slot />

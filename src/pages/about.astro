@@ -6,11 +6,16 @@ import WhyChooseJaya from '@/components/about/why-choose-jaya/WhyChooseJaya.astr
 import Clients from '@/components/clients/Clients.astro'
 import Reviews from '@/components/about/reviews/Reviews.astro'
 import Team from '@/components/team/Team.astro'
+import { getTranslations, t } from '@/i18n/translations'
+import { getLocale } from '@/i18n/utils'
+
+const locale = getLocale(Astro)
+const translations = await getTranslations(locale)
 ---
 
 <Layout
-	title="About Us - Jaya Tech"
-	description="Learn about Jaya Tech's mission, values, and the team behind our nearshore software development services."
+	title={t(translations, 'about.title')}
+	description={t(translations, 'about.description')}
 >
 	<main>
 		<Hero />

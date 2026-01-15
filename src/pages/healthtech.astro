@@ -9,41 +9,46 @@ import ServiceExperience from '@/components/services/ServiceExperience.astro'
 import healthtechExperienceImg from '@/assets/healthtech/healthtech-experience.png'
 import Impact from '@/components/impact/Impact.astro'
 import Team from '@/components/team/Team.astro'
+import { getTranslations, t } from '@/i18n/translations'
+
+const locale = 'en'
+const translations = await getTranslations(locale)
 ---
 
 <Layout
-	title="Healthtech Solutions - Jaya Tech"
-	description="Building the future of healthtech with secure, scalable healthtech solutions"
+	title={t(translations, 'healthtech.title')}
+	description={t(translations, 'healthtech.description')}
 >
 	<main class="nav-padding">
 		<ServiceHero>
 			<Image src={healthtechImg} alt="Healthtech" slot="hero-image" />
 			<div slot="hero-title">
-				<i>engineering</i>
-				<b> health<br /> tech </b>
-				<i>with</i>
-				<b>trust</b>
-				<i>and</i><br />
-				<b>scale.</b>
+				<Fragment set:html={t(translations, 'healthtech.hero.titleHtml')} />
 			</div>
 			<div class="statistics-section" slot="hero-statistics">
 				<div class="statistic-item">
 					<div class="statistic-number-container">
 						<div class="statistic-number">20M</div>
 					</div>
-					<div class="statistic-text"><i>patients</i><br /><b>impacted</b></div>
+					<div class="statistic-text">
+						<Fragment set:html={t(translations, 'healthtech.hero.stat1Label')} />
+					</div>
 				</div>
 				<div class="statistic-item">
 					<div class="statistic-number-container">
 						<div class="statistic-number">25</div>
 					</div>
-					<div class="statistic-text"><i>healthcare</i><br /><b>squads</b></div>
+					<div class="statistic-text">
+						<Fragment set:html={t(translations, 'healthtech.hero.stat2Label')} />
+					</div>
 				</div>
 				<div class="statistic-item">
 					<div class="statistic-number-container">
 						<div class="statistic-number">9</div>
 					</div>
-					<div class="statistic-text"><b>years</b> <i>of<br />experience</i></div>
+					<div class="statistic-text">
+						<Fragment set:html={t(translations, 'healthtech.hero.stat3Label')} />
+					</div>
 				</div>
 			</div>
 		</ServiceHero>
@@ -59,42 +64,25 @@ import Team from '@/components/team/Team.astro'
 			/>
 
 			<h2 class="experience-title" slot="experience-title">
-				<b>proven experience</b>
-				<i>across</i>
-				<b>healthcare & health tech</b>
+				<Fragment set:html={t(translations, 'healthtech.experience.titleHtml')} />
 			</h2>
 			<p class="experience-text" slot="experience-text">
-				Over the past nine years, we’ve partnered with leading healthcare innovators in the U.S. and
-				Latin America, from digital health platforms and telemedicine providers to lab integration
-				networks and caregiver training systems. Our teams have built mission-critical software that
-				powers patient care, insurance integrations, e-prescriptions, mental health support, and
-				family wellness programs.
-				<br />
-				<br />
-				We’ve worked across nearly every pillar of healthcare technology: appointment scheduling, intake,
-				lab workflows, telehealth consultations, e-prescriptions, e-fax integrations, result delivery,
-				and large-scale COVID reporting. The systems we helped engineer have supported millions of patients,
-				caregivers, and healthcare professionals, with a relentless focus on compliance, security, and
-				reliability.
+				<Fragment set:html={t(translations, 'healthtech.experience.text')} />
 			</p>
 			<div class="experience-why" slot="experience-why">
-				<h2 class="experience-why-title">why health techs choose Jaya</h2>
+				<h2 class="experience-why-title">{t(translations, 'healthtech.experience.whyTitle')}</h2>
 				<div class="experience-why-list">
 					<div class="experience-why-item">
-						<b>End-to-end healthcare expertise</b>
-						From lab integrations to telemedicine, e-prescriptions, and wellness platforms.
+						<Fragment set:html={t(translations, 'healthtech.experience.why1')} />
 					</div>
 					<div class="experience-why-item">
-						<b>Proven regulatory awareness</b>
-						Experience with HIPAA, insurance workflows, and secure data exchange.
+						<Fragment set:html={t(translations, 'healthtech.experience.why2')} />
 					</div>
 					<div class="experience-why-item">
-						<b>Engineering at scale</b>
-						Systems built to handle millions of patients and critical health data.
+						<Fragment set:html={t(translations, 'healthtech.experience.why3')} />
 					</div>
 					<div class="experience-why-item">
-						<b>Trusted, stable teams</b>
-						Low turnover and long-term partnerships, ensuring continuity in sensitive healthcare projects.
+						<Fragment set:html={t(translations, 'healthtech.experience.why4')} />
 					</div>
 				</div>
 			</div>

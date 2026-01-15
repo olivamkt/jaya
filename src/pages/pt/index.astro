@@ -1,0 +1,33 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import Hero from '@/components/home/hero/Hero.astro'
+import Map from '@/components/home/map/Map.astro'
+import Services from '@/components/home/services/Services.astro'
+import Impact from '@/components/impact/Impact.astro'
+import Clients from '@/components/clients/Clients.astro'
+import Team from '@/components/team/Team.astro'
+import { getTranslations, t } from '@/i18n/translations'
+
+// Force Portuguese locale for this page
+const locale = 'pt'
+const translations = await getTranslations(locale)
+
+// Home page content
+const pageContent = {
+	title: t(translations, 'home.hero.title1').replace(/<[^>]*>?/gm, ''),
+	description: t(translations, 'home.hero.description').replace(/<[^>]*>?/gm, '')
+}
+---
+
+<Layout title={pageContent.title} description={pageContent.description}>
+	<main class="nav-padding">
+		<Hero />
+		<Map />
+		<Services />
+		<Impact />
+		<Clients />
+		<Team />
+	</main>
+</Layout>
+
+

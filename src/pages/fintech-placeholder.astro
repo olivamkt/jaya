@@ -1,0 +1,103 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import ServiceHero from '@/components/services/ServiceHero.astro'
+import { Image } from 'astro:assets'
+import fintechImg from '@/assets/fintech/fintech.png'
+import fintechClientsImg from '@/assets/fintech/fintech-clients.png'
+import ServiceClients from '@/components/services/ServiceClients.astro'
+import ServiceExperience from '@/components/services/ServiceExperience.astro'
+import fintechExperienceImg from '@/assets/fintech/fintech-experience.png'
+import Impact from '@/components/impact/Impact.astro'
+import Team from '@/components/team/Team.astro'
+---
+
+<Layout
+	title="Placeholder Solutions - Jaya Tech"
+	description="Placeholder description for placeholder solutions"
+>
+	<main class="nav-padding">
+		<ServiceHero>
+			<Image src={fintechImg} alt="Placeholder" slot="hero-image" />
+			<div slot="hero-title">
+				<b>placeholder</b>
+				<i>
+					title text
+					<br /> goes here,
+				</i>
+				<b>placeholder.</b>
+			</div>
+			<div class="statistics-section" slot="hero-statistics">
+				<div class="statistic-item">
+					<div class="statistic-number-container">
+						<div class="statistic-number">XXX</div>
+					</div>
+					<div class="statistic-text"><b>placeholder</b><br /><i>metric</i></div>
+				</div>
+				<div class="statistic-item">
+					<div class="statistic-number-container">
+						<div class="statistic-number">XX</div>
+					</div>
+					<div class="statistic-text"><i>placeholder</i> <b>units</b></div>
+				</div>
+				<div class="statistic-item">
+					<div class="statistic-number-container">
+						<div class="statistic-number">XX</div>
+					</div>
+					<div class="statistic-text"><b>years</b><br /><i>experience</i></div>
+				</div>
+			</div>
+		</ServiceHero>
+		<ServiceClients>
+			<Image src={fintechClientsImg} alt="Placeholder Clients" slot="clients-image" />
+		</ServiceClients>
+		<ServiceExperience>
+			<Image
+				src={fintechExperienceImg}
+				alt="Placeholder Experience"
+				slot="experience-image"
+				class="experience-image"
+			/>
+
+			<h2 class="experience-title" slot="experience-title">
+				<b>placeholder experience</b>
+				<i>title section</i>
+				<b>placeholder text</b>
+			</h2>
+			<p class="experience-text" slot="experience-text">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
+				labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+				laboris nisi ut aliquip ex ea commodo consequat.
+				<br />
+				<br />
+				Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+				pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+				mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem.
+			</p>
+			<div class="experience-why" slot="experience-why">
+				<h2 class="experience-why-title">why choose placeholder</h2>
+				<div class="experience-why-list">
+					<div class="experience-why-item">
+						Placeholder benefit one Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+						eiusmod tempor.
+					</div>
+					<div class="experience-why-item">
+						Placeholder benefit two Ut enim ad minim veniam, quis nostrud exercitation ullamco
+						laboris nisi ut aliquip.
+					</div>
+					<div class="experience-why-item">
+						Placeholder benefit three Duis aute irure dolor in reprehenderit in voluptate velit esse
+						cillum dolore.
+					</div>
+					<div class="experience-why-item">
+						Placeholder benefit four Excepteur sint occaecat cupidatat non proident, sunt in culpa
+						qui officia.
+					</div>
+				</div>
+			</div>
+		</ServiceExperience>
+		<Impact />
+		<Team />
+	</main>
+</Layout>
+
+

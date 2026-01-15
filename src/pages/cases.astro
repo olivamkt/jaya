@@ -1,10 +1,11 @@
 ---
 import Layout from '@/layouts/Layout.astro'
+import { getTranslations, t } from '@/i18n/translations'
+
+const locale = 'en'
+const translations = await getTranslations(locale)
 ---
 
-<Layout
-	title="Case Studies - Jaya Tech"
-	description="Discover how Jaya Tech has helped companies across fintech, healthtech, retail, and SaaS industries with nearshore development."
->
+<Layout title={t(translations, 'cases.title')} description={t(translations, 'cases.description')}>
 	<main>case</main>
 </Layout>
