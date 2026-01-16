@@ -29,12 +29,15 @@ export default defineConfig({
 	...(BASE ? { base: BASE } : {}),
 	i18n: {
 		defaultLocale: 'en',
-		locales: ['en'],
-		routing: { prefixDefaultLocale: false }
+		locales: ['en', 'pt'],
+		routing: {
+			prefixDefaultLocale: true,
+			redirectToDefaultLocale: false
+		}
 	},
 	integrations: [
 		react(),
-		sitemap({ i18n: { defaultLocale: 'en', locales: { en: 'en-US' } } }),
+		sitemap({ i18n: { defaultLocale: 'en', locales: { en: 'en-US', pt: 'pt-BR' } } }),
 		robotsTxt(),
 		partytown()
 	],

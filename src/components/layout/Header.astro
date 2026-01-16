@@ -3,6 +3,9 @@ import { withBase } from '@/utils/url'
 import { Image } from 'astro:assets'
 import logoIcon from '@/assets/logo.svg'
 import Navigation from './Navigation.astro'
+import { getLocale, getLocalizedPath } from '@/i18n/utils'
+
+const locale = getLocale(Astro)
 ---
 
 <style>
@@ -69,7 +72,9 @@ import Navigation from './Navigation.astro'
 	<div class="container-wrapper">
 		<div class="navbar">
 			<div class="navbar-wrapper">
-				<a class="logo" href={withBase('')}><Image src={logoIcon} alt="Logo" /></a>
+				<a class="logo" href={withBase(getLocalizedPath('/', locale))}>
+					<Image src={logoIcon} alt="Logo" />
+				</a>
 				<div class="dropdown-wrapper">
 					<div tabindex="0" role="button" class="mobile-menu-button">
 						<svg

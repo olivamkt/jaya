@@ -1,0 +1,20 @@
+---
+import type { Locale } from '@/i18n/utils'
+import { actions } from 'astro:actions'
+import ContactPage from '../_shared/ContactPage.astro'
+
+export const prerender = false // This page will be SSR (required for Actions)
+
+export function getStaticPaths() {
+	return [{ params: { lang: 'en' } }]
+}
+
+const lang = Astro.params.lang as Locale
+if (lang !== 'en') {
+	return new Response(null, { status: 404 })
+}
+
+const result = Astro.getActionResult(actions.send)
+---
+
+<ContactPage locale={lang} action={actions.send} result={result} />

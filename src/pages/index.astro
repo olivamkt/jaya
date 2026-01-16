@@ -1,27 +1,27 @@
 ---
-import Layout from '@/layouts/Layout.astro'
-import Hero from '@/components/home/hero/Hero.astro'
-import Map from '@/components/home/map/Map.astro'
-import Services from '@/components/home/services/Services.astro'
-import Impact from '@/components/impact/Impact.astro'
-import Clients from '@/components/clients/Clients.astro'
-import Team from '@/components/team/Team.astro'
+export const prerender = false
 
-// Home page content
-const pageContent = {
-	title: 'Reliable software squad',
-	description:
-		'Jaya is a fully remote software consulting company, founded in 2012 and partnering with U.S. companies since 2016. We specialize in strategic staff augmentation and long-term, high-impact projects, combining technical and cultural fit through a deep recruitment process. Behind every delivery, we mentor our teams, nurture strong culture, and develop people who are inspired to build software that truly matters.'
+// Detect language preference from cookie first to keep user choice stable.
+const cookie = Astro.request.headers.get('cookie') ?? ''
+const match = cookie.match(/(?:^|;\s*)lang=(pt|en)(?:;|$)/)
+
+// If cookie is set, redirect immediately to the matching locale path.
+if (match?.[1]) {
+	return Astro.redirect(`/${match[1]}/`, 307)
 }
----
 
-<Layout title={pageContent.title} description={pageContent.description}>
-	<main class="nav-padding">
-		<Hero />
-		<Map />
-		<Services />
-		<Impact />
-		<Clients />
-		<Team />
-	</main>
-</Layout>
+// Fall back to Accept-Language when no cookie is present.
+const acceptLanguage = (Astro.request.headers.get('accept-language') ?? '').toLowerCase()
+const prefersPt = acceptLanguage.includes('pt')
+const lang = prefersPt ? 'pt' : 'en'
+
+// Persist the decision in a cookie and use a non-permanent redirect.
+return new Response(null, {
+	status: 307,
+	headers: {
+		Location: `/${lang}/`,
+		'Set-Cookie': `lang=${lang}; Path=/; Max-Age=31536000; SameSite=Lax; Secure`,
+		Vary: 'Accept-Language'
+	}
+})
+---
